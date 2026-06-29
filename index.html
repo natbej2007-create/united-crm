@@ -142,6 +142,7 @@ const MSAL_CFG={auth:{clientId:"08b5f379-bc54-423b-b9fd-72242cfe908b",authority:
 const SCOPES=["Sites.ReadWrite.All"];
 const pca=new msal.PublicClientApplication(MSAL_CFG);
 let SITE=null;
+let DOCLIB=null;
 let DB={companies:[]};
 async function tok(){let a=pca.getAllAccounts()[0];if(!a){const r=await pca.loginPopup({scopes:SCOPES});a=r.account;}try{return (await pca.acquireTokenSilent({account:a,scopes:SCOPES})).accessToken;}catch(e){return (await pca.acquireTokenPopup({scopes:SCOPES})).accessToken;}}
 async function graph(path,opts){opts=opts||{};const t=await tok();const r=await fetch("https://graph.microsoft.com/v1.0"+path,Object.assign({},opts,{headers:Object.assign({Authorization:"Bearer "+t,"Content-Type":"application/json"},opts.headers||{})}));if(r.status===204)return {};const j=await r.json();if(j.error)throw new Error(j.error.message||"Graph error");return j;}
@@ -231,7 +232,7 @@ function tabView(c){
   }
   if(tab==="documents"){
     w.innerHTML=`<div class="card"><h3>Legal &amp; key documents</h3>
-      <div class="banner">In the live version these link to your SharePoint document library, one folder per company.</div>
+      <div class="banner">Files you add here upload straight into your SharePoint CRM Documents library.</div>
       <table><thead><tr><th>Document</th><th>Status</th><th>Date</th><th>File</th><th></th></tr></thead><tbody>${
       (c.docs||[]).map(d=>`<tr><td><strong>${esc(d.type)}</strong></td>
         <td><span class="status ${sc(d.status)}"><span class="dot"></span>${esc(d.status)}</span></td>
@@ -300,7 +301,7 @@ function openSub(kind,sid){const c=company();let rec,title,fields;
     fields=`<div class="g2"><div class="f"><label style="font-size:11px;color:var(--mut)">Type</label><select id="y_type">${selo(DOCT,rec.type)}</select></div>
     <div class="f"><label style="font-size:11px;color:var(--mut)">Status</label><select id="y_status">${selo(DOCS,rec.status)}</select></div>
     <div class="f"><label style="font-size:11px;color:var(--mut)">Date</label><input id="y_date" type="date" value="${esc(rec.date)}"/></div></div>
-    <div class="f"><label style="font-size:11px;color:var(--mut)">File link</label><input id="y_link" value="${esc(rec.link)}" placeholder="SharePoint &rsaquo; Legal &rsaquo; ..."/></div>`}
+    ${sid?`<div class="f"><label style="font-size:11px;color:var(--mut)">File</label><div class="v">${rec.link?`<a href="${esc(rec.link)}" target="_blank" rel="noopener">Open current file</a>`:"(no file)"}</div></div>`:`<div class="f"><label style="font-size:11px;color:var(--mut)">Upload file *</label><input type="file" id="y_file"/></div>`}`}
   if(kind==="event"){rec=sid?c.events.find(x=>x.id===sid):{name:"",date:"",location:"",who:"",notes:""};title=sid?"Edit event":"Add event";
     fields=`<div class="f"><label style="font-size:11px;color:var(--mut)">Event name *</label><input id="y_name" value="${esc(rec.name)}"/></div>
     <div class="g2"><div class="f"><label style="font-size:11px;color:var(--mut)">Date</label><input id="y_date" type="date" value="${esc(rec.date)}"/></div>
@@ -317,16 +318,29 @@ async function saveSub(kind,sid){const c=company();const g=i=>{const e=document.
     try{if(sid){const ex=c.contacts.find(x=>x.id===sid);Object.assign(ex,rec);await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId+"/fields",{method:"PATCH",body:JSON.stringify(fields)});}
       else{const r=await graph("/sites/"+SITE+"/lists/Contacts/items",{method:"POST",body:JSON.stringify({fields})});rec.id=r.id;rec.spId=r.id;c.contacts.push(rec);}}catch(e){alert("Save failed: "+(e.message||e));}
     detailView();return;}
+  if(kind==="doc"){
+    if(sid){const ex=c.docs.find(x=>x.id===sid);ex.type=g("y_type");ex.status=g("y_status");ex.date=g("y_date");close2();try{await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+ex.spId+"/fields",{method:"PATCH",body:JSON.stringify(Object.assign({DocType:ex.type,Status:ex.status,Company:c.name},ex.date?{DocDate:ex.date+"T00:00:00Z"}:{}))});}catch(e){alert("Save failed: "+(e.message||e));}detailView();return;}
+    const fe=document.getElementById("y_file");const file=fe&&fe.files[0];if(!file){alert("Choose a file to upload");return;}
+    if(!DOCLIB){alert("Documents library not found");return;}
+    close2();
+    try{const t=await tok();const safe=(c.name+"_"+g("y_type")+"_"+Date.now()+"_"+file.name).replace(/[^A-Za-z0-9._-]/g,"_");
+      const up=await fetch("https://graph.microsoft.com/v1.0/sites/"+SITE+"/lists/"+DOCLIB+"/drive/root:/"+encodeURIComponent(safe)+":/content",{method:"PUT",headers:{Authorization:"Bearer "+t,"Content-Type":file.type||"application/octet-stream"},body:file});
+      const drv=await up.json();if(drv.error)throw new Error(drv.error.message);
+      const li=await graph("/sites/"+SITE+"/drives/"+drv.parentReference.driveId+"/items/"+drv.id+"/listItem?$select=id");
+      await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+li.id+"/fields",{method:"PATCH",body:JSON.stringify(Object.assign({DocType:g("y_type"),Status:g("y_status"),Company:c.name},g("y_date")?{DocDate:g("y_date")+"T00:00:00Z"}:{}))});
+      c.docs=c.docs||[];c.docs.push({spId:li.id,id:li.id,type:g("y_type"),status:g("y_status"),date:g("y_date"),link:drv.webUrl});
+    }catch(e){alert("Upload failed: "+(e.message||e));}
+    detailView();return;}
   let arr,rec;
-  if(kind==="doc"){arr="docs";rec={type:g("y_type"),status:g("y_status"),date:g("y_date"),link:g("y_link")}}
   if(kind==="event"){arr="events";rec={name:g("y_name").trim(),date:g("y_date"),location:g("y_location"),who:g("y_who"),notes:g("y_notes")};if(!rec.name){alert("Event name required");return}}
   c[arr]=c[arr]||[];if(sid){Object.assign(c[arr].find(x=>x.id===sid),rec)}else{rec.id=id();c[arr].push(rec)}
   close2();detailView()}
-async function delSub(arr,sid){if(!confirm("Remove this record?"))return;const c=company();if(arr==="contacts"){const ex=c.contacts.find(x=>x.id===sid);try{await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}}c[arr]=c[arr].filter(x=>x.id!==sid);detailView()}
+async function delSub(arr,sid){if(!confirm("Remove this record?"))return;const c=company();if(arr==="contacts"){const ex=c.contacts.find(x=>x.id===sid);try{await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}}if(arr==="docs"){const ex=c.docs.find(x=>x.id===sid);try{await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+ex.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}}c[arr]=c[arr].filter(x=>x.id!==sid);detailView()}
 function close1(){m1.classList.remove("open")}
 function close2(){m2.classList.remove("open")}
 function mapC(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",rel:f.RelationshipType||"Other",stage:f.Stage||"Prospecting",tier:f.Tier||"",fit:f.Fit||"",industry:f.CompanyType||"",website:f.Website||"",linkedin:f.LinkedIn||"",location:f.Location||"",owner:f.Owner||"",notes:f.Notes||"",custom:[{k:"US Registration",v:f.USRegistration||""},{k:"Phone",v:f.Phone||""},{k:"General email",v:f.GeneralEmail||""}].filter(x=>x.v),contacts:[],docs:[],events:[]};}
 function mapK(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",role:f.Role||"",email:f.Email||"",phone:f.Phone||"",linkedin:f.LinkedIn||"",last:(f.LastContact||"").slice(0,10),notes:f.Notes||"",_company:f.Company||""};}
+function mapD(it){const f=it.fields||{};return{spId:it.id,id:it.id,type:f.DocType||"Other",status:f.Status||"None",date:(f.DocDate||"").slice(0,10),link:(it.driveItem&&it.driveItem.webUrl)||"",_company:f.Company||""};}
 async function pageAll(url){let out=[];while(url){const j=await graph(url);out=out.concat(j.value||[]);url=j["@odata.nextLink"]?j["@odata.nextLink"].replace("https://graph.microsoft.com/v1.0",""):null;}return out;}
 async function boot(){
   try{
@@ -337,6 +351,7 @@ async function boot(){
     const cont=await pageAll("/sites/"+SITE+"/lists/Contacts/items?$expand=fields&$top=200");
     DB.companies=comp.map(mapC).sort((a,b)=>a.name.localeCompare(b.name));
     cont.map(mapK).forEach(p=>{const o=DB.companies.find(c=>c.name===p._company);if(o)o.contacts.push(p);});
+    try{const lists=await graph("/sites/"+SITE+"/lists?$select=id,displayName,name&$top=100");const dl=(lists.value||[]).find(l=>l.displayName==="CRM Documents"||l.name==="CRM Documents");DOCLIB=dl?dl.id:null;if(DOCLIB){const docs=await pageAll("/sites/"+SITE+"/lists/"+DOCLIB+"/items?$expand=fields,driveItem&$top=200");docs.map(mapD).forEach(d=>{const o=DB.companies.find(c=>c.name===d._company);if(o)o.docs.push(d);});}}catch(e){}
     render();detailView();if(DB.companies.length)pick(DB.companies[0].id);
   }catch(e){document.getElementById("detail").innerHTML='<div class="empty">Could not load data.<br>'+(e.message||e)+'</div>';}
 }
