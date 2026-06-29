@@ -148,7 +148,7 @@ function teamsLogin(){return microsoftTeams.authentication.authenticate({url:win
 let SITE=null;
 let DOCLIB=null;
 let DB={companies:[]};
-async function tok(){let a=pca.getAllAccounts()[0];if(!a){if(IN_TEAMS){await teamsLogin();a=pca.getAllAccounts()[0];}else{await pca.loginRedirect({scopes:SCOPES});return new Promise(function(){});}}try{return (await pca.acquireTokenSilent({account:a,scopes:SCOPES})).accessToken;}catch(e){if(IN_TEAMS){await teamsLogin();a=pca.getAllAccounts()[0];return (await pca.acquireTokenSilent({account:a,scopes:SCOPES})).accessToken;}await pca.acquireTokenRedirect({scopes:SCOPES});return new Promise(function(){});}}
+let TEAMS_TOKEN=null,TEAMS_EXP=0;async function tok(){if(IN_TEAMS){if(TEAMS_TOKEN&&Date.now()<TEAMS_EXP)return TEAMS_TOKEN;const t=await teamsLogin();if(!t)throw new Error("Sign-in did not complete");TEAMS_TOKEN=t;TEAMS_EXP=Date.now()+55*60*1000;return t;}let a=pca.getAllAccounts()[0];if(!a){await pca.loginRedirect({scopes:SCOPES});return new Promise(function(){});}try{return (await pca.acquireTokenSilent({account:a,scopes:SCOPES})).accessToken;}catch(e){await pca.acquireTokenRedirect({scopes:SCOPES});return new Promise(function(){});}}
 async function graph(path,opts){opts=opts||{};const t=await tok();const r=await fetch("https://graph.microsoft.com/v1.0"+path,Object.assign({},opts,{headers:Object.assign({Authorization:"Bearer "+t,"Content-Type":"application/json"},opts.headers||{})}));if(r.status===204)return {};const j=await r.json();if(j.error)throw new Error(j.error.message||"Graph error");return j;}
 function deep(o){return JSON.parse(JSON.stringify(o))}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){}}

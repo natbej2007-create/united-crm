@@ -9,6 +9,7 @@
 <body style="font-family:system-ui;color:#26276D;padding:24px">
 Signing you in...
 <script>
+var SCOPES = ["Sites.ReadWrite.All"];
 (async function(){
   await microsoftTeams.app.initialize();
   var pca = new msal.PublicClientApplication({
@@ -19,12 +20,23 @@ Signing you in...
     },
     cache:{ cacheLocation:"localStorage" }
   });
+  // Returning from the AAD redirect: hand the Graph token back to the app.
   var resp = await pca.handleRedirectPromise();
-  if(resp || pca.getAllAccounts()[0]){
-    microsoftTeams.authentication.notifySuccess("ok");
+  if(resp && resp.accessToken){
+    microsoftTeams.authentication.notifySuccess(resp.accessToken);
     return;
   }
-  pca.loginRedirect({ scopes:["Sites.ReadWrite.All"] });
+  // Already have a session in this popup: get a fresh token silently.
+  var acct = pca.getAllAccounts()[0];
+  if(acct){
+    try{
+      var r = await pca.acquireTokenSilent({ account:acct, scopes:SCOPES });
+      microsoftTeams.authentication.notifySuccess(r.accessToken);
+      return;
+    }catch(e){ /* fall through to interactive */ }
+  }
+  // First time: go to the Microsoft sign-in, then come back here.
+  pca.loginRedirect({ scopes:SCOPES });
 })().catch(function(e){
   try{ microsoftTeams.authentication.notifyFailure(String(e)); }catch(_){}
 });
