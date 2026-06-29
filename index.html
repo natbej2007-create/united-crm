@@ -143,7 +143,7 @@ const MSAL_CFG={auth:{clientId:"08b5f379-bc54-423b-b9fd-72242cfe908b",authority:
 const SCOPES=["Sites.ReadWrite.All"];
 const pca=new msal.PublicClientApplication(MSAL_CFG);
 let IN_TEAMS=false;
-const teamsReady=(async()=>{try{await microsoftTeams.app.initialize();return true;}catch(e){return false;}})();
+const teamsReady=(async()=>{try{await Promise.race([microsoftTeams.app.initialize(),new Promise((_,rej)=>setTimeout(()=>rej(new Error("no-teams")),1500))]);return true;}catch(e){return false;}})();
 function teamsLogin(){return microsoftTeams.authentication.authenticate({url:window.location.origin+window.location.pathname+"auth-start.html",width:600,height:535});}
 let SITE=null;
 let DOCLIB=null;
