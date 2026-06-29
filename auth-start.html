@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Signing in...</title>
+<script src="https://alcdn.msauth.net/browser/2.38.0/js/msal-browser.min.js"></script>
+<script src="https://res.cdn.office.net/teams-js/2.19.0/js/MicrosoftTeams.min.js"></script>
+</head>
+<body style="font-family:system-ui;color:#26276D;padding:24px">
+Signing you in...
+<script>
+(async function(){
+  await microsoftTeams.app.initialize();
+  var pca = new msal.PublicClientApplication({
+    auth:{
+      clientId:"08b5f379-bc54-423b-b9fd-72242cfe908b",
+      authority:"https://login.microsoftonline.com/720752f2-761f-405d-866a-efdb633125d9",
+      redirectUri: window.location.origin + window.location.pathname
+    },
+    cache:{ cacheLocation:"localStorage" }
+  });
+  var resp = await pca.handleRedirectPromise();
+  if(resp || pca.getAllAccounts()[0]){
+    microsoftTeams.authentication.notifySuccess("ok");
+    return;
+  }
+  pca.loginRedirect({ scopes:["Sites.ReadWrite.All"] });
+})().catch(function(e){
+  try{ microsoftTeams.authentication.notifyFailure(String(e)); }catch(_){}
+});
+</script>
+</body>
+</html>
