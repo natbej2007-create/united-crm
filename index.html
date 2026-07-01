@@ -101,6 +101,52 @@
   .mfoot{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
   .cf-row{display:flex;gap:8px;margin-top:10px}
   .cf-row input{flex:1}
+  /* ===== CRM assistant ===== */
+  .bot-fab{position:fixed;left:20px;bottom:20px;z-index:60;width:56px;height:56px;border-radius:16px;background:var(--navy);color:#fff;border:none;cursor:pointer;box-shadow:0 6px 20px rgba(38,39,109,.35);display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
+  .bot-fab:hover{transform:translateY(-2px);background:var(--navy-d)}
+  .bot-fab svg{width:26px;height:26px}
+  .bot-fab .cydot{position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;background:var(--cyan);border:2px solid #fff}
+  .bot-panel{position:fixed;left:20px;bottom:88px;z-index:61;width:392px;max-width:calc(100vw - 40px);height:560px;max-height:calc(100vh - 120px);background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 50px rgba(31,36,64,.28);display:none;flex-direction:column;overflow:hidden}
+  .bot-panel.open{display:flex}
+  .bot-panel.full{left:0;top:0;bottom:0;width:100vw;height:100vh;max-width:100vw;max-height:100vh;border-radius:0}
+  .bot-head{display:flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:12px 14px;flex:0 0 auto}
+  .bot-head .t{font-weight:500;font-size:14px;line-height:1.2}
+  .bot-head .t small{display:block;font-weight:400;font-size:11px;color:#b9c0e6;margin-top:2px}
+  .bot-head .hbtns{margin-left:auto;display:flex;gap:6px}
+  .bot-head .hbtn{background:rgba(255,255,255,.14);border:none;color:#fff;width:28px;height:28px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1}
+  .bot-head .hbtn:hover{background:rgba(255,255,255,.28)}
+  .bot-msgs{flex:1;overflow-y:auto;padding:14px;background:var(--soft);display:flex;flex-direction:column;gap:10px}
+  .bot-panel.full .bmrow{width:100%;max-width:760px;margin:0 auto}
+  .bmrow{display:flex;flex-direction:column}
+  .bmrow.me{align-items:flex-end}
+  .bubble{max-width:90%;padding:9px 12px;border-radius:12px;font-size:13px;line-height:1.5}
+  .bubble.bot{background:#fff;border:1px solid var(--line);border-top-left-radius:3px;color:var(--txt)}
+  .bubble.me{background:var(--navy);color:#fff;border-top-right-radius:3px}
+  .bubble a{color:var(--cyan-d);text-decoration:none;font-weight:500;cursor:pointer}
+  .bubble.me a{color:#bfe4f5}
+  .bot-res{margin-top:8px;display:flex;flex-direction:column;gap:6px}
+  .rescard{border:1px solid var(--line);border-radius:9px;padding:8px 10px;background:#fff;cursor:pointer;transition:border-color .12s}
+  .rescard:hover{border-color:var(--cyan)}
+  .rescard .rn{font-weight:600;color:var(--navy);font-size:13px}
+  .rescard .rs{font-size:11px;color:var(--mut);margin-top:2px}
+  .rescard .rpills{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
+  .reslinks{display:flex;gap:12px;margin-top:6px}
+  .reslinks a{font-size:11px;color:var(--cyan-d);cursor:pointer;font-weight:500}
+  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:20px;padding:5px 11px;font-size:12px;cursor:pointer;color:var(--navy)}
+  .chip:hover{border-color:var(--cyan);color:var(--cyan-d)}
+  .chip.go{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .chip.go:hover{background:var(--navy-d);color:#fff}
+  .chip.warn{background:#fff;border-color:var(--line);color:var(--mut)}
+  .bot-foot{flex:0 0 auto;border-top:1px solid var(--line);padding:10px;background:#fff;display:flex;align-items:flex-end;gap:8px}
+  .bot-foot textarea{flex:1;resize:none;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:13px;font-family:inherit;max-height:96px;outline:none}
+  .bot-foot textarea:focus{border-color:var(--cyan)}
+  .bot-foot .sbtn{background:var(--navy);color:#fff;border:none;border-radius:10px;width:38px;height:38px;cursor:pointer;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .bot-foot .sbtn:hover{background:var(--navy-d)}
+  .bot-foot .clip{background:var(--soft);border:1px solid var(--line);border-radius:10px;width:38px;height:38px;cursor:pointer;flex:0 0 auto;color:var(--mut);display:flex;align-items:center;justify-content:center;font-size:16px}
+  .bot-foot .clip:hover{border-color:var(--cyan);color:var(--cyan-d)}
+  .bot-sugg{display:flex;gap:6px;flex-wrap:wrap;padding:0 10px 10px;background:#fff}
+  .bot-sugg .chip{font-size:11px;padding:4px 9px}
 </style>
 </head>
 <body>
@@ -127,6 +173,28 @@
     <main class="detail" id="detail"><div class="empty">Select a company from the list.</div></main>
   </div>
 </div>
+<button class="bot-fab" id="botFab" onclick="botToggle()" title="Ask the CRM assistant" aria-label="Open CRM assistant">
+  <span class="cydot"></span>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+</button>
+<div class="bot-panel" id="botPanel" ondragover="botDragOver(event)" ondrop="botDrop(event)">
+  <div class="bot-head">
+    <div class="t">CRM Assistant<small>Ask, find, upload, update</small></div>
+    <div class="hbtns">
+      <button class="hbtn" id="botFullBtn" onclick="botFull()" title="Open full page">&#11036;</button>
+      <button class="hbtn" onclick="botToggle()" title="Close">&times;</button>
+    </div>
+  </div>
+  <div class="bot-msgs" id="botMsgs"></div>
+  <div class="bot-sugg" id="botSugg"></div>
+  <div class="bot-foot">
+    <button class="clip" onclick="botPickFile()" title="Upload a file">&#128206;</button>
+    <input type="file" id="botFile" style="display:none" onchange="botFileChosen(this)"/>
+    <textarea id="botInput" rows="1" placeholder="Ask about any company, contact, or document..." onkeydown="botKey(event)"></textarea>
+    <button class="sbtn" onclick="botSend()" title="Send">&#10148;</button>
+  </div>
+</div>
+
 <div class="mbg" id="m1"><div class="modal" id="m1in"></div></div>
 <div class="mbg" id="m2"><div class="modal" id="m2in"></div></div>
 
@@ -361,6 +429,422 @@ async function boot(){
   }catch(e){document.getElementById("detail").innerHTML='<div class="empty">Could not load data.<br>'+(e.message||e)+'</div>';}
 }
 initF(); (async function(){try{await pca.handleRedirectPromise();}catch(e){}boot();})();
+</script>
+<script>
+/* ================= CRM Assistant ================= */
+var BOT={open:false,full:false,ctx:null,pending:null,file:null,greeted:false};
+
+/* ---- interpretation layer (async so a Claude proxy can plug in later) ---- */
+async function botInterpret(text){
+  // Future: if a secure proxy URL is configured, ask Claude to return a query plan here.
+  // For now, everything is parsed locally so no CRM data leaves the tenant.
+  return botParse(text);
+}
+
+var B_TIER={"a":"Tier A","tier a":"Tier A","b":"Tier B","tier b":"Tier B","c":"Tier C","tier c":"Tier C","prospect":"Prospect"};
+var B_FIT={"strategic":"Strategic","high":"High","medium":"Medium"};
+var B_STAGE={"prospecting":"Prospecting","qualifying":"Qualifying","active":"Active","contract":"Contract","dormant":"Dormant","closed":"Closed"};
+var B_REL=[["developer / epc","Developer / EPC"],["developer","Developer"],["epc","EPC"],["electrical","Electrical Contractor"],["owner","Owner / IPP"],["ipp","Owner / IPP"],["investor","Investor"],["vendor","Vendor / Supplier"],["supplier","Vendor / Supplier"],["subcontractor","Subcontractor"],["government","Government / Permitting"],["permitting","Government / Permitting"],["community","Community / NGO"],["ngo","Community / NGO"]];
+var B_STATES=["alabama","alaska","arizona","arkansas","california","colorado","connecticut","delaware","florida","georgia","hawaii","idaho","illinois","indiana","iowa","kansas","kentucky","louisiana","maine","maryland","massachusetts","michigan","minnesota","mississippi","missouri","montana","nebraska","nevada","new hampshire","new jersey","new mexico","new york","north carolina","north dakota","ohio","oklahoma","oregon","pennsylvania","rhode island","south carolina","south dakota","tennessee","texas","utah","vermont","virginia","washington","west virginia","wisconsin","wyoming"];
+var B_DOCT=[["nda","NDA"],["msa","MSA"],["insurance","Insurance / COI"],["coi","Insurance / COI"],["subcontract","Subcontract"],["service agreement","Service Agreement"],["permit","Permit"],["w-9","W-9 / Tax"],["w9","W-9 / Tax"],["tax","W-9 / Tax"]];
+
+function botNorm(s){return (s||"").toLowerCase().replace(/[^a-z0-9\/\-\s]/g," ").replace(/\s+/g," ").trim();}
+
+function botMatchCompanies(text){
+  var q=botNorm(text);
+  if(!q)return [];
+  var scored=DB.companies.map(function(c){
+    var n=botNorm(c.name);
+    var s=0;
+    if(n===q)s=100;
+    else if(q.indexOf(n)>-1&&n.length>2)s=80;
+    else if(n.indexOf(q)>-1)s=60;
+    else{
+      var qt=q.split(" "),nt=n.split(" "),hit=0;
+      qt.forEach(function(w){if(w.length>2&&nt.indexOf(w)>-1)hit++;});
+      if(hit)s=30+hit*10;
+    }
+    return {c:c,s:s};
+  }).filter(function(x){return x.s>0;});
+  scored.sort(function(a,b){return b.s-a.s;});
+  return scored;
+}
+
+function botMatchOneCompany(text){
+  var m=botMatchCompanies(text);
+  if(!m.length)return null;
+  if(m.length===1||m[0].s>=80||(m[1]&&m[0].s-m[1].s>=20))return m[0].c;
+  return null;
+}
+
+function botExtractFilters(q){
+  var f={},used=[];
+  Object.keys(B_TIER).forEach(function(k){var re=new RegExp("(^|\\s)(tier\\s)?"+k+"(\\s|$)");});
+  // tier
+  var tm=q.match(/tier\s*(a|b|c)\b/);
+  if(tm)f.tier=B_TIER[tm[1]];
+  else if(/\bprospects?\b/.test(q))f.tier="Prospect";
+  // fit
+  Object.keys(B_FIT).forEach(function(k){if(new RegExp("\\b"+k+"\\b").test(q))f.fit=B_FIT[k];});
+  // stage
+  Object.keys(B_STAGE).forEach(function(k){if(new RegExp("\\b"+k+"\\b").test(q))f.stage=B_STAGE[k];});
+  // relationship / type
+  for(var i=0;i<B_REL.length;i++){if(q.indexOf(B_REL[i][0])>-1){f.rel=B_REL[i][1];f.relKey=B_REL[i][0];break;}}
+  // location
+  for(var s=0;s<B_STATES.length;s++){if(q.indexOf(B_STATES[s])>-1){f.loc=B_STATES[s];break;}}
+  // document conditions
+  var docType=null;
+  for(var d=0;d<B_DOCT.length;d++){if(q.indexOf(B_DOCT[d][0])>-1){docType=B_DOCT[d][1];break;}}
+  if(docType){
+    var neg=/(\bno\b|without|missing|lack|lacking|don'?t have|not signed|unsigned|need|needs)/.test(q);
+    var signed=/\bsigned\b/.test(q)&&!/not signed/.test(q);
+    var expired=/expired/.test(q);
+    var pending=/pending/.test(q);
+    f.doc={type:docType,neg:neg,signed:signed,expired:expired,pending:pending};
+  }
+  // recency / stale
+  var rm=q.match(/(\d+)\s*(day|week|month)/);
+  if(/stale|haven'?t (contacted|reached|talked)|not (contacted|reached|touched)|no contact|gone (cold|quiet)/.test(q)||rm){
+    var days=60;
+    if(rm){days=parseInt(rm[1],10);if(rm[2]==="week")days*=7;if(rm[2]==="month")days*=30;}
+    f.staleDays=days;
+  }
+  return f;
+}
+
+function botHasFilters(f){return !!(f.tier||f.fit||f.stage||f.rel||f.loc||f.doc||f.staleDays);}
+
+function botApplyFilters(f){
+  var now=Date.now();
+  return DB.companies.filter(function(c){
+    if(f.tier&&c.tier!==f.tier)return false;
+    if(f.fit&&c.fit!==f.fit)return false;
+    if(f.stage&&c.stage!==f.stage)return false;
+    if(f.relKey&&botNorm(c.rel).indexOf(f.relKey)<0)return false;
+    if(f.loc&&botNorm(c.location).indexOf(f.loc)<0)return false;
+    if(f.doc){
+      var d=(c.docs||[]).find(function(x){return x.type===f.doc.type;});
+      if(f.doc.neg){ if(d&&d.status==="Signed")return false; }
+      else if(f.doc.signed){ if(!(d&&d.status==="Signed"))return false; }
+      else if(f.doc.expired){ if(!(d&&d.status==="Expired"))return false; }
+      else if(f.doc.pending){ if(!(d&&d.status==="Pending"))return false; }
+      else { if(!d)return false; }
+    }
+    if(f.staleDays){
+      var last=0;(c.contacts||[]).forEach(function(p){if(p.last){var t=Date.parse(p.last);if(t>last)last=t;}});
+      var thr=now-f.staleDays*864e5;
+      if(last>=thr)return false; // recently contacted -> exclude
+    }
+    return true;
+  });
+}
+
+function botFilterLabel(f){
+  var p=[];
+  if(f.rel)p.push(f.rel);
+  if(f.tier)p.push(f.tier);
+  if(f.fit)p.push(f.fit+" fit");
+  if(f.stage)p.push(f.stage);
+  if(f.loc)p.push("in "+f.loc.replace(/\b\w/g,function(m){return m.toUpperCase();}));
+  if(f.doc){p.push((f.doc.neg?"without a signed ":(f.doc.signed?"with a signed ":(f.doc.expired?"with an expired ":(f.doc.pending?"with a pending ":"with a "))))+f.doc.type);}
+  if(f.staleDays)p.push("not contacted in "+f.staleDays+" days");
+  return p.join(", ");
+}
+
+/* ---- action parsing (edits by command) ---- */
+function botParseAction(text){
+  var q=botNorm(text);
+  // add contact NAME to COMPANY
+  var m=text.match(/add (?:a )?contact\s+(.+?)\s+(?:to|at|for)\s+(.+)/i)||text.match(/add\s+(.+?)\s+as (?:a )?contact\s+(?:to|at|for)\s+(.+)/i);
+  if(m){var comp=botMatchOneCompany(m[2]);if(comp)return {kind:"addContact",company:comp,name:m[1].trim()};return {kind:"needCompany",raw:m[2]};}
+  // mark/set COMPANY DOCTYPE as/to STATUS
+  if(/\b(mark|set|update|change)\b/.test(q)){
+    var dt=null;for(var d=0;d<B_DOCT.length;d++){if(q.indexOf(B_DOCT[d][0])>-1){dt=B_DOCT[d][1];break;}}
+    var st=null;["signed","pending","draft","expired","none"].forEach(function(s){if(new RegExp("\\b"+s+"\\b").test(q))st=s.charAt(0).toUpperCase()+s.slice(1);});
+    if(dt&&st){var comp2=botFindCompanyInText(text);if(comp2)return {kind:"docStatus",company:comp2,type:dt,status:st};}
+    // set COMPANY tier/fit/stage to VALUE
+    var tm=q.match(/\btier\s+(?:to\s+)?(?:tier\s+)?(a|b|c)\b/);if(tm){var comp3=botFindCompanyInText(text);if(comp3)return {kind:"field",company:comp3,field:"tier",value:B_TIER[tm[1]],label:"tier",disp:B_TIER[tm[1]]};}
+    var fitK=Object.keys(B_FIT).find(function(k){return new RegExp("\\b"+k+"\\b").test(q);});
+    if(/\bfit\b/.test(q)&&fitK){var comp4=botFindCompanyInText(text);if(comp4)return {kind:"field",company:comp4,field:"fit",value:B_FIT[fitK],label:"fit",disp:B_FIT[fitK]};}
+    var stgK=Object.keys(B_STAGE).find(function(k){return new RegExp("\\b"+k+"\\b").test(q);});
+    if(/\bstage\b/.test(q)&&stgK){var comp5=botFindCompanyInText(text);if(comp5)return {kind:"field",company:comp5,field:"stage",value:B_STAGE[stgK],label:"stage",disp:B_STAGE[stgK]};}
+  }
+  return null;
+}
+
+function botFindCompanyInText(text){
+  // try to find the best-matching company name mentioned anywhere in the text
+  var best=null,bestScore=0;
+  DB.companies.forEach(function(c){
+    var n=botNorm(c.name);
+    if(n.length>2&&botNorm(text).indexOf(n)>-1&&n.length>bestScore){best=c;bestScore=n.length;}
+  });
+  return best;
+}
+
+/* ---- master parse ---- */
+function botParse(text){
+  var q=botNorm(text);
+  if(!q)return {type:"help"};
+  if(/^(hi|hey|hello|help|what can you)/.test(q))return {type:"help"};
+  // actions first
+  if(/\b(add|mark|set|update|change)\b/.test(q)){
+    var act=botParseAction(text);
+    if(act&&act.kind!=="needCompany")return {type:"action",action:act};
+    if(act&&act.kind==="needCompany")return {type:"answer",html:"I couldn't match a company called \""+esc(act.raw)+"\". Try the exact name."};
+  }
+  // upload intent
+  if(/\b(upload|attach|file this|add (?:a )?(?:file|document|doc)|drop)\b/.test(q)){
+    var uc=botFindCompanyInText(text);
+    return {type:"upload",company:uc};
+  }
+  // count
+  var isCount=/^(how many|count|number of)/.test(q);
+  // filters
+  var f=botExtractFilters(q);
+  if(botHasFilters(f)){
+    var list=botApplyFilters(f);
+    return {type:"list",label:botFilterLabel(f),companies:list,count:isCount};
+  }
+  // direct field questions about one company
+  var comp=botMatchOneCompany(text);
+  if(comp){
+    if(/contact|who.*(talk|speak|know)|point of contact|poc/.test(q))return {type:"company",company:comp,focus:"contacts"};
+    if(/email|phone|number/.test(q))return {type:"company",company:comp,focus:"contacts"};
+    if(/document|nda|msa|insurance|contract|paperwork|signed/.test(q))return {type:"company",company:comp,focus:"documents"};
+    if(/event|conference|networking/.test(q))return {type:"company",company:comp,focus:"events"};
+    if(/website|linkedin|owner|stage|tier|fit|location|where/.test(q))return {type:"company",company:comp,focus:"overview"};
+    return {type:"company",company:comp,focus:"overview"};
+  }
+  // contact name search
+  var cmatch=[];
+  DB.companies.forEach(function(c){(c.contacts||[]).forEach(function(p){if(botNorm(p.name).indexOf(q)>-1&&q.length>2)cmatch.push({p:p,c:c});});});
+  if(cmatch.length)return {type:"contacts",matches:cmatch,q:text};
+  // fuzzy fallback across everything
+  var fuzzy=DB.companies.filter(function(c){
+    var hay=botNorm(c.name+" "+c.industry+" "+c.location+" "+c.notes+" "+(c.contacts||[]).map(function(x){return x.name+" "+x.role;}).join(" "));
+    return q.split(" ").some(function(w){return w.length>2&&hay.indexOf(w)>-1;});
+  });
+  if(fuzzy.length)return {type:"list",label:"matching \""+text.trim()+"\"",companies:fuzzy,count:false};
+  return {type:"answer",html:"I didn't find anything for \""+esc(text.trim())+"\". Try a company name, a filter like \"Tier A developers in Texas\", or \"who has no NDA\"."};
+}
+
+/* ---- rendering ---- */
+function botPill(c){
+  var h="";
+  if(c.tier)h+='<span class="pill p-tier">'+esc(c.tier)+'</span>';
+  if(c.fit)h+='<span class="pill fit-'+esc(c.fit)+'">'+esc(c.fit)+'</span>';
+  return h;
+}
+function botCard(c){
+  return '<div class="rescard" onclick="botGo(\''+c.id+'\',\'overview\')">'+
+    '<div class="rn">'+esc(c.name)+'</div>'+
+    '<div class="rs">'+esc(c.rel)+(c.location?' &middot; '+esc(c.location):'')+(c.owner?' &middot; '+esc(c.owner):'')+'</div>'+
+    '<div class="rpills">'+botPill(c)+'</div>'+
+    '<div class="reslinks">'+
+      '<a onclick="event.stopPropagation();botGo(\''+c.id+'\',\'contacts\')">Contacts '+((c.contacts||[]).length)+'</a>'+
+      '<a onclick="event.stopPropagation();botGo(\''+c.id+'\',\'documents\')">Documents '+((c.docs||[]).length)+'</a>'+
+      '<a onclick="event.stopPropagation();botGo(\''+c.id+'\',\'events\')">Events '+((c.events||[]).length)+'</a>'+
+    '</div></div>';
+}
+function botLink(c,label,tab){return '<a onclick="botGo(\''+c.id+'\',\''+(tab||'overview')+'\')">'+esc(label||c.name)+'</a>';}
+
+function botRender(res){
+  if(res.type==="help"){
+    botSay('I can search your whole CRM and act on it. Try things like:<div class="bot-res">'+
+      '<div class="rescard" onclick="botAsk(\'Tier A developers in Texas\')"><div class="rn">Find with filters</div><div class="rs">"Tier A developers in Texas"</div></div>'+
+      '<div class="rescard" onclick="botAsk(\'Which companies have no NDA?\')"><div class="rn">Spot gaps</div><div class="rs">"Which companies have no signed NDA?"</div></div>'+
+      '<div class="rescard" onclick="botAsk(\'Who haven\\\'t we contacted in 60 days?\')"><div class="rn">Find stale accounts</div><div class="rs">"Who haven\'t we contacted in 60 days?"</div></div>'+
+      '<div class="rescard" onclick="botPickFile()"><div class="rn">Upload a file</div><div class="rs">Drop a PDF in, and I file it under a client</div></div>'+
+      '</div>You can also type an update, like "mark ACE Solar NDA as signed" or "add contact Jane Doe to TriSMART Solar".');
+    return;
+  }
+  if(res.type==="answer"){botSay(res.html);return;}
+  if(res.type==="list"){
+    var n=res.companies.length;
+    if(!n){botSay("No companies match "+(res.label?"<strong>"+esc(res.label)+"</strong>":"that")+".");return;}
+    var head=res.count?("<strong>"+n+"</strong> "+(n===1?"company":"companies")):("Found <strong>"+n+"</strong> "+(n===1?"company":"companies"));
+    if(res.label)head+=" "+esc(res.label);
+    head+=":";
+    var show=res.companies.slice(0,12);
+    var body='<div class="bot-res">'+show.map(botCard).join("")+'</div>';
+    if(n>show.length)body+='<div class="note" style="margin-top:6px">...and '+(n-show.length)+' more. Add a filter to narrow it down.</div>';
+    botSay(head+body);
+    return;
+  }
+  if(res.type==="company"){
+    var c=res.company;
+    botCtxSet(c.id);
+    var h="<strong>"+botLink(c)+"</strong> &middot; "+esc(c.rel)+(c.location?" &middot; "+esc(c.location):"")+"<div class='bot-res'>";
+    if(res.focus==="contacts"){
+      var ppl=(c.contacts||[]);
+      if(ppl.length){h+=ppl.map(function(p){return '<div class="rescard" onclick="botGo(\''+c.id+'\',\'contacts\')"><div class="rn">'+esc(p.name)+'</div><div class="rs">'+esc(p.role||"")+(p.email?' &middot; '+esc(p.email):'')+(p.phone?' &middot; '+esc(p.phone):'')+'</div></div>';}).join("");}
+      else h+='<div class="note">No contacts recorded yet. You can add one: "add contact NAME to '+esc(c.name)+'".</div>';
+    } else if(res.focus==="documents"){
+      var dd=(c.docs||[]);
+      var want=["NDA","MSA","Insurance / COI"];
+      h+='<div class="rescard" onclick="botGo(\''+c.id+'\',\'documents\')">'+want.map(function(t){var x=dd.find(function(z){return z.type===t;});var s=x?x.status:"None";return '<div class="rs" style="margin:2px 0"><strong>'+t+':</strong> '+s+'</div>';}).join("")+'</div>';
+      h+='<div class="note" style="margin-top:4px">'+botLink(c,"Open documents","documents")+' or drop a file here to upload one.</div>';
+    } else if(res.focus==="events"){
+      var ev=(c.events||[]);
+      if(ev.length)h+=ev.map(function(e){return '<div class="rescard" onclick="botGo(\''+c.id+'\',\'events\')"><div class="rn">'+esc(e.name)+'</div><div class="rs">'+esc(e.date||"")+(e.location?' &middot; '+esc(e.location):'')+'</div></div>';}).join("");
+      else h+='<div class="note">No events tracked yet for '+esc(c.name)+'.</div>';
+    } else {
+      h+=botCard(c);
+    }
+    h+="</div>";
+    botSay(h);
+    return;
+  }
+  if(res.type==="contacts"){
+    var head2="Found <strong>"+res.matches.length+"</strong> contact"+(res.matches.length===1?"":"s")+":";
+    var body2='<div class="bot-res">'+res.matches.slice(0,12).map(function(m){return '<div class="rescard" onclick="botGo(\''+m.c.id+'\',\'contacts\')"><div class="rn">'+esc(m.p.name)+'</div><div class="rs">'+esc(m.p.role||"")+' at '+esc(m.c.name)+(m.p.email?' &middot; '+esc(m.p.email):'')+'</div></div>';}).join("")+'</div>';
+    botSay(head2+body2);
+    return;
+  }
+  if(res.type==="upload"){
+    if(res.company){botCtxSet(res.company.id);botSay("Sure. Attach a file and I'll file it under <strong>"+esc(res.company.name)+"</strong>.");botPickFile();}
+    else {botSay("Which client should the file go under? You can tell me the name, then attach the file.");}
+    return;
+  }
+  if(res.type==="action"){botConfirmAction(res.action);return;}
+}
+
+/* ---- actions with confirmation ---- */
+function botConfirmAction(a){
+  var msg="",id=botStash(a);
+  if(a.kind==="field")msg="Set <strong>"+esc(a.company.name)+"</strong> "+a.label+" to <strong>"+esc(a.disp)+"</strong>?";
+  else if(a.kind==="docStatus")msg="Mark <strong>"+esc(a.company.name)+"</strong> "+esc(a.type)+" as <strong>"+esc(a.status)+"</strong>?";
+  else if(a.kind==="addContact")msg="Add contact <strong>"+esc(a.name)+"</strong> to <strong>"+esc(a.company.name)+"</strong>?";
+  botSay(msg+'<div class="chips"><span class="chip go" onclick="botRunStashed(\''+id+'\')">Confirm</span><span class="chip warn" onclick="botCancelStashed(\''+id+'\')">Cancel</span></div>');
+}
+var BOT_STASH={};
+function botStash(a){var k="a"+Date.now()+Math.floor(Math.random()*1000);BOT_STASH[k]=a;return k;}
+function botCancelStashed(k){delete BOT_STASH[k];botSay("Okay, no change made.");}
+async function botRunStashed(k){var a=BOT_STASH[k];if(!a)return;delete BOT_STASH[k];await botRunAction(a);}
+
+async function botRunAction(a){
+  try{
+    if(a.kind==="field"){
+      var colMap={tier:"Tier",fit:"Fit",stage:"Stage"};
+      a.company[a.field]=a.value;
+      var body={};body[colMap[a.field]]=a.value;
+      await graph("/sites/"+SITE+"/lists/Companies/items/"+a.company.spId+"/fields",{method:"PATCH",body:JSON.stringify(body)});
+      botSay("Done. "+botLink(a.company)+" "+a.label+" is now <strong>"+esc(a.disp)+"</strong>.");
+    } else if(a.kind==="docStatus"){
+      var d=(a.company.docs||[]).find(function(x){return x.type===a.type;});
+      if(!d){botSay("There's no "+esc(a.type)+" on file for "+esc(a.company.name)+" yet, so there's nothing to update. Upload the "+esc(a.type)+" file and it will be recorded. "+botLink(a.company,"Open documents","documents"));return;}
+      d.status=a.status;
+      await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+d.spId+"/fields",{method:"PATCH",body:JSON.stringify({Status:a.status})});
+      botSay("Done. "+esc(a.type)+" for "+botLink(a.company)+" is now <strong>"+esc(a.status)+"</strong>. "+botLink(a.company,"View","documents"));
+    } else if(a.kind==="addContact"){
+      var fields={Title:a.name,Company:a.company.name};
+      var r=await graph("/sites/"+SITE+"/lists/Contacts/items",{method:"POST",body:JSON.stringify({fields:fields})});
+      a.company.contacts=a.company.contacts||[];a.company.contacts.push({id:r.id,spId:r.id,name:a.name,role:"",email:"",phone:"",linkedin:"",last:"",notes:""});
+      botSay("Added <strong>"+esc(a.name)+"</strong> to "+botLink(a.company,a.company.name,"contacts")+". Open the contact to add their role and email.");
+    }
+    if(sel===a.company.id){render();detailView();} else render();
+  }catch(e){botSay("That didn't save: "+esc(e.message||String(e)));}
+}
+
+/* ---- file upload flow ---- */
+function botPickFile(){document.getElementById("botFile").click();}
+function botFileChosen(el){var f=el.files&&el.files[0];if(!f)return;el.value="";botStartUpload(f);}
+function botDragOver(e){e.preventDefault();}
+function botDrop(e){e.preventDefault();var f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(f)botStartUpload(f);}
+function botStartUpload(f){
+  BOT.file=f;
+  if(!BOT.open)botToggle();
+  if(BOT.ctx){botAskDocType();}
+  else{botSay('Got <strong>'+esc(f.name)+'</strong>. Which client should I file it under? Type the company name.');BOT.pending={kind:"uploadCompany"};}
+}
+function botAskDocType(){
+  var c=DB.companies.find(function(x){return x.id===BOT.ctx;});
+  if(!c){BOT.pending={kind:"uploadCompany"};botSay("Which client should I file <strong>"+esc(BOT.file?BOT.file.name:"the file")+"</strong> under?");return;}
+  var types=["NDA","MSA","Insurance / COI","Subcontract","Other"];
+  botSay('Filing <strong>'+esc(BOT.file.name)+'</strong> under <strong>'+esc(c.name)+'</strong>. What type of document is it?'+
+    '<div class="chips">'+types.map(function(t){return '<span class="chip go" onclick="botDoUpload(\''+encodeURIComponent(t)+'\')">'+t+'</span>';}).join("")+
+    '<span class="chip warn" onclick="botCancelUpload()">Cancel</span></div>');
+}
+function botCancelUpload(){BOT.file=null;BOT.pending=null;botSay("Cancelled the upload.");}
+async function botDoUpload(typeEnc){
+  var type=decodeURIComponent(typeEnc);
+  var c=DB.companies.find(function(x){return x.id===BOT.ctx;});
+  var file=BOT.file;
+  if(!c||!file){botSay("Something went wrong, please attach the file again.");return;}
+  if(!DOCLIB){botSay("The documents library isn't connected, so I can't upload right now.");return;}
+  botSay('Uploading <strong>'+esc(file.name)+'</strong> to '+esc(c.name)+'...');
+  try{
+    var t=await tok();
+    var safe=(c.name+"_"+type+"_"+Date.now()+"_"+file.name).replace(/[^A-Za-z0-9._-]/g,"_");
+    var up=await fetch("https://graph.microsoft.com/v1.0/sites/"+SITE+"/lists/"+DOCLIB+"/drive/root:/"+encodeURIComponent(safe)+":/content",{method:"PUT",headers:{Authorization:"Bearer "+t,"Content-Type":file.type||"application/octet-stream"},body:file});
+    var drv=await up.json();if(drv.error)throw new Error(drv.error.message);
+    var li=await graph("/sites/"+SITE+"/drives/"+drv.parentReference.driveId+"/items/"+drv.id+"/listItem?$select=id");
+    await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+li.id+"/fields",{method:"PATCH",body:JSON.stringify({DocType:type,Status:"Pending",Company:c.name})});
+    c.docs=c.docs||[];c.docs.push({spId:li.id,id:li.id,type:type,status:"Pending",date:"",link:drv.webUrl});
+    BOT.file=null;
+    if(sel===c.id)detailView();
+    botSay('Done. <strong>'+esc(type)+'</strong> is filed under '+botLink(c,c.name,"documents")+' as Pending. <a href="'+esc(drv.webUrl)+'" target="_blank" rel="noopener">Open the file</a>.');
+  }catch(e){botSay("Upload failed: "+esc(e.message||String(e)));}
+}
+
+/* ---- context + chat plumbing ---- */
+function botCtxSet(id){BOT.ctx=id;}
+function botGo(id,tab){
+  pick(id);
+  if(tab&&tab!=="overview")setTab(tab);
+  BOT.ctx=id;
+  if(BOT.full)botFull();
+}
+function botAsk(text){document.getElementById("botInput").value=text;botSend();}
+
+function botSay(html,cls){
+  var wrap=document.getElementById("botMsgs");
+  var row=document.createElement("div");
+  row.className="bmrow"+(cls==="me"?" me":"");
+  row.innerHTML='<div class="bubble '+(cls==="me"?"me":"bot")+'">'+html+'</div>';
+  wrap.appendChild(row);
+  wrap.scrollTop=wrap.scrollHeight;
+}
+async function botSend(){
+  var el=document.getElementById("botInput");
+  var text=(el.value||"").trim();
+  if(!text)return;
+  el.value="";el.style.height="auto";
+  botSay(esc(text),"me");
+  if(BOT.pending&&BOT.pending.kind==="uploadCompany"){
+    var c=botMatchOneCompany(text);
+    if(c){BOT.ctx=c.id;BOT.pending=null;botAskDocType();}
+    else botSay("I couldn't find a client called \""+esc(text)+"\". Try the exact name.");
+    return;
+  }
+  var res=await botInterpret(text);
+  botRender(res);
+}
+function botKey(e){
+  var el=e.target;el.style.height="auto";el.style.height=Math.min(el.scrollHeight,96)+"px";
+  if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();botSend();}
+}
+function botToggle(){
+  BOT.open=!BOT.open;
+  document.getElementById("botPanel").classList.toggle("open",BOT.open);
+  document.getElementById("botFab").style.display=BOT.open?"none":"flex";
+  if(BOT.open){
+    if(!BOT.greeted){BOT.greeted=true;botSay("Hi, I'm your CRM assistant. Ask me to find companies, contacts, or documents, upload a file to a client, or update a record. What do you need?");botSuggest();}
+    setTimeout(function(){var i=document.getElementById("botInput");if(i)i.focus();},50);
+  }
+}
+function botFull(){
+  BOT.full=!BOT.full;
+  document.getElementById("botPanel").classList.toggle("full",BOT.full);
+  document.getElementById("botFullBtn").innerHTML=BOT.full?"&#8863;":"&#11036;";
+}
+function botSuggest(){
+  var s=document.getElementById("botSugg");
+  var ideas=["Tier A companies","No signed NDA","Developers in Texas","Stale 60+ days"];
+  s.innerHTML=ideas.map(function(x){return '<span class="chip" onclick="botAsk(\''+x.replace(/'/g,"")+'\')">'+x+'</span>';}).join("");
+}
+
 </script>
 </body>
 </html>
