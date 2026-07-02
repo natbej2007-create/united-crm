@@ -50,6 +50,8 @@
   .p-tier{background:#e7e7f3;color:var(--navy)}
   .p-rel{background:#e2f4fc;color:var(--cyan-d)}
   .p-stage{background:#eef0f6;color:#4a5169}
+  .p-dept-bd{background:#e2f4fc;color:var(--cyan-d)}
+  .p-dept-legal{background:#efe7f3;color:#6b3fa0}
   .fit-Strategic{background:#dde9ff;color:#1d4ed8}
   .fit-High{background:#dcfce7;color:#15803d}
   .fit-Medium{background:#fef3c7;color:#b45309}
@@ -106,20 +108,20 @@
   .bot-fab:hover{transform:translateY(-2px);background:var(--navy-d)}
   .bot-fab svg{width:26px;height:26px}
   .bot-fab .cydot{position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;background:var(--cyan);border:2px solid #fff}
-  .bot-panel{position:fixed;left:20px;bottom:88px;z-index:61;width:392px;max-width:calc(100vw - 40px);height:560px;max-height:calc(100vh - 120px);background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 50px rgba(31,36,64,.28);display:none;flex-direction:column;overflow:hidden}
+  .bot-panel{--bot-scale:1.15;position:fixed;left:20px;bottom:88px;z-index:61;width:392px;max-width:calc(100vw - 40px);height:560px;max-height:calc(100vh - 120px);background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 50px rgba(31,36,64,.28);display:none;flex-direction:column;overflow:hidden}
   .bot-panel.open{display:flex}
   .bot-panel.full{left:0;top:0;bottom:0;width:100vw;height:100vh;max-width:100vw;max-height:100vh;border-radius:0}
   .bot-head{display:flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:12px 14px;flex:0 0 auto}
-  .bot-head .t{font-weight:500;font-size:14px;line-height:1.2}
-  .bot-head .t small{display:block;font-weight:400;font-size:11px;color:#b9c0e6;margin-top:2px}
+  .bot-head .t{font-weight:500;font-size:calc(14px * var(--bot-scale));line-height:1.2}
+  .bot-head .t small{display:block;font-weight:400;font-size:calc(11px * var(--bot-scale));color:#b9c0e6;margin-top:2px}
   .bot-head .hbtns{margin-left:auto;display:flex;gap:6px}
-  .bot-head .hbtn{background:rgba(255,255,255,.14);border:none;color:#fff;width:28px;height:28px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1}
+  .bot-head .hbtn{background:rgba(255,255,255,.14);border:none;color:#fff;width:28px;height:28px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:calc(15px * var(--bot-scale));line-height:1}
   .bot-head .hbtn:hover{background:rgba(255,255,255,.28)}
   .bot-msgs{flex:1;overflow-y:auto;padding:14px;background:var(--soft);display:flex;flex-direction:column;gap:10px}
   .bot-panel.full .bmrow{width:100%;max-width:760px;margin:0 auto}
   .bmrow{display:flex;flex-direction:column}
   .bmrow.me{align-items:flex-end}
-  .bubble{max-width:90%;padding:9px 12px;border-radius:12px;font-size:13px;line-height:1.5}
+  .bubble{max-width:90%;padding:9px 12px;border-radius:12px;font-size:calc(13px * var(--bot-scale));line-height:1.6}
   .bubble.bot{background:#fff;border:1px solid var(--line);border-top-left-radius:3px;color:var(--txt)}
   .bubble.me{background:var(--navy);color:#fff;border-top-right-radius:3px}
   .bubble a{color:var(--cyan-d);text-decoration:none;font-weight:500;cursor:pointer}
@@ -127,26 +129,26 @@
   .bot-res{margin-top:8px;display:flex;flex-direction:column;gap:6px}
   .rescard{border:1px solid var(--line);border-radius:9px;padding:8px 10px;background:#fff;cursor:pointer;transition:border-color .12s}
   .rescard:hover{border-color:var(--cyan)}
-  .rescard .rn{font-weight:600;color:var(--navy);font-size:13px}
-  .rescard .rs{font-size:11px;color:var(--mut);margin-top:2px}
+  .rescard .rn{font-weight:600;color:var(--navy);font-size:calc(13px * var(--bot-scale))}
+  .rescard .rs{font-size:calc(11px * var(--bot-scale));color:var(--mut);margin-top:2px;line-height:1.45}
   .rescard .rpills{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
   .reslinks{display:flex;gap:12px;margin-top:6px}
-  .reslinks a{font-size:11px;color:var(--cyan-d);cursor:pointer;font-weight:500}
+  .reslinks a{font-size:calc(11px * var(--bot-scale));color:var(--cyan-d);cursor:pointer;font-weight:500}
   .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
-  .chip{border:1px solid var(--line);background:#fff;border-radius:20px;padding:5px 11px;font-size:12px;cursor:pointer;color:var(--navy)}
+  .chip{border:1px solid var(--line);background:#fff;border-radius:20px;padding:5px 11px;font-size:calc(12px * var(--bot-scale));cursor:pointer;color:var(--navy)}
   .chip:hover{border-color:var(--cyan);color:var(--cyan-d)}
   .chip.go{background:var(--navy);color:#fff;border-color:var(--navy)}
   .chip.go:hover{background:var(--navy-d);color:#fff}
   .chip.warn{background:#fff;border-color:var(--line);color:var(--mut)}
   .bot-foot{flex:0 0 auto;border-top:1px solid var(--line);padding:10px;background:#fff;display:flex;align-items:flex-end;gap:8px}
-  .bot-foot textarea{flex:1;resize:none;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:13px;font-family:inherit;max-height:96px;outline:none}
+  .bot-foot textarea{flex:1;resize:none;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:calc(13px * var(--bot-scale));font-family:inherit;max-height:96px;outline:none;line-height:1.5}
   .bot-foot textarea:focus{border-color:var(--cyan)}
-  .bot-foot .sbtn{background:var(--navy);color:#fff;border:none;border-radius:10px;width:38px;height:38px;cursor:pointer;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:16px}
+  .bot-foot .sbtn{background:var(--navy);color:#fff;border:none;border-radius:10px;width:38px;height:38px;cursor:pointer;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:calc(16px * var(--bot-scale))}
   .bot-foot .sbtn:hover{background:var(--navy-d)}
-  .bot-foot .clip{background:var(--soft);border:1px solid var(--line);border-radius:10px;width:38px;height:38px;cursor:pointer;flex:0 0 auto;color:var(--mut);display:flex;align-items:center;justify-content:center;font-size:16px}
+  .bot-foot .clip{background:var(--soft);border:1px solid var(--line);border-radius:10px;width:38px;height:38px;cursor:pointer;flex:0 0 auto;color:var(--mut);display:flex;align-items:center;justify-content:center;font-size:calc(16px * var(--bot-scale))}
   .bot-foot .clip:hover{border-color:var(--cyan);color:var(--cyan-d)}
   .bot-sugg{display:flex;gap:6px;flex-wrap:wrap;padding:0 10px 10px;background:#fff}
-  .bot-sugg .chip{font-size:11px;padding:4px 9px}
+  .bot-sugg .chip{font-size:calc(11px * var(--bot-scale));padding:4px 9px}
 </style>
 </head>
 <body>
@@ -243,7 +245,7 @@ function render(){
     <div class="crow ${c.id===sel?'active':''}" onclick="pick('${c.id}')">
       <div class="nm">${esc(c.name)}</div>
       <div class="sub">${esc(c.rel)}${c.location?' &middot; '+esc(c.location):''}</div>
-      <div class="pills">${c.tier?`<span class="pill p-tier">${esc(c.tier)}</span>`:""}${c.fit?`<span class="pill fit-${esc(c.fit)}">${esc(c.fit)}</span>`:""}</div>
+      <div class="pills"><span class="pill ${deptOf(c)==='Legal'?'p-dept-legal':'p-dept-bd'}">${deptOf(c)==='Legal'?'Legal':'BD'}</span>${c.tier?`<span class="pill p-tier">${esc(c.tier)}</span>`:""}${c.fit?`<span class="pill fit-${esc(c.fit)}">${esc(c.fit)}</span>`:""}</div>
     </div>`).join(""):`<div class="note" style="padding:16px">No matches.</div>`;
 }
 function pick(cid){sel=cid;tab="overview";render();detailView()}
@@ -251,7 +253,7 @@ function company(){return DB.companies.find(x=>x.id===sel)}
 function detailView(){
   const c=company();
   if(!c){detail.innerHTML=`<div class="empty">Select a company from the list.</div>`;return}
-  const tabs=[["overview","Overview",null],["contacts","Contacts",(c.contacts||[]).length],["documents","Documents",(c.docs||[]).length],["events","Events",(c.events||[]).length],["more","More",(c.custom||[]).length]];
+  const tabs=[["overview","Overview",null],["contacts","Contacts",(c.contacts||[]).length],["documents","Documents",(c.docs||[]).length],["events","Events",(c.events||[]).length],["legal","Legal",legalCount(c)],["more","More",(c.custom||[]).length]];
   detail.innerHTML=`
     <div class="dhead"><div class="row1">
       <div>
@@ -261,12 +263,15 @@ function detailView(){
           ${c.tier?`<span class="pill p-tier">${esc(c.tier)}</span>`:""}
           ${c.fit?`<span class="pill fit-${esc(c.fit)}">${esc(c.fit)} fit</span>`:""}
           <span class="pill p-stage">${esc(c.stage)}</span>
+          <span class="pill ${deptOf(c)==='Legal'?'p-dept-legal':'p-dept-bd'}">${deptOf(c)==='Legal'?'In Legal':'In Business Development'}</span>
           ${c.location?`<span class="loc">&#128205; ${esc(c.location)}</span>`:""}
         </div>
       </div>
       <div style="display:flex;gap:8px">
         <button class="btn ghost" onclick="openCompany('${c.id}')">Edit</button>
         <button class="btn ghost" onclick="delCompany('${c.id}')">Delete</button>
+        <button class="btn ghost" onclick="openHistory('${c.id}')">History</button>
+        <button class="btn ghost" onclick="toggleDept('${c.id}')">${deptOf(c)==='Legal'?'Return to BD':'Hand to Legal'}</button>
       </div>
     </div></div>
     <div class="tabs">${tabs.map(t=>`<div class="tab ${t[0]===tab?'active':''}" onclick="setTab('${t[0]}')">${t[1]}${t[2]!=null?` <span class="c">${t[2]}</span>`:''}</div>`).join("")}</div>
@@ -320,6 +325,29 @@ function tabView(c){
         <td class="row-actions"><button class="icon-btn" onclick="openSub('event','${e.id}')">edit</button><button class="icon-btn" onclick="delSub('events','${e.id}')">&times;</button></td></tr>`).join("")||`<tr><td colspan="5" class="note">No events tracked yet.</td></tr>`}</tbody></table>
       <div style="margin-top:12px"><span class="add-link" onclick="openSub('event')">+ Add event</span></div></div>`;
   }
+  if(tab==="legal"){
+    c.legal=c.legal||{};
+    const dept=deptOf(c);
+    const legalRows=LEGAL_FIELDS.map(f=>{const v=c.legal[f.k]||"";const disp=v?(f.type==="status"?`<span class="status ${sc(v)}"><span class="dot"></span>${esc(v)}</span>`:esc(v)):"&#8212;";return `<div class="f"><label>${esc(f.label)}</label><div class="v">${disp}</div></div>`;}).join("");
+    const legalDocs=(c.docs||[]).filter(d=>["NDA","MSA","Subcontract","Service Agreement"].indexOf(d.type)>-1);
+    const docsHtml=legalDocs.length?legalDocs.map(d=>`<tr><td><strong>${esc(d.type)}</strong></td><td><span class="status ${sc(d.status)}"><span class="dot"></span>${esc(d.status)}</span></td><td>${esc(d.date)||"&#8212;"}</td></tr>`).join(""):`<tr><td colspan="3" class="note">No legal documents on file yet.</td></tr>`;
+    w.innerHTML=`
+      <div class="card">
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+          <h3>Legal file</h3>
+          <span class="pill ${dept==='Legal'?'p-dept-legal':'p-dept-bd'}">In ${dept==='Legal'?'Legal':'Business Development'}</span>
+        </div>
+        <div class="banner">Same client record, no duplicate. Legal details live here once a client is handed over. These fields are session only for now and built to extend as your legal team confirms the final list.</div>
+        <div class="grid">${legalRows}</div>
+        <div style="margin-top:12px;display:flex;gap:14px">
+          <span class="add-link" onclick="openLegal()">Edit legal details</span>
+          ${dept==='Legal'?`<span class="add-link" onclick="toggleDept('${c.id}')">Return to Business Development</span>`:`<span class="add-link" onclick="toggleDept('${c.id}')">Hand over to Legal</span>`}
+        </div>
+      </div>
+      <div class="card"><h3>Documents on file</h3>
+        <table><thead><tr><th>Document</th><th>Status</th><th>Date</th></tr></thead><tbody>${docsHtml}</tbody></table>
+        <div style="margin-top:12px"><span class="add-link" onclick="setTab('documents')">Open documents tab</span></div></div>`;
+  }
   if(tab==="more"){
     w.innerHTML=`<div class="card"><h3>Custom fields</h3>
       <div>${(c.custom||[]).map((f,i)=>`<div class="grid" style="margin-bottom:8px"><div class="f"><label>${esc(f.k)}</label><div class="v">${esc(f.v)}</div></div><div style="display:flex;align-items:flex-end"><button class="icon-btn" onclick="delCustom(${i})">remove</button></div><div></div></div>`).join("")||`<div class="note">No custom fields yet.</div>`}</div>
@@ -355,11 +383,11 @@ async function saveCompany(cid){const g=i=>document.getElementById(i).value;cons
   const d={name,rel:g("x_rel"),stage:g("x_stage"),tier:fix(g("x_tier")),fit:fix(g("x_fit")),industry:g("x_industry"),website:g("x_website"),linkedin:g("x_linkedin"),location:g("x_location"),owner:g("x_owner")||"",notes:g("x_notes")};
   const fields={Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Owner:d.owner,Notes:d.notes};
   close1();
-  try{if(cid){const c=company();Object.assign(c,d);await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields",{method:"PATCH",body:JSON.stringify(fields)});}
-    else{const r=await graph("/sites/"+SITE+"/lists/Companies/items",{method:"POST",body:JSON.stringify({fields})});const n=Object.assign({id:r.id,spId:r.id,custom:[],contacts:[],docs:[],events:[]},d);DB.companies.unshift(n);sel=n.id;}
+  try{if(cid){const c=company();const _b=companySnap(c);Object.assign(c,d);await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields",{method:"PATCH",body:JSON.stringify(fields)});auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Edit",summary:auditDiff(_b,d,["name","rel","stage","tier","fit","industry","website","linkedin","location","owner","notes"]),snapshot:_b});}
+    else{const r=await graph("/sites/"+SITE+"/lists/Companies/items",{method:"POST",body:JSON.stringify({fields})});const n=Object.assign({id:r.id,spId:r.id,custom:[],contacts:[],docs:[],events:[]},d);DB.companies.unshift(n);sel=n.id;auditLog({entity:"Companies",recordId:n.spId,recordName:n.name,company:n.name,action:"Add",summary:"Created company",snapshot:companySnap(n)});}
   }catch(e){alert("Save failed: "+(e.message||e));}
   render();detailView()}
-async function delCompany(cid){if(!confirm("Delete this company?"))return;const c=DB.companies.find(x=>x.id===cid);try{await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}DB.companies=DB.companies.filter(x=>x.id!==cid);if(sel===cid)sel=null;render();detailView()}
+async function delCompany(cid){if(!confirm("Delete this company?"))return;const c=DB.companies.find(x=>x.id===cid);const _snap=companySnap(c);try{await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Delete",summary:"Deleted company",snapshot:_snap});DB.companies=DB.companies.filter(x=>x.id!==cid);if(sel===cid)sel=null;render();detailView()}
 function openSub(kind,sid){const c=company();let rec,title,fields;
   if(kind==="contact"){rec=sid?c.contacts.find(x=>x.id===sid):{name:"",role:"",email:"",phone:"",linkedin:"",last:"",notes:""};title=sid?"Edit contact":"Add contact";
     fields=`<div class="f"><label style="font-size:11px;color:var(--mut)">Name *</label><input id="y_name" value="${esc(rec.name)}"/></div>
@@ -387,11 +415,11 @@ async function saveSub(kind,sid){const c=company();const g=i=>{const e=document.
   if(kind==="contact"){const rec={name:g("y_name").trim(),role:g("y_role"),email:g("y_email"),phone:g("y_phone"),linkedin:g("y_linkedin"),last:g("y_last"),notes:g("y_notes")};if(!rec.name){alert("Name required");return}
     const fields={Title:rec.name,Company:c.name,Role:rec.role,Email:rec.email,Phone:rec.phone,LinkedIn:rec.linkedin,Notes:rec.notes};if(rec.last)fields.LastContact=rec.last+"T00:00:00Z";
     close2();
-    try{if(sid){const ex=c.contacts.find(x=>x.id===sid);Object.assign(ex,rec);await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId+"/fields",{method:"PATCH",body:JSON.stringify(fields)});}
-      else{const r=await graph("/sites/"+SITE+"/lists/Contacts/items",{method:"POST",body:JSON.stringify({fields})});rec.id=r.id;rec.spId=r.id;c.contacts.push(rec);}}catch(e){alert("Save failed: "+(e.message||e));}
+    try{if(sid){const ex=c.contacts.find(x=>x.id===sid);const _b=contactSnap(ex);Object.assign(ex,rec);await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId+"/fields",{method:"PATCH",body:JSON.stringify(fields)});auditLog({entity:"Contacts",recordId:ex.spId,recordName:ex.name,company:c.name,action:"Edit",summary:auditDiff(_b,rec,["name","role","email","phone","linkedin","last","notes"]),snapshot:_b});}
+      else{const r=await graph("/sites/"+SITE+"/lists/Contacts/items",{method:"POST",body:JSON.stringify({fields})});rec.id=r.id;rec.spId=r.id;c.contacts.push(rec);auditLog({entity:"Contacts",recordId:rec.spId,recordName:rec.name,company:c.name,action:"Add",summary:"Added contact",snapshot:contactSnap(rec)});}}catch(e){alert("Save failed: "+(e.message||e));}
     detailView();return;}
   if(kind==="doc"){
-    if(sid){const ex=c.docs.find(x=>x.id===sid);ex.type=g("y_type");ex.status=g("y_status");ex.date=g("y_date");close2();try{await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+ex.spId+"/fields",{method:"PATCH",body:JSON.stringify(Object.assign({DocType:ex.type,Status:ex.status,Company:c.name},ex.date?{DocDate:ex.date+"T00:00:00Z"}:{}))});}catch(e){alert("Save failed: "+(e.message||e));}detailView();return;}
+    if(sid){const ex=c.docs.find(x=>x.id===sid);const _b=docSnap(ex);ex.type=g("y_type");ex.status=g("y_status");ex.date=g("y_date");close2();try{await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+ex.spId+"/fields",{method:"PATCH",body:JSON.stringify(Object.assign({DocType:ex.type,Status:ex.status,Company:c.name},ex.date?{DocDate:ex.date+"T00:00:00Z"}:{}))});auditLog({entity:"Documents",recordId:ex.spId,recordName:ex.type||"Document",company:c.name,action:"Edit",summary:auditDiff(_b,docSnap(ex),["type","status","date"]),snapshot:_b});}catch(e){alert("Save failed: "+(e.message||e));}detailView();return;}
     const fe=document.getElementById("y_file");const file=fe&&fe.files[0];if(!file){alert("Choose a file to upload");return;}
     if(!DOCLIB){alert("Documents library not found");return;}
     close2();
@@ -400,17 +428,60 @@ async function saveSub(kind,sid){const c=company();const g=i=>{const e=document.
       const drv=await up.json();if(drv.error)throw new Error(drv.error.message);
       const li=await graph("/sites/"+SITE+"/drives/"+drv.parentReference.driveId+"/items/"+drv.id+"/listItem?$select=id");
       await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+li.id+"/fields",{method:"PATCH",body:JSON.stringify(Object.assign({DocType:g("y_type"),Status:g("y_status"),Company:c.name},g("y_date")?{DocDate:g("y_date")+"T00:00:00Z"}:{}))});
-      c.docs=c.docs||[];c.docs.push({spId:li.id,id:li.id,type:g("y_type"),status:g("y_status"),date:g("y_date"),link:drv.webUrl});
+      c.docs=c.docs||[];var _nd={spId:li.id,id:li.id,type:g("y_type"),status:g("y_status"),date:g("y_date"),link:drv.webUrl};c.docs.push(_nd);auditLog({entity:"Documents",recordId:li.id,recordName:_nd.type||"Document",company:c.name,action:"Upload",summary:"Uploaded "+(_nd.type||"document"),snapshot:docSnap(_nd)});
     }catch(e){alert("Upload failed: "+(e.message||e));}
     detailView();return;}
   let arr,rec;
   if(kind==="event"){arr="events";rec={name:g("y_name").trim(),date:g("y_date"),location:g("y_location"),who:g("y_who"),notes:g("y_notes")};if(!rec.name){alert("Event name required");return}}
   c[arr]=c[arr]||[];if(sid){Object.assign(c[arr].find(x=>x.id===sid),rec)}else{rec.id=id();c[arr].push(rec)}
   close2();detailView()}
-async function delSub(arr,sid){if(!confirm("Remove this record?"))return;const c=company();if(arr==="contacts"){const ex=c.contacts.find(x=>x.id===sid);try{await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}}if(arr==="docs"){const ex=c.docs.find(x=>x.id===sid);try{await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+ex.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}}c[arr]=c[arr].filter(x=>x.id!==sid);detailView()}
+async function delSub(arr,sid){if(!confirm("Remove this record?"))return;const c=company();if(arr==="contacts"){const ex=c.contacts.find(x=>x.id===sid);try{await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}auditLog({entity:"Contacts",recordId:ex.spId,recordName:ex.name,company:c.name,action:"Delete",summary:"Deleted contact",snapshot:contactSnap(ex)});}if(arr==="docs"){const ex=c.docs.find(x=>x.id===sid);try{await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+ex.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}auditLog({entity:"Documents",recordId:ex.spId,recordName:ex.type||"Document",company:c.name,action:"Delete",summary:"Deleted document",snapshot:docSnap(ex)});}c[arr]=c[arr].filter(x=>x.id!==sid);detailView()}
 function close1(){m1.classList.remove("open")}
 function close2(){m2.classList.remove("open")}
-function mapC(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",rel:f.RelationshipType||"Other",stage:f.Stage||"Prospecting",tier:f.Tier||"",fit:f.Fit||"",industry:f.CompanyType||"",website:f.Website||"",linkedin:f.LinkedIn||"",location:f.Location||"",owner:f.Owner||"",notes:f.Notes||"",custom:[{k:"US Registration",v:f.USRegistration||""},{k:"Phone",v:f.Phone||""},{k:"General email",v:f.GeneralEmail||""}].filter(x=>x.v),contacts:[],docs:[],events:[]};}
+/* ---- Legal branch: config + handover (same record, no duplicate) ---- */
+const LEGAL_STATUS=["Not started","Drafting","In review","Signed","Executed","N/A"];
+/* Add or reorder fields here as the legal team confirms them. type: status | text | textarea */
+var LEGAL_FIELDS=[
+  {k:"contract",label:"Master contract",type:"status"},
+  {k:"nda",label:"NDA",type:"status"},
+  {k:"msa",label:"MSA",type:"status"},
+  {k:"scope",label:"Scope of work",type:"text"},
+  {k:"notes",label:"Legal notes",type:"textarea"}
+];
+function deptOf(c){return (c&&c.dept)||"Business Development";}
+function legalCount(c){var n=0;(LEGAL_FIELDS||[]).forEach(function(f){if(c&&c.legal&&c.legal[f.k])n++;});return n||null;}
+
+async function toggleDept(cid){
+  const c=DB.companies.find(x=>x.id===cid)||company();if(!c)return;
+  const to=deptOf(c)==="Legal"?"Business Development":"Legal";
+  if(!confirm(to==="Legal"?("Hand "+c.name+" over to Legal?"):("Return "+c.name+" to Business Development?")))return;
+  const _b=companySnap(c);
+  c.dept=to;
+  try{await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields",{method:"PATCH",body:JSON.stringify({Department:to})});}catch(e){}
+  if(typeof auditLog==="function")auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Edit",field:"Department",summary:"Handed over to "+to,snapshot:_b});
+  render();detailView();
+}
+
+function openLegal(){
+  const c=company();if(!c)return;c.legal=c.legal||{};
+  var rows=LEGAL_FIELDS.map(function(f){var v=c.legal[f.k]||"";
+    if(f.type==="status")return '<div class="f"><label style="font-size:11px;color:var(--mut)">'+esc(f.label)+'</label><select id="lg_'+f.k+'">'+selo(LEGAL_STATUS,v)+'</select></div>';
+    if(f.type==="textarea")return '<div class="f"><label style="font-size:11px;color:var(--mut)">'+esc(f.label)+'</label><textarea id="lg_'+f.k+'">'+esc(v)+'</textarea></div>';
+    return '<div class="f"><label style="font-size:11px;color:var(--mut)">'+esc(f.label)+'</label><input id="lg_'+f.k+'" value="'+esc(v)+'"/></div>';
+  }).join("");
+  m2in.innerHTML='<h3>Edit legal details</h3>'+rows+'<div class="mfoot"><button class="btn ghost" onclick="close2()">Cancel</button><button class="btn primary" onclick="saveLegal()">Save</button></div>';
+  m2.classList.add("open");
+}
+function saveLegal(){
+  const c=company();if(!c)return;c.legal=c.legal||{};
+  const _b=companySnap(c);
+  LEGAL_FIELDS.forEach(function(f){var el=document.getElementById("lg_"+f.k);if(el)c.legal[f.k]=el.value;});
+  close2();
+  if(typeof auditLog==="function")auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Edit",field:"Legal",summary:"Updated legal details",snapshot:_b});
+  detailView();
+}
+
+function mapC(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",rel:f.RelationshipType||"Other",stage:f.Stage||"Prospecting",tier:f.Tier||"",fit:f.Fit||"",industry:f.CompanyType||"",website:f.Website||"",linkedin:f.LinkedIn||"",location:f.Location||"",owner:f.Owner||"",notes:f.Notes||"",dept:f.Department||"Business Development",legal:{},custom:[{k:"US Registration",v:f.USRegistration||""},{k:"Phone",v:f.Phone||""},{k:"General email",v:f.GeneralEmail||""}].filter(x=>x.v),contacts:[],docs:[],events:[]};}
 function mapK(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",role:f.Role||"",email:f.Email||"",phone:f.Phone||"",linkedin:f.LinkedIn||"",last:(f.LastContact||"").slice(0,10),notes:f.Notes||"",_company:f.Company||""};}
 function mapD(it){const f=it.fields||{};return{spId:it.id,id:it.id,type:f.DocType||"Other",status:f.Status||"None",date:(f.DocDate||"").slice(0,10),link:(it.driveItem&&it.driveItem.webUrl)||"",_company:f.Company||""};}
 async function pageAll(url){let out=[];while(url){const j=await graph(url);out=out.concat(j.value||[]);url=j["@odata.nextLink"]?j["@odata.nextLink"].replace("https://graph.microsoft.com/v1.0",""):null;}return out;}
@@ -431,13 +502,207 @@ async function boot(){
 initF(); (async function(){try{await pca.handleRedirectPromise();}catch(e){}boot();})();
 </script>
 <script>
+/* ================= CRM Audit / Version History ================= */
+var AUDIT={listId:null,ready:false,checked:false,me:null,mem:[],error:""};
+var AUDIT_LIST_NAME="CRM Change Log";
+var AUDIT_STASH={};
+
+function auditStash(e){var k="h"+Date.now()+Math.floor(Math.random()*1e4);AUDIT_STASH[k]=e;return k;}
+function companySnap(c){return {name:c.name,rel:c.rel,stage:c.stage,tier:c.tier,fit:c.fit,industry:c.industry,website:c.website,linkedin:c.linkedin,location:c.location,owner:c.owner,notes:c.notes,dept:c.dept,legal:c.legal?JSON.parse(JSON.stringify(c.legal)):{}};}
+function contactSnap(p){return {name:p.name,role:p.role,email:p.email,phone:p.phone,linkedin:p.linkedin,last:p.last,notes:p.notes};}
+function docSnap(d){return {type:d.type,status:d.status,date:d.date,link:d.link};}
+function companyFields(d){return {Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Owner:d.owner,Notes:d.notes};}
+function contactFields(rec,company){var f={Title:rec.name,Company:company,Role:rec.role,Email:rec.email,Phone:rec.phone,LinkedIn:rec.linkedin,Notes:rec.notes};if(rec.last)f.LastContact=rec.last+"T00:00:00Z";return f;}
+function auditDiff(before,after,keys){var out=[];keys.forEach(function(k){var a=before?before[k]:"",b=after?after[k]:"";if(String(a==null?"":a)!==String(b==null?"":b))out.push(k+': "'+(a==null?"":a)+'" to "'+(b==null?"":b)+'"');});return out.length?out.join("; "):"No field values changed";}
+function auditFmtWhen(w){if(!w)return "";var d=new Date(w);return isNaN(d.getTime())?String(w):d.toLocaleString();}
+
+async function auditMe(){
+  if(AUDIT.me)return AUDIT.me;
+  try{var m=await graph("/me?$select=displayName,userPrincipalName,mail");AUDIT.me={name:m.displayName||m.userPrincipalName||"Unknown",login:m.userPrincipalName||m.mail||""};}
+  catch(e){try{var a=pca.getAllAccounts()[0];AUDIT.me={name:(a&&a.name)||"Unknown",login:(a&&a.username)||""};}catch(_){AUDIT.me={name:"Unknown",login:""};}}
+  return AUDIT.me;
+}
+
+async function auditEnsureList(){
+  if(AUDIT.checked)return AUDIT.ready;
+  AUDIT.checked=true;
+  try{
+    var lists=await graph("/sites/"+SITE+"/lists?$select=id,displayName,name&$top=200");
+    var ex=(lists.value||[]).find(function(l){return l.displayName===AUDIT_LIST_NAME||l.name===AUDIT_LIST_NAME;});
+    if(ex){AUDIT.listId=ex.id;AUDIT.ready=true;return true;}
+    var body={displayName:AUDIT_LIST_NAME,list:{template:"genericList"},columns:[
+      {name:"Entity",text:{}},{name:"RecordId",text:{}},{name:"RecordName",text:{}},{name:"Company",text:{}},
+      {name:"Action",text:{}},{name:"FieldChanged",text:{}},{name:"Summary",text:{allowMultipleLines:true}},
+      {name:"Snapshot",text:{allowMultipleLines:true}},{name:"ChangedByName",text:{}},{name:"ChangedByLogin",text:{}},
+      {name:"ChangedAt",dateTime:{}}
+    ]};
+    var made=await graph("/sites/"+SITE+"/lists",{method:"POST",body:JSON.stringify(body)});
+    AUDIT.listId=made.id;AUDIT.ready=true;return true;
+  }catch(e){AUDIT.ready=false;AUDIT.error=(e&&e.message)||String(e);return false;}
+}
+
+async function auditLog(entry){
+  try{
+    var me=await auditMe();
+    var now=new Date().toISOString();
+    var rec={entity:entry.entity||"",recordId:entry.recordId||"",recordName:entry.recordName||"",company:entry.company||"",action:entry.action||"",field:entry.field||"",summary:entry.summary||"",snapshot:entry.snapshot||null,byName:me.name,byLogin:me.login,when:now,persisted:false};
+    AUDIT.mem.unshift(rec);
+    var ok=await auditEnsureList();
+    if(!ok)return;
+    var fields={Title:(rec.recordName||"record")+": "+(rec.action||"change"),Entity:rec.entity,RecordId:String(rec.recordId),RecordName:rec.recordName,Company:rec.company,Action:rec.action,FieldChanged:rec.field,Summary:rec.summary,Snapshot:rec.snapshot?JSON.stringify(rec.snapshot):"",ChangedByName:me.name,ChangedByLogin:me.login,ChangedAt:now};
+    await graph("/sites/"+SITE+"/lists/"+AUDIT.listId+"/items",{method:"POST",body:JSON.stringify({fields:fields})});
+    rec.persisted=true;
+  }catch(e){}
+}
+
+async function auditFetchForCompany(c){
+  var out=[];
+  var ok=await auditEnsureList();
+  if(ok){
+    try{
+      var items=await graph("/sites/"+SITE+"/lists/"+AUDIT.listId+"/items?$expand=fields&$top=500");
+      (items.value||[]).forEach(function(it){var f=it.fields||{};if(f.Company===c.name){out.push({id:it.id,entity:f.Entity,recordId:f.RecordId,recordName:f.RecordName,company:f.Company,action:f.Action,field:f.FieldChanged,summary:f.Summary,snapshot:f.Snapshot,byName:f.ChangedByName,byLogin:f.ChangedByLogin,when:f.ChangedAt||it.lastModifiedDateTime});}});
+    }catch(e){}
+  }
+  AUDIT.mem.forEach(function(m){if(m.company===c.name&&!m.persisted)out.push(Object.assign({session:true},m));});
+  out.sort(function(a,b){return String(b.when||"").localeCompare(String(a.when||""));});
+  return out;
+}
+
+async function openHistory(cid){
+  var c=DB.companies.find(function(x){return x.id===cid;})||company();if(!c)return;
+  AUDIT_STASH={};
+  m1in.innerHTML='<h3>History: '+esc(c.name)+'</h3><div class="note">Loading change log...</div><div class="mfoot"><button class="btn ghost" onclick="close1()">Close</button></div>';
+  m1.classList.add("open");
+  var rows=await auditFetchForCompany(c);
+  var body="";
+  if(!AUDIT.ready){body+='<div class="note" style="margin-bottom:8px">History is not permanent yet. A SharePoint list named "'+esc(AUDIT_LIST_NAME)+'" is needed on the United Services Teams site, which a site owner can create. Until then this shows only changes made in this browser session.</div>';}
+  if(!rows.length){body+='<div class="note">No changes recorded yet for '+esc(c.name)+'.</div>';}
+  else{body+=rows.map(function(e){
+    var hasSnap=e.snapshot&&(typeof e.snapshot!=="string"||e.snapshot.length>2);
+    var canRestore=(e.action==="Edit"||e.action==="Delete")&&hasSnap;
+    var key=canRestore?auditStash(e):"";
+    return '<div class="rescard" style="cursor:default"><div class="rn">'+esc(e.action||"Change")+' &middot; '+esc(e.entity||"")+': '+esc(e.recordName||"")+'</div>'+
+      '<div class="rs">by '+esc(e.byName||"Unknown")+' &middot; '+esc(auditFmtWhen(e.when))+(e.session?' &middot; not yet saved':'')+'</div>'+
+      (e.summary?'<div class="rs">'+esc(e.summary)+'</div>':'')+
+      (canRestore?'<div style="margin-top:6px"><button class="btn ghost" onclick="auditRestore(\''+key+'\')">Restore this version</button></div>':'')+
+    '</div>';
+  }).join("");}
+  m1in.innerHTML='<h3>History: '+esc(c.name)+'</h3><div class="bot-res" style="max-height:52vh;overflow:auto">'+body+'</div><div class="mfoot"><button class="btn ghost" onclick="close1()">Close</button></div>';
+}
+
+async function auditRestore(key){
+  var e=AUDIT_STASH[key];if(!e)return;
+  var snap=e.snapshot;if(typeof snap==="string"){try{snap=JSON.parse(snap);}catch(_){snap=null;}}
+  if(!snap){alert("No snapshot stored for this entry, so it cannot be restored.");return;}
+  if(!confirm('Restore this '+e.entity+' to the version from '+auditFmtWhen(e.when)+'? This saves the change and logs a new history entry.'))return;
+  try{
+    if(e.entity==="Companies"){
+      var c=DB.companies.find(function(x){return String(x.spId)===String(e.recordId);})||DB.companies.find(function(x){return x.name===snap.name;});
+      var f1=companyFields(snap);
+      if(c&&c.spId){await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields",{method:"PATCH",body:JSON.stringify(f1)});Object.assign(c,snap);}
+      else{var r=await graph("/sites/"+SITE+"/lists/Companies/items",{method:"POST",body:JSON.stringify({fields:f1})});var n=Object.assign({custom:[],contacts:[],docs:[],events:[]},snap,{id:r.id,spId:r.id});DB.companies.unshift(n);sel=n.id;}
+    }else if(e.entity==="Contacts"){
+      var parent=DB.companies.find(function(x){return x.name===e.company;});
+      if(!parent){alert("The parent company is not loaded, so this contact cannot be restored.");return;}
+      var f2=contactFields(snap,e.company);
+      var ex=(parent.contacts||[]).find(function(x){return String(x.spId)===String(e.recordId);});
+      if(ex&&ex.spId){await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId+"/fields",{method:"PATCH",body:JSON.stringify(f2)});Object.assign(ex,snap);}
+      else{var r2=await graph("/sites/"+SITE+"/lists/Contacts/items",{method:"POST",body:JSON.stringify({fields:f2})});var nc=Object.assign({},snap,{id:r2.id,spId:r2.id});parent.contacts=parent.contacts||[];parent.contacts.push(nc);}
+    }else{alert("Restore is available for company and contact records. A document can be re-uploaded from the original file.");return;}
+    await auditLog({entity:e.entity,recordId:e.recordId,recordName:e.recordName,company:e.company,action:"Restore",summary:"Restored to the version from "+auditFmtWhen(e.when),snapshot:snap});
+    render();detailView();
+    var cc=DB.companies.find(function(x){return x.name===e.company;});
+    if(cc)openHistory(cc.id);
+    alert("Restored.");
+  }catch(err){alert("Restore failed: "+(err.message||err));}
+}
+</script>
+<script>
 /* ================= CRM Assistant ================= */
 var BOT={open:false,full:false,ctx:null,pending:null,file:null,greeted:false};
 
-/* ---- interpretation layer (async so a Claude proxy can plug in later) ---- */
+/* ---- interpretation layer (Claude proxy seam) ----
+   Set BOT_PROXY_URL to your in-tenant Azure proxy to turn on Claude interpretation.
+   The proxy receives ONLY the user's question plus the system prompt below, never CRM
+   records, so client data stays in the tenant. It must return JSON shaped as either:
+     { "plan":   "<canonical query string>" }  -> fed into the local engine (botParse)
+     { "answer": "<html string>" }             -> shown to the user as-is
+   If BOT_PROXY_URL is empty, or the call fails, we fall back to the local parser and
+   the app behaves exactly as before. */
+var BOT_PROXY_URL="";
+
+var BOT_SYSTEM_PROMPT=`# CRM Assistant, Operating Instructions
+
+## Role
+You are the CRM Assistant for United Services. You retrieve client information, present it in a fixed, decision-ready format, and manage client files under strict human approval. You are precise, structured, and never guess. When you lack certainty, you say so and ask.
+
+## Core Principles
+1. Summary first, always. Every information response opens with a one line summary of what you found before any detail or raw resource.
+2. No silent file actions. You never save, move, or overwrite a file without an explicit human "Approve."
+3. Show your reasoning on placement. When you propose where a file goes, you state why so the human can correct you.
+4. Cite the source. Every fact you present links back to the SharePoint or GitHub location it came from.
+5. If unsure, ask one sharp question. Do not fabricate a status, a folder, or a next action.
+
+## 1. Information Retrieval and Presentation
+When the user asks for anything about a client (status, history, contacts, recent outreach, documents), follow this sequence.
+Step 1. Retrieve. Search the relevant SharePoint site, client folder, and any linked GitHub records. Pull the actual resources.
+Step 2. Lead with a summary. Open every response with a single summary line before anything else.
+Step 3. Deliver in the fixed format below.
+
+### Fixed format for a single client status query
+[Client Name], Status Summary
+The status on [Client Name] is [status].
+Currently processing: [what is in motion right now].
+Next action: [the specific next step, owner, and due date if known].
+Source: [linked SharePoint or GitHub location]
+
+### Fixed format for a multi-client or list query
+When asked to "pull up all clients we've reached out to recently" or any list, open with a count and time window, then a clean table with columns: Client, Status, Currently Processing, Next Action, Source. Sort by most recent activity unless the user specifies otherwise. Close with: "Want me to open any of these in full?"
+
+### Rules for presentation
+- If a field is unknown, write Unknown rather than inventing it, and note what would fill the gap.
+- If multiple clients match an ambiguous name, list the candidates and ask which one before pulling detail.
+- Never dump raw file contents without the summary on top.
+- Keep the summary to what a busy executive needs to decide the next move.
+
+## 2. File Management and Human Supervision
+When the user says "Add this file to [client]" or uploads a file for a client, you never save it directly. You propose, you wait, you act only on approval.
+Step 1. Scan for the right destination. Read the file name and contents, identify the client, and search that client's SharePoint folder structure for the most relevant subfolder (for example: Contracts, Proposals, Correspondence, Financials, Site Docs). Match by document type and existing naming conventions.
+Step 2. Propose with reasoning, then ask for approval. Present File, Client, Destination, and a one line "Why here", then stop and ask the user to reply "Approve" to save or "Edit" to redirect.
+Step 3. Wait for a human decision. Do not save until you receive an explicit "Approve." No approval means no write.
+Step 4. Support Edit and guidance. If the user replies "Edit," names a different folder, or gives any correction, restate the revised proposal in the same format and ask for approval again. Loop until approved or cancelled.
+Step 5. Confirm the completed action. After approval and save, confirm with the final path and a link.
+
+### Rules for file handling
+- Only one write per approval. If the user approves, then adds a second file, run the full propose and approve loop again.
+- Never overwrite an existing file. If a file of the same name exists, flag it and ask whether to replace, version, or rename.
+- If you cannot confidently identify the client or the folder, do not guess. Propose your best option, state your uncertainty, and ask.
+- If the destination sits in GitHub rather than SharePoint, name the repo and path in the same proposal format and hold for approval identically.
+- Every proposal and every confirmation includes the full path so the human always sees exactly where the file lands.
+
+## Hard Guardrails
+1. Summary before detail on every information response. No exceptions.
+2. No file write, move, or overwrite without an explicit human "Approve."
+3. Never invent a status, folder, contact, or next action. Unknown is a valid answer.
+4. Always cite the source location.
+5. When ambiguous, ask one clear question rather than proceeding.`;
+
 async function botInterpret(text){
-  // Future: if a secure proxy URL is configured, ask Claude to return a query plan here.
-  // For now, everything is parsed locally so no CRM data leaves the tenant.
+  // With a proxy configured, Claude reads the question (guided by BOT_SYSTEM_PROMPT) and
+  // returns either a canonical query plan or a ready-to-show answer. Guardrails such as
+  // confirm-before-write stay enforced by the local code regardless of the interpreter.
+  if(BOT_PROXY_URL){
+    try{
+      var r=await fetch(BOT_PROXY_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({system:BOT_SYSTEM_PROMPT,message:text})});
+      if(r.ok){
+        var d=await r.json();
+        if(d&&typeof d.answer==="string"&&d.answer)return {type:"answer",html:d.answer};
+        if(d&&typeof d.plan==="string"&&d.plan)return botParse(d.plan);
+      }
+    }catch(e){ /* fall through to local parsing */ }
+  }
+  // No proxy, or the call failed: parse locally so no CRM data leaves the tenant.
   return botParse(text);
 }
 
@@ -614,7 +879,7 @@ function botParse(text){
     if(/document|nda|msa|insurance|contract|paperwork|signed/.test(q))return {type:"company",company:comp,focus:"documents"};
     if(/event|conference|networking/.test(q))return {type:"company",company:comp,focus:"events"};
     if(/website|linkedin|owner|stage|tier|fit|location|where/.test(q))return {type:"company",company:comp,focus:"overview"};
-    return {type:"company",company:comp,focus:"overview"};
+    return {type:"company",company:comp,focus:"status"};
   }
   // contact name search
   var cmatch=[];
@@ -626,7 +891,11 @@ function botParse(text){
     return q.split(" ").some(function(w){return w.length>2&&hay.indexOf(w)>-1;});
   });
   if(fuzzy.length)return {type:"list",label:"matching \""+text.trim()+"\"",companies:fuzzy,count:false};
-  return {type:"answer",html:"I didn't find anything for \""+esc(text.trim())+"\". Try a company name, a filter like \"Tier A developers in Texas\", or \"who has no NDA\"."};
+  var _nc=botMatchCompanies(text).map(function(x){return x.c;});
+  if(!_nc.length)_nc=botCloseMatches(text).map(function(x){return x.c;});
+  _nc=_nc.slice(0,3);
+  var _nh=_nc.length?(" Closest matches: "+_nc.map(function(x){return botLink(x);}).join(", ")+"."):"";
+  return {type:"answer",html:"Nothing in SharePoint or GitHub matched <strong>"+esc(text.trim())+"</strong>."+_nh+" Try a client name, or a filter like \"qualifying clients\" or \"EPCs in Texas\"."};
 }
 
 /* ---- rendering ---- */
@@ -649,6 +918,81 @@ function botCard(c){
 }
 function botLink(c,label,tab){return '<a onclick="botGo(\''+c.id+'\',\''+(tab||'overview')+'\')">'+esc(label||c.name)+'</a>';}
 
+/* ---- refined presentation + human-in-the-loop upload (BD team spec) ---- */
+var BOT_FOLDER_LEARN={}; /* guessed doc type -> corrected type, learned this session */
+
+function botLastContact(c){
+  var best="",bestT=0;
+  (c.contacts||[]).forEach(function(p){if(p&&p.last){var t=Date.parse(p.last);if(!isNaN(t)&&t>bestT){bestT=t;best=p.last;}}});
+  return best;
+}
+function botCustomVal(c,keys){
+  var cf=c.custom||[];
+  for(var i=0;i<cf.length;i++){var k=(cf[i].k||"").toLowerCase();for(var j=0;j<keys.length;j++){if(k.indexOf(keys[j])>-1&&cf[i].v)return cf[i].v;}}
+  return "";
+}
+function botStatusVal(c){return c.status||botCustomVal(c,["status"])||"";}
+function botNextVal(c){return c.nextAction||c.next||botCustomVal(c,["next action","next step","next"])||"";}
+function botLev(a,b){a=a||"";b=b||"";var m=a.length,n=b.length;if(!m)return n;if(!n)return m;var d=[],i,j;for(i=0;i<=m;i++)d[i]=[i];for(j=0;j<=n;j++)d[0][j]=j;for(i=1;i<=m;i++)for(j=1;j<=n;j++){var c=a.charAt(i-1)===b.charAt(j-1)?0:1;d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+c);}return d[m][n];}
+function botCloseMatches(text){
+  var q=botNorm(text);if(!q)return [];
+  var scored=DB.companies.map(function(c){var n=botNorm(c.name);var sim=1-botLev(q,n)/Math.max(q.length,n.length,1);return {c:c,sim:sim};}).filter(function(x){return x.sim>=0.5;});
+  scored.sort(function(a,b){return b.sim-a.sim;});
+  return scored.slice(0,3);
+}
+
+function botSayStatus(c){
+  var stage=c.stage||"", last=botLastContact(c), status=botStatusVal(c), next=botNextVal(c);
+  var sum=esc(c.name)+" is "+(stage?"in the <strong>"+esc(stage)+"</strong> stage":"<strong>not staged</strong>")+
+          (last?", last contacted "+esc(last):", no contact logged yet")+".";
+  var row=function(label,val,hint){return '<div class="rs" style="margin:3px 0"><strong>'+label+':</strong> '+(val?esc(val):'<span class="note">Not set'+(hint?" ("+hint+")":"")+'</span>')+'</div>';};
+  var card='<div class="rescard" onclick="botGo(\''+c.id+'\',\'overview\')">'+
+    row("Status",status,"add a Status field in SharePoint")+
+    row("Stage",stage,"")+
+    row("Last contact",last,"log a date on a contact")+
+    row("Next action",next,"add a Next action field or note")+'</div>';
+  var links='<div class="reslinks">'+
+    '<a onclick="botGo(\''+c.id+'\',\'overview\')">Client page</a>'+
+    '<a onclick="botGo(\''+c.id+'\',\'documents\')">Documents '+((c.docs||[]).length)+'</a>'+
+    '<a onclick="botGo(\''+c.id+'\',\'contacts\')">Contacts '+((c.contacts||[]).length)+'</a>'+
+    (c.website?'<a href="'+esc(c.website)+'" target="_blank" rel="noopener">Website</a>':'')+'</div>';
+  botSay(sum+'<div class="bot-res">'+card+links+'</div>');
+}
+
+function botListRow(c){
+  var last=botLastContact(c), status=botStatusVal(c)||c.stage||"";
+  return '<div class="rescard" onclick="botGo(\''+c.id+'\',\'overview\')">'+
+    '<div class="rn">'+esc(c.name)+'</div>'+
+    '<div class="rs">'+(status?esc(status):'Unknown')+' &middot; last contact '+(last?esc(last):'none logged')+'</div>'+
+    '</div>';
+}
+
+function botGuessDocType(name){
+  var n=(name||"").toLowerCase();
+  var map=[["nda","NDA"],["msa","MSA"],["coi","Insurance / COI"],["insurance","Insurance / COI"],["subcontract","Subcontract"],["service agreement","Service Agreement"],["permit","Permit"],["w-9","W-9 / Tax"],["w9","W-9 / Tax"],["tax","W-9 / Tax"]];
+  for(var i=0;i<map.length;i++){if(n.indexOf(map[i][0])>-1)return map[i][1];}
+  return "Other";
+}
+function botDocFolder(type){return "CRM Documents library, filed as "+type;}
+
+function botProposeUpload(forceType){
+  var c=DB.companies.find(function(x){return x.id===BOT.ctx;});
+  if(!c||!BOT.file){BOT.pending={kind:"uploadCompany"};botSay("Which client should I file <strong>"+esc(BOT.file?BOT.file.name:"the file")+"</strong> under?");return;}
+  var guess=botGuessDocType(BOT.file.name);
+  var type=forceType||BOT_FOLDER_LEARN[guess]||guess;
+  BOT.upguess=guess;BOT.uptype=type;
+  botSay('I will add <strong>'+esc(BOT.file.name)+'</strong> to <strong>'+esc(botDocFolder(type))+'</strong> for <strong>'+esc(c.name)+'</strong>.'+
+    '<div class="chips"><span class="chip go" onclick="botApproveUpload()">Approve</span>'+
+    '<span class="chip" onclick="botAskDocType()">Edit destination</span>'+
+    '<span class="chip warn" onclick="botCancelUpload()">Cancel</span></div>');
+}
+function botApproveUpload(){botDoUpload(encodeURIComponent(BOT.uptype||"Other"));}
+function botPickType(enc){
+  var t=decodeURIComponent(enc);
+  if(BOT.upguess&&BOT.upguess!==t)BOT_FOLDER_LEARN[BOT.upguess]=t; /* learn the correction */
+  botProposeUpload(t);
+}
+
 function botRender(res){
   if(res.type==="help"){
     botSay('I can search your whole CRM and act on it. Try things like:<div class="bot-res">'+
@@ -667,7 +1011,7 @@ function botRender(res){
     if(res.label)head+=" "+esc(res.label);
     head+=":";
     var show=res.companies.slice(0,12);
-    var body='<div class="bot-res">'+show.map(botCard).join("")+'</div>';
+    var body='<div class="bot-res">'+show.map(botListRow).join("")+'</div>';
     if(n>show.length)body+='<div class="note" style="margin-top:6px">...and '+(n-show.length)+' more. Add a filter to narrow it down.</div>';
     botSay(head+body);
     return;
@@ -675,6 +1019,7 @@ function botRender(res){
   if(res.type==="company"){
     var c=res.company;
     botCtxSet(c.id);
+    if(res.focus==="status"){botSayStatus(c);return;}
     var h="<strong>"+botLink(c)+"</strong> &middot; "+esc(c.rel)+(c.location?" &middot; "+esc(c.location):"")+"<div class='bot-res'>";
     if(res.focus==="contacts"){
       var ppl=(c.contacts||[]);
@@ -727,20 +1072,25 @@ async function botRunAction(a){
   try{
     if(a.kind==="field"){
       var colMap={tier:"Tier",fit:"Fit",stage:"Stage"};
+      var _bf=(typeof companySnap==="function")?companySnap(a.company):null;
       a.company[a.field]=a.value;
       var body={};body[colMap[a.field]]=a.value;
       await graph("/sites/"+SITE+"/lists/Companies/items/"+a.company.spId+"/fields",{method:"PATCH",body:JSON.stringify(body)});
+      if(typeof auditLog==="function")auditLog({entity:"Companies",recordId:a.company.spId,recordName:a.company.name,company:a.company.name,action:"Edit",summary:a.label+' set to "'+a.disp+'"',snapshot:_bf});
       botSay("Done. "+botLink(a.company)+" "+a.label+" is now <strong>"+esc(a.disp)+"</strong>.");
     } else if(a.kind==="docStatus"){
       var d=(a.company.docs||[]).find(function(x){return x.type===a.type;});
       if(!d){botSay("There's no "+esc(a.type)+" on file for "+esc(a.company.name)+" yet, so there's nothing to update. Upload the "+esc(a.type)+" file and it will be recorded. "+botLink(a.company,"Open documents","documents"));return;}
+      var _bds=(typeof docSnap==="function")?docSnap(d):null;
       d.status=a.status;
       await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+d.spId+"/fields",{method:"PATCH",body:JSON.stringify({Status:a.status})});
+      if(typeof auditLog==="function")auditLog({entity:"Documents",recordId:d.spId,recordName:a.type,company:a.company.name,action:"Edit",summary:a.type+' status set to "'+a.status+'"',snapshot:_bds});
       botSay("Done. "+esc(a.type)+" for "+botLink(a.company)+" is now <strong>"+esc(a.status)+"</strong>. "+botLink(a.company,"View","documents"));
     } else if(a.kind==="addContact"){
       var fields={Title:a.name,Company:a.company.name};
       var r=await graph("/sites/"+SITE+"/lists/Contacts/items",{method:"POST",body:JSON.stringify({fields:fields})});
-      a.company.contacts=a.company.contacts||[];a.company.contacts.push({id:r.id,spId:r.id,name:a.name,role:"",email:"",phone:"",linkedin:"",last:"",notes:""});
+      a.company.contacts=a.company.contacts||[];var _ncc={id:r.id,spId:r.id,name:a.name,role:"",email:"",phone:"",linkedin:"",last:"",notes:""};a.company.contacts.push(_ncc);
+      if(typeof auditLog==="function")auditLog({entity:"Contacts",recordId:r.id,recordName:a.name,company:a.company.name,action:"Add",summary:"Added contact via assistant",snapshot:(typeof contactSnap==="function")?contactSnap(_ncc):_ncc});
       botSay("Added <strong>"+esc(a.name)+"</strong> to "+botLink(a.company,a.company.name,"contacts")+". Open the contact to add their role and email.");
     }
     if(sel===a.company.id){render();detailView();} else render();
@@ -755,15 +1105,15 @@ function botDrop(e){e.preventDefault();var f=e.dataTransfer&&e.dataTransfer.file
 function botStartUpload(f){
   BOT.file=f;
   if(!BOT.open)botToggle();
-  if(BOT.ctx){botAskDocType();}
+  if(BOT.ctx){botProposeUpload();}
   else{botSay('Got <strong>'+esc(f.name)+'</strong>. Which client should I file it under? Type the company name.');BOT.pending={kind:"uploadCompany"};}
 }
 function botAskDocType(){
   var c=DB.companies.find(function(x){return x.id===BOT.ctx;});
   if(!c){BOT.pending={kind:"uploadCompany"};botSay("Which client should I file <strong>"+esc(BOT.file?BOT.file.name:"the file")+"</strong> under?");return;}
-  var types=["NDA","MSA","Insurance / COI","Subcontract","Other"];
-  botSay('Filing <strong>'+esc(BOT.file.name)+'</strong> under <strong>'+esc(c.name)+'</strong>. What type of document is it?'+
-    '<div class="chips">'+types.map(function(t){return '<span class="chip go" onclick="botDoUpload(\''+encodeURIComponent(t)+'\')">'+t+'</span>';}).join("")+
+  var types=["NDA","MSA","Insurance / COI","Subcontract","Service Agreement","Permit","W-9 / Tax","Other"];
+  botSay('Where should <strong>'+esc(BOT.file.name)+'</strong> go for <strong>'+esc(c.name)+'</strong>? Pick the destination and I will re-confirm before saving.'+
+    '<div class="chips">'+types.map(function(t){return '<span class="chip go" onclick="botPickType(\''+encodeURIComponent(t)+'\')">'+t+'</span>';}).join("")+
     '<span class="chip warn" onclick="botCancelUpload()">Cancel</span></div>');
 }
 function botCancelUpload(){BOT.file=null;BOT.pending=null;botSay("Cancelled the upload.");}
@@ -781,7 +1131,8 @@ async function botDoUpload(typeEnc){
     var drv=await up.json();if(drv.error)throw new Error(drv.error.message);
     var li=await graph("/sites/"+SITE+"/drives/"+drv.parentReference.driveId+"/items/"+drv.id+"/listItem?$select=id");
     await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+li.id+"/fields",{method:"PATCH",body:JSON.stringify({DocType:type,Status:"Pending",Company:c.name})});
-    c.docs=c.docs||[];c.docs.push({spId:li.id,id:li.id,type:type,status:"Pending",date:"",link:drv.webUrl});
+    c.docs=c.docs||[];var _ud={spId:li.id,id:li.id,type:type,status:"Pending",date:"",link:drv.webUrl};c.docs.push(_ud);
+    if(typeof auditLog==="function")auditLog({entity:"Documents",recordId:li.id,recordName:type,company:c.name,action:"Upload",summary:"Uploaded "+type+" via assistant",snapshot:(typeof docSnap==="function")?docSnap(_ud):_ud});
     BOT.file=null;
     if(sel===c.id)detailView();
     botSay('Done. <strong>'+esc(type)+'</strong> is filed under '+botLink(c,c.name,"documents")+' as Pending. <a href="'+esc(drv.webUrl)+'" target="_blank" rel="noopener">Open the file</a>.');
@@ -811,10 +1162,11 @@ async function botSend(){
   var text=(el.value||"").trim();
   if(!text)return;
   el.value="";el.style.height="auto";
+  var _m=document.getElementById("botMsgs");if(_m)_m.innerHTML=""; /* refresh: one clean answer per question */
   botSay(esc(text),"me");
   if(BOT.pending&&BOT.pending.kind==="uploadCompany"){
     var c=botMatchOneCompany(text);
-    if(c){BOT.ctx=c.id;BOT.pending=null;botAskDocType();}
+    if(c){BOT.ctx=c.id;BOT.pending=null;botProposeUpload();}
     else botSay("I couldn't find a client called \""+esc(text)+"\". Try the exact name.");
     return;
   }
