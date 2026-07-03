@@ -202,7 +202,7 @@
 
 <script>
 const REL=["Developer","EPC","Developer / EPC","Electrical Contractor","Owner / IPP","Investor","Vendor / Supplier","Subcontractor","Government / Permitting","Community / NGO","Other"];
-const STAGES=["Prospecting","Qualifying","Active","Contract","Dormant","Closed"];
+const STAGES=["Prospecting","Qualifying","NDA Signed","Active","Contract","Dormant","Closed"];
 const TIERS=["Tier A","Tier B","Tier C","Prospect",""];
 const FITS=["Strategic","High","Medium",""];
 const DOCT=["NDA","MSA","Subcontract","Service Agreement","Insurance / COI","W-9 / Tax","Permit","Other"];
@@ -290,6 +290,7 @@ function tabView(c){
         <div class="f"><label>United Services fit</label><div class="v">${esc(c.fit)||"&#8212;"}</div></div>
         <div class="f"><label>Company type</label><div class="v">${esc(c.industry)||"&#8212;"}</div></div>
         <div class="f"><label>Location</label><div class="v">${esc(c.location)||"&#8212;"}</div></div>
+        <div class="f"><label>Address</label><div class="v">${esc(c.address)||"&#8212;"}</div></div>
         <div class="f"><label>Website</label><div class="v">${lk(c.website)}</div></div>
         <div class="f"><label>LinkedIn</label><div class="v">${lk(c.linkedin)}</div></div>
         <div class="f"><label>Owner</label><div class="v">${esc(c.owner)||"&#8212;"}</div></div>
@@ -360,7 +361,7 @@ function addCustom(){const c=company();const k=ck.value.trim(),v=cv.value.trim()
 function delCustom(i){const c=company();c.custom.splice(i,1);save();detailView()}
 function selo(arr,v){return arr.map(o=>`<option ${o===v?"selected":""}>${o||"&#8212;"}</option>`).join("")}
 function openCompany(cid){
-  const c=cid?company():{name:"",rel:"Other",stage:"Prospecting",tier:"",fit:"",industry:"",website:"",linkedin:"",location:"",owner:"Geronimo LeBaron",notes:""};
+  const c=cid?company():{name:"",rel:"Other",stage:"Prospecting",tier:"",fit:"",industry:"",website:"",linkedin:"",location:"",address:"",owner:"Geronimo LeBaron",notes:""};
   m1in.innerHTML=`<h3>${cid?"Edit company":"New company"}</h3>
     <div class="f"><label style="font-size:11px;color:var(--mut)">Company name *</label><input id="x_name" value="${esc(c.name)}"/></div>
     <div class="g2">
@@ -370,6 +371,7 @@ function openCompany(cid){
       <div class="f"><label style="font-size:11px;color:var(--mut)">Fit</label><select id="x_fit">${selo(FITS,c.fit)}</select></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Company type</label><input id="x_industry" value="${esc(c.industry)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Location</label><input id="x_location" value="${esc(c.location)}"/></div>
+      <div class="f"><label style="font-size:11px;color:var(--mut)">Address</label><input id="x_address" value="${esc(c.address)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Website</label><input id="x_website" value="${esc(c.website)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">LinkedIn</label><input id="x_linkedin" value="${esc(c.linkedin)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Owner</label><input id="x_owner" value="${esc(c.owner)}"/></div>
@@ -380,10 +382,10 @@ function openCompany(cid){
 }
 function fix(v){return v==="—"?"":v}
 async function saveCompany(cid){const g=i=>document.getElementById(i).value;const name=g("x_name").trim();if(!name){alert("Name required");return}
-  const d={name,rel:g("x_rel"),stage:g("x_stage"),tier:fix(g("x_tier")),fit:fix(g("x_fit")),industry:g("x_industry"),website:g("x_website"),linkedin:g("x_linkedin"),location:g("x_location"),owner:g("x_owner")||"",notes:g("x_notes")};
-  const fields={Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Owner:d.owner,Notes:d.notes};
+  const d={name,rel:g("x_rel"),stage:g("x_stage"),tier:fix(g("x_tier")),fit:fix(g("x_fit")),industry:g("x_industry"),website:g("x_website"),linkedin:g("x_linkedin"),location:g("x_location"),address:g("x_address"),owner:g("x_owner")||"",notes:g("x_notes")};
+  const fields={Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Address:d.address,Owner:d.owner,Notes:d.notes};
   close1();
-  try{if(cid){const c=company();const _b=companySnap(c);Object.assign(c,d);await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields",{method:"PATCH",body:JSON.stringify(fields)});auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Edit",summary:auditDiff(_b,d,["name","rel","stage","tier","fit","industry","website","linkedin","location","owner","notes"]),snapshot:_b});}
+  try{if(cid){const c=company();const _b=companySnap(c);Object.assign(c,d);await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields",{method:"PATCH",body:JSON.stringify(fields)});auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Edit",summary:auditDiff(_b,d,["name","rel","stage","tier","fit","industry","website","linkedin","location","address","owner","notes"]),snapshot:_b});}
     else{const r=await graph("/sites/"+SITE+"/lists/Companies/items",{method:"POST",body:JSON.stringify({fields})});const n=Object.assign({id:r.id,spId:r.id,custom:[],contacts:[],docs:[],events:[]},d);DB.companies.unshift(n);sel=n.id;auditLog({entity:"Companies",recordId:n.spId,recordName:n.name,company:n.name,action:"Add",summary:"Created company",snapshot:companySnap(n)});}
   }catch(e){alert("Save failed: "+(e.message||e));}
   render();detailView()}
@@ -481,7 +483,7 @@ function saveLegal(){
   detailView();
 }
 
-function mapC(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",rel:f.RelationshipType||"Other",stage:f.Stage||"Prospecting",tier:f.Tier||"",fit:f.Fit||"",industry:f.CompanyType||"",website:f.Website||"",linkedin:f.LinkedIn||"",location:f.Location||"",owner:f.Owner||"",notes:f.Notes||"",dept:f.Department||"Business Development",legal:{},custom:[{k:"US Registration",v:f.USRegistration||""},{k:"Phone",v:f.Phone||""},{k:"General email",v:f.GeneralEmail||""}].filter(x=>x.v),contacts:[],docs:[],events:[]};}
+function mapC(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",rel:f.RelationshipType||"Other",stage:f.Stage||"Prospecting",tier:f.Tier||"",fit:f.Fit||"",industry:f.CompanyType||"",website:f.Website||"",linkedin:f.LinkedIn||"",location:f.Location||"",address:f.Address||"",owner:f.Owner||"",notes:f.Notes||"",dept:f.Department||"Business Development",legal:{},custom:[{k:"US Registration",v:f.USRegistration||""},{k:"Phone",v:f.Phone||""},{k:"General email",v:f.GeneralEmail||""}].filter(x=>x.v),contacts:[],docs:[],events:[]};}
 function mapK(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",role:f.Role||"",email:f.Email||"",phone:f.Phone||"",linkedin:f.LinkedIn||"",last:(f.LastContact||"").slice(0,10),notes:f.Notes||"",_company:f.Company||""};}
 function mapD(it){const f=it.fields||{};return{spId:it.id,id:it.id,type:f.DocType||"Other",status:f.Status||"None",date:(f.DocDate||"").slice(0,10),link:(it.driveItem&&it.driveItem.webUrl)||"",_company:f.Company||""};}
 async function pageAll(url){let out=[];while(url){const j=await graph(url);out=out.concat(j.value||[]);url=j["@odata.nextLink"]?j["@odata.nextLink"].replace("https://graph.microsoft.com/v1.0",""):null;}return out;}
@@ -508,10 +510,10 @@ var AUDIT_LIST_NAME="CRM Change Log";
 var AUDIT_STASH={};
 
 function auditStash(e){var k="h"+Date.now()+Math.floor(Math.random()*1e4);AUDIT_STASH[k]=e;return k;}
-function companySnap(c){return {name:c.name,rel:c.rel,stage:c.stage,tier:c.tier,fit:c.fit,industry:c.industry,website:c.website,linkedin:c.linkedin,location:c.location,owner:c.owner,notes:c.notes,dept:c.dept,legal:c.legal?JSON.parse(JSON.stringify(c.legal)):{}};}
+function companySnap(c){return {name:c.name,rel:c.rel,stage:c.stage,tier:c.tier,fit:c.fit,industry:c.industry,website:c.website,linkedin:c.linkedin,location:c.location,address:c.address,owner:c.owner,notes:c.notes,dept:c.dept,legal:c.legal?JSON.parse(JSON.stringify(c.legal)):{}};}
 function contactSnap(p){return {name:p.name,role:p.role,email:p.email,phone:p.phone,linkedin:p.linkedin,last:p.last,notes:p.notes};}
 function docSnap(d){return {type:d.type,status:d.status,date:d.date,link:d.link};}
-function companyFields(d){return {Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Owner:d.owner,Notes:d.notes};}
+function companyFields(d){return {Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Address:d.address,Owner:d.owner,Notes:d.notes};}
 function contactFields(rec,company){var f={Title:rec.name,Company:company,Role:rec.role,Email:rec.email,Phone:rec.phone,LinkedIn:rec.linkedin,Notes:rec.notes};if(rec.last)f.LastContact=rec.last+"T00:00:00Z";return f;}
 function auditDiff(before,after,keys){var out=[];keys.forEach(function(k){var a=before?before[k]:"",b=after?after[k]:"";if(String(a==null?"":a)!==String(b==null?"":b))out.push(k+': "'+(a==null?"":a)+'" to "'+(b==null?"":b)+'"');});return out.length?out.join("; "):"No field values changed";}
 function auditFmtWhen(w){if(!w)return "";var d=new Date(w);return isNaN(d.getTime())?String(w):d.toLocaleString();}
@@ -708,7 +710,7 @@ async function botInterpret(text){
 
 var B_TIER={"a":"Tier A","tier a":"Tier A","b":"Tier B","tier b":"Tier B","c":"Tier C","tier c":"Tier C","prospect":"Prospect"};
 var B_FIT={"strategic":"Strategic","high":"High","medium":"Medium"};
-var B_STAGE={"prospecting":"Prospecting","qualifying":"Qualifying","active":"Active","contract":"Contract","dormant":"Dormant","closed":"Closed"};
+var B_STAGE={"prospecting":"Prospecting","qualifying":"Qualifying","nda signed":"NDA Signed","nda":"NDA Signed","active":"Active","contract":"Contract","dormant":"Dormant","closed":"Closed"};
 var B_REL=[["developer / epc","Developer / EPC"],["developer","Developer"],["epc","EPC"],["electrical","Electrical Contractor"],["owner","Owner / IPP"],["ipp","Owner / IPP"],["investor","Investor"],["vendor","Vendor / Supplier"],["supplier","Vendor / Supplier"],["subcontractor","Subcontractor"],["government","Government / Permitting"],["permitting","Government / Permitting"],["community","Community / NGO"],["ngo","Community / NGO"]];
 var B_STATES=["alabama","alaska","arizona","arkansas","california","colorado","connecticut","delaware","florida","georgia","hawaii","idaho","illinois","indiana","iowa","kansas","kentucky","louisiana","maine","maryland","massachusetts","michigan","minnesota","mississippi","missouri","montana","nebraska","nevada","new hampshire","new jersey","new mexico","new york","north carolina","north dakota","ohio","oklahoma","oregon","pennsylvania","rhode island","south carolina","south dakota","tennessee","texas","utah","vermont","virginia","washington","west virginia","wisconsin","wyoming"];
 var B_DOCT=[["nda","NDA"],["msa","MSA"],["insurance","Insurance / COI"],["coi","Insurance / COI"],["subcontract","Subcontract"],["service agreement","Service Agreement"],["permit","Permit"],["w-9","W-9 / Tax"],["w9","W-9 / Tax"],["tax","W-9 / Tax"]];
