@@ -381,13 +381,27 @@ function openCompany(cid){
   m1.classList.add("open");
 }
 function fix(v){return v==="—"?"":v}
+var OPTIONAL_COLS=["Address"];
+async function putFields(path,method,fields){
+  var enc=function(f){return JSON.stringify(method==="POST"?{fields:f}:f);};
+  try{return await graph(path,{method:method,body:enc(fields)});}
+  catch(e){
+    var has=OPTIONAL_COLS.filter(function(k){return k in fields;});
+    if(!has.length)throw e;
+    var f2={};Object.keys(fields).forEach(function(k){if(OPTIONAL_COLS.indexOf(k)<0)f2[k]=fields[k];});
+    try{var r=await graph(path,{method:method,body:enc(f2)});r.__droppedCols=has;return r;}
+    catch(e2){throw e;}
+  }
+}
 async function saveCompany(cid){const g=i=>document.getElementById(i).value;const name=g("x_name").trim();if(!name){alert("Name required");return}
   const d={name,rel:g("x_rel"),stage:g("x_stage"),tier:fix(g("x_tier")),fit:fix(g("x_fit")),industry:g("x_industry"),website:g("x_website"),linkedin:g("x_linkedin"),location:g("x_location"),address:g("x_address"),owner:g("x_owner")||"",notes:g("x_notes")};
   const fields={Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Address:d.address,Owner:d.owner,Notes:d.notes};
   close1();
-  try{if(cid){const c=company();const _b=companySnap(c);Object.assign(c,d);await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields",{method:"PATCH",body:JSON.stringify(fields)});auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Edit",summary:auditDiff(_b,d,["name","rel","stage","tier","fit","industry","website","linkedin","location","address","owner","notes"]),snapshot:_b});}
-    else{const r=await graph("/sites/"+SITE+"/lists/Companies/items",{method:"POST",body:JSON.stringify({fields})});const n=Object.assign({id:r.id,spId:r.id,custom:[],contacts:[],docs:[],events:[]},d);DB.companies.unshift(n);sel=n.id;auditLog({entity:"Companies",recordId:n.spId,recordName:n.name,company:n.name,action:"Add",summary:"Created company",snapshot:companySnap(n)});}
+  var _dropped=null;
+  try{if(cid){const c=company();const _b=companySnap(c);Object.assign(c,d);var _wr=await putFields("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields","PATCH",fields);_dropped=_wr&&_wr.__droppedCols;auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Edit",summary:auditDiff(_b,d,["name","rel","stage","tier","fit","industry","website","linkedin","location","address","owner","notes"]),snapshot:_b});}
+    else{const r=await putFields("/sites/"+SITE+"/lists/Companies/items","POST",fields);_dropped=r&&r.__droppedCols;const n=Object.assign({id:r.id,spId:r.id,custom:[],contacts:[],docs:[],events:[]},d);DB.companies.unshift(n);sel=n.id;auditLog({entity:"Companies",recordId:n.spId,recordName:n.name,company:n.name,action:"Add",summary:"Created company",snapshot:companySnap(n)});}
   }catch(e){alert("Save failed: "+(e.message||e));}
+  if(_dropped&&_dropped.length)alert("Saved — but there is no SharePoint column yet for: "+_dropped.join(", ")+", so that value wasn't stored. Ask an admin to add the column.");
   render();detailView()}
 async function delCompany(cid){if(!confirm("Delete this company?"))return;const c=DB.companies.find(x=>x.id===cid);const _snap=companySnap(c);try{await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Delete",summary:"Deleted company",snapshot:_snap});DB.companies=DB.companies.filter(x=>x.id!==cid);if(sel===cid)sel=null;render();detailView()}
 function openSub(kind,sid){const c=company();let rec,title,fields;
