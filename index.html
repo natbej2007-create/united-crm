@@ -156,13 +156,19 @@
   <div class="top">
     <div class="brand">UNITED <span>SERVICES</span></div>
     <div class="topsearch"><span style="color:#b9c0e6">&#9906;</span><input id="search" placeholder="Search companies, contacts..." oninput="render()"/></div>
-    <div class="avatar">GL</div>
+    <button class="btn ghost" id="fuBtn" style="margin-left:auto" onclick="toggleFollowUps()">Follow-ups</button>
+    <div class="avatar" style="margin-left:12px">GL</div>
   </div>
   <div class="body">
     <aside class="queue">
       <div class="qhead">
         <h2>Companies <span class="cnt" id="cnt"></span></h2>
         <button class="btn primary" onclick="openCompany()">+ New</button>
+      </div>
+      <div style="display:flex;gap:6px;padding:8px 13px 0">
+        <span id="grp-all" onclick="setGrp('all')" style="cursor:pointer;font-size:12px;padding:4px 11px;border-radius:7px;background:var(--navy);color:#fff;font-weight:500">All</span>
+        <span id="grp-prospects" onclick="setGrp('prospects')" style="cursor:pointer;font-size:12px;padding:4px 11px;border-radius:7px;border:1px solid var(--line);color:var(--mut)">Prospects</span>
+        <span id="grp-existing" onclick="setGrp('existing')" style="cursor:pointer;font-size:12px;padding:4px 11px;border-radius:7px;border:1px solid var(--line);color:var(--mut)">Existing</span>
       </div>
       <div class="qfilters">
         <select id="fRel" onchange="render()"></select>
@@ -224,7 +230,8 @@ function deep(o){return JSON.parse(JSON.stringify(o))}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){}}
 function load(){try{const s=localStorage.getItem(KEY);return s?JSON.parse(s):null}catch(e){return null}}
 function id(){return Math.random().toString(36).slice(2,10)}
-let sel=null,tab="overview";
+let sel=null,tab="overview",grp="all",view="crm";
+const EXISTING_STAGES=["NDA Signed","Active","Contract"];
 function esc(s){return(s||"").replace(/[&<>\"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]))}
 function sc(s){return"s-"+(s||"none").toLowerCase().replace(/[^a-z]/g,"")}
 function lk(u){if(!u)return"&#8212;";const h=u.startsWith("http")?u:"https://"+u;return '<a href="'+esc(h)+'" target="_blank" rel="noopener">'+esc(u)+'</a>'}
@@ -238,9 +245,9 @@ function render(){
   const r=fRel.value,t=fTier.value,f=fFit.value,s=fStage.value;
   const m=DB.companies.filter(c=>{
     const hay=(c.name+" "+c.industry+" "+c.location+" "+(c.contacts||[]).map(x=>x.name+x.role).join(" ")).toLowerCase();
-    return(!q||hay.includes(q))&&(!r||c.rel===r)&&(!t||c.tier===t)&&(!f||c.fit===f)&&(!s||c.stage===s);
+    return(!q||hay.includes(q))&&(!r||c.rel===r)&&(!t||c.tier===t)&&(!f||c.fit===f)&&(!s||c.stage===s)&&(grp==="all"||(grp==="existing"?EXISTING_STAGES.indexOf(c.stage)>-1:EXISTING_STAGES.indexOf(c.stage)<0));
   });
-  cnt.textContent=m.length+" of "+DB.companies.length;
+  cnt.textContent=m.length+" of "+DB.companies.length;updateGrpChips();
   qlist.innerHTML=m.length?m.map(c=>`
     <div class="crow ${c.id===sel?'active':''}" onclick="pick('${c.id}')">
       <div class="nm">${esc(c.name)}</div>
@@ -248,9 +255,19 @@ function render(){
       <div class="pills"><span class="pill ${deptOf(c)==='Legal'?'p-dept-legal':'p-dept-bd'}">${deptOf(c)==='Legal'?'Legal':'BD'}</span>${c.tier?`<span class="pill p-tier">${esc(c.tier)}</span>`:""}${c.fit?`<span class="pill fit-${esc(c.fit)}">${esc(c.fit)}</span>`:""}</div>
     </div>`).join(""):`<div class="note" style="padding:16px">No matches.</div>`;
 }
-function pick(cid){sel=cid;tab="overview";render();detailView()}
+function pick(cid){sel=cid;tab="overview";view="crm";render();detailView()}
 function company(){return DB.companies.find(x=>x.id===sel)}
+function fmtD(s){if(!s)return "";var d=new Date(s+"T00:00:00");return isNaN(d.getTime())?s:d.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"});}
+function fuToday0(){var t=new Date();t.setHours(0,0,0,0);return t;}
+function fuDays(s){var d=new Date(s+"T00:00:00");return Math.round((d.getTime()-fuToday0().getTime())/86400000);}
+function fuOverdue(s){return !!s&&fuDays(s)<0;}
+function setGrp(g){grp=g;render();}
+function updateGrpChips(){["all","prospects","existing"].forEach(function(g){var el=document.getElementById("grp-"+g);if(!el)return;var on=grp===g;el.style.background=on?"var(--navy)":"transparent";el.style.color=on?"#fff":"var(--mut)";el.style.border=on?"1px solid var(--navy)":"1px solid var(--line)";el.style.fontWeight=on?"500":"400";});var fb=document.getElementById("fuBtn");if(fb)fb.textContent=view==="followups"?"← Companies":"Follow-ups";}
+function toggleFollowUps(){view=view==="followups"?"crm":"followups";render();detailView();}
+function fuRow(c){var n=fuDays(c.nextFollowUp);var col=n<0?"var(--red)":(n<=7?"var(--amber)":"var(--mut)");var lbl=n<0?fmtD(c.nextFollowUp)+" · overdue "+(-n)+"d":(n===0?"Today":(n===1?"Tomorrow":fmtD(c.nextFollowUp)));return '<div class="crow" onclick="pick(\''+c.id+'\')" style="border-left:3px solid '+col+'"><div style="display:flex;align-items:center;gap:10px"><span class="nm">'+esc(c.name)+'</span><span style="font-size:11px;color:var(--mut)">'+esc(c.rel)+'</span><span style="margin-left:auto;font-size:11px;color:'+col+';font-weight:500">'+esc(lbl)+'</span></div></div>';}
+function renderFollowUps(){var withd=DB.companies.filter(function(c){return c.nextFollowUp;}).sort(function(a,b){return a.nextFollowUp<b.nextFollowUp?-1:(a.nextFollowUp>b.nextFollowUp?1:0);});var over=withd.filter(function(c){return fuDays(c.nextFollowUp)<0;});var week=withd.filter(function(c){var n=fuDays(c.nextFollowUp);return n>=0&&n<=7;});var soon=withd.filter(function(c){return fuDays(c.nextFollowUp)>7;});function sec(title,color,arr){return arr.length?'<div style="font-size:11px;font-weight:500;color:'+color+';padding:10px 16px 4px">'+title+'</div>'+arr.map(fuRow).join(""):"";}var body=withd.length?(sec("Overdue","var(--red)",over)+sec("This week","var(--amber)",week)+sec("Upcoming","var(--green)",soon)):'<div class="empty">No follow-ups scheduled yet. Add a next follow-up date on a company.</div>';detail.innerHTML='<div class="dhead"><div style="font-size:18px;font-weight:500;color:var(--navy)">Follow-ups</div><div style="font-size:12px;color:var(--mut)">'+withd.length+' scheduled</div></div>'+body;}
 function detailView(){
+  if(view==="followups"){renderFollowUps();return;}
   const c=company();
   if(!c){detail.innerHTML=`<div class="empty">Select a company from the list.</div>`;return}
   const tabs=[["overview","Overview",null],["contacts","Contacts",(c.contacts||[]).length],["documents","Documents",(c.docs||[]).length],["events","Events",(c.events||[]).length],["legal","Legal",legalCount(c)],["more","More",(c.custom||[]).length]];
@@ -291,6 +308,8 @@ function tabView(c){
         <div class="f"><label>Company type</label><div class="v">${esc(c.industry)||"&#8212;"}</div></div>
         <div class="f"><label>Location</label><div class="v">${esc(c.location)||"&#8212;"}</div></div>
         <div class="f"><label>Address</label><div class="v">${esc(c.address)||"&#8212;"}</div></div>
+        <div class="f"><label>Last contacted</label><div class="v">${c.lastOutreach?esc(fmtD(c.lastOutreach)):"&#8212;"}</div></div>
+        <div class="f"><label>Next follow-up</label><div class="v">${c.nextFollowUp?esc(fmtD(c.nextFollowUp))+(fuOverdue(c.nextFollowUp)?' <span style="color:var(--red);font-weight:500">(overdue)</span>':''):"&#8212;"}</div></div>
         <div class="f"><label>Website</label><div class="v">${lk(c.website)}</div></div>
         <div class="f"><label>LinkedIn</label><div class="v">${lk(c.linkedin)}</div></div>
         <div class="f"><label>Owner</label><div class="v">${esc(c.owner)||"&#8212;"}</div></div>
@@ -361,7 +380,7 @@ function addCustom(){const c=company();const k=ck.value.trim(),v=cv.value.trim()
 function delCustom(i){const c=company();c.custom.splice(i,1);save();detailView()}
 function selo(arr,v){return arr.map(o=>`<option ${o===v?"selected":""}>${o||"&#8212;"}</option>`).join("")}
 function openCompany(cid){
-  const c=cid?company():{name:"",rel:"Other",stage:"Prospecting",tier:"",fit:"",industry:"",website:"",linkedin:"",location:"",address:"",owner:"Geronimo LeBaron",notes:""};
+  const c=cid?company():{name:"",rel:"Other",stage:"Prospecting",tier:"",fit:"",industry:"",website:"",linkedin:"",location:"",address:"",lastOutreach:"",nextFollowUp:"",owner:"Geronimo LeBaron",notes:""};
   m1in.innerHTML=`<h3>${cid?"Edit company":"New company"}</h3>
     <div class="f"><label style="font-size:11px;color:var(--mut)">Company name *</label><input id="x_name" value="${esc(c.name)}"/></div>
     <div class="g2">
@@ -374,6 +393,8 @@ function openCompany(cid){
       <div class="f"><label style="font-size:11px;color:var(--mut)">Address</label><input id="x_address" value="${esc(c.address)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Website</label><input id="x_website" value="${esc(c.website)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">LinkedIn</label><input id="x_linkedin" value="${esc(c.linkedin)}"/></div>
+      <div class="f"><label style="font-size:11px;color:var(--mut)">Last contacted</label><input type="date" id="x_lastout" value="${esc(c.lastOutreach)}"/></div>
+      <div class="f"><label style="font-size:11px;color:var(--mut)">Next follow-up</label><input type="date" id="x_nextfu" value="${esc(c.nextFollowUp)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Owner</label><input id="x_owner" value="${esc(c.owner)}"/></div>
     </div>
     <div class="f"><label style="font-size:11px;color:var(--mut)">Notes</label><textarea id="x_notes">${esc(c.notes)}</textarea></div>
@@ -381,7 +402,7 @@ function openCompany(cid){
   m1.classList.add("open");
 }
 function fix(v){return v==="—"?"":v}
-var OPTIONAL_COLS=["Address"];
+var OPTIONAL_COLS=["Address","LastOutreach","NextFollowUp"];
 async function putFields(path,method,fields){
   var enc=function(f){return JSON.stringify(method==="POST"?{fields:f}:f);};
   try{return await graph(path,{method:method,body:enc(fields)});}
@@ -394,11 +415,11 @@ async function putFields(path,method,fields){
   }
 }
 async function saveCompany(cid){const g=i=>document.getElementById(i).value;const name=g("x_name").trim();if(!name){alert("Name required");return}
-  const d={name,rel:g("x_rel"),stage:g("x_stage"),tier:fix(g("x_tier")),fit:fix(g("x_fit")),industry:g("x_industry"),website:g("x_website"),linkedin:g("x_linkedin"),location:g("x_location"),address:g("x_address"),owner:g("x_owner")||"",notes:g("x_notes")};
-  const fields={Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Address:d.address,Owner:d.owner,Notes:d.notes};
+  const d={name,rel:g("x_rel"),stage:g("x_stage"),tier:fix(g("x_tier")),fit:fix(g("x_fit")),industry:g("x_industry"),website:g("x_website"),linkedin:g("x_linkedin"),location:g("x_location"),address:g("x_address"),lastOutreach:g("x_lastout"),nextFollowUp:g("x_nextfu"),owner:g("x_owner")||"",notes:g("x_notes")};
+  const fields={Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Address:d.address,LastOutreach:d.lastOutreach?d.lastOutreach+"T00:00:00Z":null,NextFollowUp:d.nextFollowUp?d.nextFollowUp+"T00:00:00Z":null,Owner:d.owner,Notes:d.notes};
   close1();
   var _dropped=null;
-  try{if(cid){const c=company();const _b=companySnap(c);Object.assign(c,d);var _wr=await putFields("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields","PATCH",fields);_dropped=_wr&&_wr.__droppedCols;auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Edit",summary:auditDiff(_b,d,["name","rel","stage","tier","fit","industry","website","linkedin","location","address","owner","notes"]),snapshot:_b});}
+  try{if(cid){const c=company();const _b=companySnap(c);Object.assign(c,d);var _wr=await putFields("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields","PATCH",fields);_dropped=_wr&&_wr.__droppedCols;auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Edit",summary:auditDiff(_b,d,["name","rel","stage","tier","fit","industry","website","linkedin","location","address","lastOutreach","nextFollowUp","owner","notes"]),snapshot:_b});}
     else{const r=await putFields("/sites/"+SITE+"/lists/Companies/items","POST",fields);_dropped=r&&r.__droppedCols;const n=Object.assign({id:r.id,spId:r.id,custom:[],contacts:[],docs:[],events:[]},d);DB.companies.unshift(n);sel=n.id;auditLog({entity:"Companies",recordId:n.spId,recordName:n.name,company:n.name,action:"Add",summary:"Created company",snapshot:companySnap(n)});}
   }catch(e){alert("Save failed: "+(e.message||e));}
   if(_dropped&&_dropped.length)alert("Saved — but there is no SharePoint column yet for: "+_dropped.join(", ")+", so that value wasn't stored. Ask an admin to add the column.");
@@ -497,7 +518,7 @@ function saveLegal(){
   detailView();
 }
 
-function mapC(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",rel:f.RelationshipType||"Other",stage:f.Stage||"Prospecting",tier:f.Tier||"",fit:f.Fit||"",industry:f.CompanyType||"",website:f.Website||"",linkedin:f.LinkedIn||"",location:f.Location||"",address:f.Address||"",owner:f.Owner||"",notes:f.Notes||"",dept:f.Department||"Business Development",legal:{},custom:[{k:"US Registration",v:f.USRegistration||""},{k:"Phone",v:f.Phone||""},{k:"General email",v:f.GeneralEmail||""}].filter(x=>x.v),contacts:[],docs:[],events:[]};}
+function mapC(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",rel:f.RelationshipType||"Other",stage:f.Stage||"Prospecting",tier:f.Tier||"",fit:f.Fit||"",industry:f.CompanyType||"",website:f.Website||"",linkedin:f.LinkedIn||"",location:f.Location||"",address:f.Address||"",lastOutreach:(f.LastOutreach||"").slice(0,10),nextFollowUp:(f.NextFollowUp||"").slice(0,10),owner:f.Owner||"",notes:f.Notes||"",dept:f.Department||"Business Development",legal:{},custom:[{k:"US Registration",v:f.USRegistration||""},{k:"Phone",v:f.Phone||""},{k:"General email",v:f.GeneralEmail||""}].filter(x=>x.v),contacts:[],docs:[],events:[]};}
 function mapK(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",role:f.Role||"",email:f.Email||"",phone:f.Phone||"",linkedin:f.LinkedIn||"",last:(f.LastContact||"").slice(0,10),notes:f.Notes||"",_company:f.Company||""};}
 function mapD(it){const f=it.fields||{};return{spId:it.id,id:it.id,type:f.DocType||"Other",status:f.Status||"None",date:(f.DocDate||"").slice(0,10),link:(it.driveItem&&it.driveItem.webUrl)||"",_company:f.Company||""};}
 async function pageAll(url){let out=[];while(url){const j=await graph(url);out=out.concat(j.value||[]);url=j["@odata.nextLink"]?j["@odata.nextLink"].replace("https://graph.microsoft.com/v1.0",""):null;}return out;}
@@ -524,10 +545,10 @@ var AUDIT_LIST_NAME="CRM Change Log";
 var AUDIT_STASH={};
 
 function auditStash(e){var k="h"+Date.now()+Math.floor(Math.random()*1e4);AUDIT_STASH[k]=e;return k;}
-function companySnap(c){return {name:c.name,rel:c.rel,stage:c.stage,tier:c.tier,fit:c.fit,industry:c.industry,website:c.website,linkedin:c.linkedin,location:c.location,address:c.address,owner:c.owner,notes:c.notes,dept:c.dept,legal:c.legal?JSON.parse(JSON.stringify(c.legal)):{}};}
+function companySnap(c){return {name:c.name,rel:c.rel,stage:c.stage,tier:c.tier,fit:c.fit,industry:c.industry,website:c.website,linkedin:c.linkedin,location:c.location,address:c.address,lastOutreach:c.lastOutreach,nextFollowUp:c.nextFollowUp,owner:c.owner,notes:c.notes,dept:c.dept,legal:c.legal?JSON.parse(JSON.stringify(c.legal)):{}};}
 function contactSnap(p){return {name:p.name,role:p.role,email:p.email,phone:p.phone,linkedin:p.linkedin,last:p.last,notes:p.notes};}
 function docSnap(d){return {type:d.type,status:d.status,date:d.date,link:d.link};}
-function companyFields(d){return {Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Address:d.address,Owner:d.owner,Notes:d.notes};}
+function companyFields(d){return {Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Address:d.address,LastOutreach:d.lastOutreach?d.lastOutreach+"T00:00:00Z":null,NextFollowUp:d.nextFollowUp?d.nextFollowUp+"T00:00:00Z":null,Owner:d.owner,Notes:d.notes};}
 function contactFields(rec,company){var f={Title:rec.name,Company:company,Role:rec.role,Email:rec.email,Phone:rec.phone,LinkedIn:rec.linkedin,Notes:rec.notes};if(rec.last)f.LastContact=rec.last+"T00:00:00Z";return f;}
 function auditDiff(before,after,keys){var out=[];keys.forEach(function(k){var a=before?before[k]:"",b=after?after[k]:"";if(String(a==null?"":a)!==String(b==null?"":b))out.push(k+': "'+(a==null?"":a)+'" to "'+(b==null?"":b)+'"');});return out.length?out.join("; "):"No field values changed";}
 function auditFmtWhen(w){if(!w)return "";var d=new Date(w);return isNaN(d.getTime())?String(w):d.toLocaleString();}
