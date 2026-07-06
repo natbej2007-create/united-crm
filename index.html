@@ -157,7 +157,7 @@
     <div class="brand">UNITED <span>SERVICES</span></div>
     <div class="topsearch"><span style="color:#b9c0e6">&#9906;</span><input id="search" placeholder="Search companies, contacts..." oninput="render()"/></div>
     <button class="btn ghost" id="fuBtn" style="margin-left:auto" onclick="toggleFollowUps()">Follow-ups</button>
-    <div class="avatar" style="margin-left:12px">GL</div>
+    <div class="avatar" id="avatarInits" style="margin-left:12px">GL</div>
   </div>
   <div class="body">
     <aside class="queue">
@@ -209,7 +209,7 @@
 <script>
 const REL=["Developer","EPC","Developer / EPC","Electrical Contractor","Owner / IPP","Investor","Vendor / Supplier","Subcontractor","Government / Permitting","Community / NGO","Other"];
 const STAGES=["Prospecting","Qualifying","NDA Signed","Active","Contract","Dormant","Closed"];
-const TIERS=["Tier A","Tier B","Tier C","Prospect",""];
+const TIERS=["Suspect","Prospect","Client",""];
 const FITS=["Strategic","High","Medium",""];
 const DOCT=["NDA","MSA","Subcontract","Service Agreement","Insurance / COI","W-9 / Tax","Permit","Other"];
 const DOCS=["Signed","Pending","Draft","Expired","None"];
@@ -522,12 +522,23 @@ function mapC(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title|
 function mapK(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",role:f.Role||"",email:f.Email||"",phone:f.Phone||"",linkedin:f.LinkedIn||"",last:(f.LastContact||"").slice(0,10),notes:f.Notes||"",_company:f.Company||""};}
 function mapD(it){const f=it.fields||{};return{spId:it.id,id:it.id,type:f.DocType||"Other",status:f.Status||"None",date:(f.DocDate||"").slice(0,10),link:(it.driveItem&&it.driveItem.webUrl)||"",_company:f.Company||""};}
 async function pageAll(url){let out=[];while(url){const j=await graph(url);out=out.concat(j.value||[]);url=j["@odata.nextLink"]?j["@odata.nextLink"].replace("https://graph.microsoft.com/v1.0",""):null;}return out;}
+async function setUserAvatar(){
+  try{
+    var m=await graph("/me?$select=displayName,givenName,surname");
+    var ini="";
+    if(m.givenName||m.surname){ini=((m.givenName||"").charAt(0))+((m.surname||"").charAt(0));}
+    else{var nm=(m.displayName||"").trim();if(nm){var p=nm.split(/\s+/);ini=p[0].charAt(0)+(p.length>1?p[p.length-1].charAt(0):"");}}
+    ini=(ini||"?").toUpperCase();
+    var el=document.getElementById("avatarInits");if(el)el.textContent=ini;
+  }catch(e){}
+}
 async function boot(){
   try{
     IN_TEAMS=await teamsReady;
     document.getElementById("detail").innerHTML='<div class="empty">Signing in and loading your SharePoint data...</div>';
     const s=await graph("/sites/unitedservicesenergy.sharepoint.com:/sites/UnitedServicesTeamHub");
     SITE=s.id;
+    setUserAvatar();
     const comp=await pageAll("/sites/"+SITE+"/lists/Companies/items?$expand=fields&$top=200");
     const cont=await pageAll("/sites/"+SITE+"/lists/Contacts/items?$expand=fields&$top=200");
     DB.companies=comp.map(mapC).sort((a,b)=>a.name.localeCompare(b.name));
@@ -743,7 +754,7 @@ async function botInterpret(text){
   return botParse(text);
 }
 
-var B_TIER={"a":"Tier A","tier a":"Tier A","b":"Tier B","tier b":"Tier B","c":"Tier C","tier c":"Tier C","prospect":"Prospect"};
+var B_TIER={"suspect":"Suspect","prospect":"Prospect","client":"Client"};
 var B_FIT={"strategic":"Strategic","high":"High","medium":"Medium"};
 var B_STAGE={"prospecting":"Prospecting","qualifying":"Qualifying","nda signed":"NDA Signed","nda":"NDA Signed","active":"Active","contract":"Contract","dormant":"Dormant","closed":"Closed"};
 var B_REL=[["developer / epc","Developer / EPC"],["developer","Developer"],["epc","EPC"],["electrical","Electrical Contractor"],["owner","Owner / IPP"],["ipp","Owner / IPP"],["investor","Investor"],["vendor","Vendor / Supplier"],["supplier","Vendor / Supplier"],["subcontractor","Subcontractor"],["government","Government / Permitting"],["permitting","Government / Permitting"],["community","Community / NGO"],["ngo","Community / NGO"]];
@@ -783,8 +794,8 @@ function botExtractFilters(q){
   var f={},used=[];
   Object.keys(B_TIER).forEach(function(k){var re=new RegExp("(^|\\s)(tier\\s)?"+k+"(\\s|$)");});
   // tier
-  var tm=q.match(/tier\s*(a|b|c)\b/);
-  if(tm)f.tier=B_TIER[tm[1]];
+  if(/\bsuspects?\b/.test(q))f.tier="Suspect";
+  else if(/\bclients?\b/.test(q))f.tier="Client";
   else if(/\bprospects?\b/.test(q))f.tier="Prospect";
   // fit
   Object.keys(B_FIT).forEach(function(k){if(new RegExp("\\b"+k+"\\b").test(q))f.fit=B_FIT[k];});
