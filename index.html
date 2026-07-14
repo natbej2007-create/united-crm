@@ -157,6 +157,7 @@
     <div class="brand">UNITED <span>SERVICES</span></div>
     <div class="topsearch"><span style="color:#b9c0e6">&#9906;</span><input id="search" placeholder="Search companies, contacts..." oninput="render()"/></div>
     <button class="btn ghost" id="fuBtn" style="margin-left:auto" onclick="toggleFollowUps()">Follow-ups</button>
+<button class="btn ghost" onclick="signOut()" title="Sign out and switch account">Sign out</button>
     <div class="avatar" id="avatarInits" style="margin-left:12px">GL</div>
   </div>
   <div class="body">
@@ -208,7 +209,7 @@
 
 <script>
 const REL=["Developer","EPC","Developer / EPC","Electrical Contractor","Owner / IPP","Investor","Vendor / Supplier","Subcontractor","Government / Permitting","Community / NGO","Other"];
-const STAGES=["Prospecting","Qualifying","NDA Signed","Active","Contract","Dormant","Closed"];
+const STAGES=["Prospecting","Qualifying","NDA Signed","Active","Contract","Client","Dormant","Closed"];
 const TIERS=["Suspect","Prospect","Client",""];
 const FITS=["Strategic","High","Medium",""];
 const DOCT=["NDA","MSA","Subcontract","Service Agreement","Insurance / COI","W-9 / Tax","Permit","Other"];
@@ -218,6 +219,7 @@ const KEY="us_crm_console_v1";
 const MSAL_CFG={auth:{clientId:"08b5f379-bc54-423b-b9fd-72242cfe908b",authority:"https://login.microsoftonline.com/720752f2-761f-405d-866a-efdb633125d9",redirectUri:window.location.origin+window.location.pathname},cache:{cacheLocation:"localStorage"}};
 const SCOPES=["Sites.ReadWrite.All"];
 const pca=new msal.PublicClientApplication(MSAL_CFG);
+async function signOut(){try{await pca.logoutRedirect({account:pca.getAllAccounts()[0]||undefined,postLogoutRedirectUri:window.location.origin+window.location.pathname});}catch(e){try{localStorage.clear();}catch(_){}location.reload();}}
 let IN_TEAMS=false;
 const teamsReady=(async()=>{try{await Promise.race([microsoftTeams.app.initialize(),new Promise((_,rej)=>setTimeout(()=>rej(new Error("no-teams")),1500))]);return true;}catch(e){return false;}})();
 function teamsLogin(){return microsoftTeams.authentication.authenticate({url:window.location.origin+window.location.pathname+"auth-start.html",width:600,height:535});}
@@ -231,7 +233,7 @@ function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){}}
 function load(){try{const s=localStorage.getItem(KEY);return s?JSON.parse(s):null}catch(e){return null}}
 function id(){return Math.random().toString(36).slice(2,10)}
 let sel=null,tab="overview",grp="all",view="crm";
-const EXISTING_STAGES=["NDA Signed","Active","Contract"];
+const EXISTING_STAGES=["NDA Signed","Active","Contract","Client"];
 function esc(s){return(s||"").replace(/[&<>\"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]))}
 function sc(s){return"s-"+(s||"none").toLowerCase().replace(/[^a-z]/g,"")}
 function lk(u){if(!u)return"&#8212;";const h=u.startsWith("http")?u:"https://"+u;return '<a href="'+esc(h)+'" target="_blank" rel="noopener">'+esc(u)+'</a>'}
