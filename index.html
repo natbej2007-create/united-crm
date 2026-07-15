@@ -303,11 +303,11 @@ function tabView(c){
   if(tab==="overview"){
     w.innerHTML=`
       <div class="card"><h3>Snapshot</h3><div class="grid">
-        <div class="f"><label>Relationship</label><div class="v">${esc(c.rel)}</div></div>
+        <div class="f"><label>Company type</label><div class="v">${esc(c.rel)}</div></div>
         <div class="f"><label>Stage</label><div class="v">${esc(c.stage)}</div></div>
         <div class="f"><label>Tier</label><div class="v">${esc(c.tier)||"&#8212;"}</div></div>
         <div class="f"><label>United Services fit</label><div class="v">${esc(c.fit)||"&#8212;"}</div></div>
-        <div class="f"><label>Company type</label><div class="v">${esc(c.industry)||"&#8212;"}</div></div>
+        <div class="f"><label>Focus / segments</label><div class="v">${esc(c.industry)||"&#8212;"}</div></div>
         <div class="f"><label>Location</label><div class="v">${esc(c.location)||"&#8212;"}</div></div>
         <div class="f"><label>Address</label><div class="v">${esc(c.address)||"&#8212;"}</div></div>
         <div class="f"><label>Last contacted</label><div class="v">${c.lastOutreach?esc(fmtD(c.lastOutreach)):"&#8212;"}</div></div>
@@ -386,11 +386,11 @@ function openCompany(cid){
   m1in.innerHTML=`<h3>${cid?"Edit company":"New company"}</h3>
     <div class="f"><label style="font-size:11px;color:var(--mut)">Company name *</label><input id="x_name" value="${esc(c.name)}"/></div>
     <div class="g2">
-      <div class="f"><label style="font-size:11px;color:var(--mut)">Relationship</label><select id="x_rel">${selo(REL,c.rel)}</select></div>
+      <div class="f"><label style="font-size:11px;color:var(--mut)">Company type</label><select id="x_rel">${selo(REL,c.rel)}</select></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Stage</label><select id="x_stage">${selo(STAGES,c.stage)}</select></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Tier</label><select id="x_tier">${selo(TIERS,c.tier)}</select></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Fit</label><select id="x_fit">${selo(FITS,c.fit)}</select></div>
-      <div class="f"><label style="font-size:11px;color:var(--mut)">Company type</label><input id="x_industry" value="${esc(c.industry)}"/></div>
+      <div class="f"><label style="font-size:11px;color:var(--mut)">Focus / segments</label><input id="x_industry" value="${esc(c.industry)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Location</label><input id="x_location" value="${esc(c.location)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Address</label><input id="x_address" value="${esc(c.address)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Website</label><input id="x_website" value="${esc(c.website)}"/></div>
