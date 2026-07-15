@@ -50,8 +50,6 @@
   .p-tier{background:#e7e7f3;color:var(--navy)}
   .p-rel{background:#e2f4fc;color:var(--cyan-d)}
   .p-stage{background:#eef0f6;color:#4a5169}
-  .p-dept-bd{background:#e2f4fc;color:var(--cyan-d)}
-  .p-dept-legal{background:#efe7f3;color:#6b3fa0}
   .fit-Strategic{background:#dde9ff;color:#1d4ed8}
   .fit-High{background:#dcfce7;color:#15803d}
   .fit-Medium{background:#fef3c7;color:#b45309}
@@ -103,52 +101,6 @@
   .mfoot{display:flex;justify-content:flex-end;gap:10px;margin-top:16px}
   .cf-row{display:flex;gap:8px;margin-top:10px}
   .cf-row input{flex:1}
-  /* ===== CRM assistant ===== */
-  .bot-fab{position:fixed;left:20px;bottom:20px;z-index:60;width:56px;height:56px;border-radius:16px;background:var(--navy);color:#fff;border:none;cursor:pointer;box-shadow:0 6px 20px rgba(38,39,109,.35);display:flex;align-items:center;justify-content:center;transition:transform .15s,background .15s}
-  .bot-fab:hover{transform:translateY(-2px);background:var(--navy-d)}
-  .bot-fab svg{width:26px;height:26px}
-  .bot-fab .cydot{position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;background:var(--cyan);border:2px solid #fff}
-  .bot-panel{--bot-scale:1.15;position:fixed;left:20px;bottom:88px;z-index:61;width:392px;max-width:calc(100vw - 40px);height:560px;max-height:calc(100vh - 120px);background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 50px rgba(31,36,64,.28);display:none;flex-direction:column;overflow:hidden}
-  .bot-panel.open{display:flex}
-  .bot-panel.full{left:0;top:0;bottom:0;width:100vw;height:100vh;max-width:100vw;max-height:100vh;border-radius:0}
-  .bot-head{display:flex;align-items:center;gap:10px;background:var(--navy);color:#fff;padding:12px 14px;flex:0 0 auto}
-  .bot-head .t{font-weight:500;font-size:calc(14px * var(--bot-scale));line-height:1.2}
-  .bot-head .t small{display:block;font-weight:400;font-size:calc(11px * var(--bot-scale));color:#b9c0e6;margin-top:2px}
-  .bot-head .hbtns{margin-left:auto;display:flex;gap:6px}
-  .bot-head .hbtn{background:rgba(255,255,255,.14);border:none;color:#fff;width:28px;height:28px;border-radius:7px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:calc(15px * var(--bot-scale));line-height:1}
-  .bot-head .hbtn:hover{background:rgba(255,255,255,.28)}
-  .bot-msgs{flex:1;overflow-y:auto;padding:14px;background:var(--soft);display:flex;flex-direction:column;gap:10px}
-  .bot-panel.full .bmrow{width:100%;max-width:760px;margin:0 auto}
-  .bmrow{display:flex;flex-direction:column}
-  .bmrow.me{align-items:flex-end}
-  .bubble{max-width:90%;padding:9px 12px;border-radius:12px;font-size:calc(13px * var(--bot-scale));line-height:1.6}
-  .bubble.bot{background:#fff;border:1px solid var(--line);border-top-left-radius:3px;color:var(--txt)}
-  .bubble.me{background:var(--navy);color:#fff;border-top-right-radius:3px}
-  .bubble a{color:var(--cyan-d);text-decoration:none;font-weight:500;cursor:pointer}
-  .bubble.me a{color:#bfe4f5}
-  .bot-res{margin-top:8px;display:flex;flex-direction:column;gap:6px}
-  .rescard{border:1px solid var(--line);border-radius:9px;padding:8px 10px;background:#fff;cursor:pointer;transition:border-color .12s}
-  .rescard:hover{border-color:var(--cyan)}
-  .rescard .rn{font-weight:600;color:var(--navy);font-size:calc(13px * var(--bot-scale))}
-  .rescard .rs{font-size:calc(11px * var(--bot-scale));color:var(--mut);margin-top:2px;line-height:1.45}
-  .rescard .rpills{display:flex;gap:4px;flex-wrap:wrap;margin-top:5px}
-  .reslinks{display:flex;gap:12px;margin-top:6px}
-  .reslinks a{font-size:calc(11px * var(--bot-scale));color:var(--cyan-d);cursor:pointer;font-weight:500}
-  .chips{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
-  .chip{border:1px solid var(--line);background:#fff;border-radius:20px;padding:5px 11px;font-size:calc(12px * var(--bot-scale));cursor:pointer;color:var(--navy)}
-  .chip:hover{border-color:var(--cyan);color:var(--cyan-d)}
-  .chip.go{background:var(--navy);color:#fff;border-color:var(--navy)}
-  .chip.go:hover{background:var(--navy-d);color:#fff}
-  .chip.warn{background:#fff;border-color:var(--line);color:var(--mut)}
-  .bot-foot{flex:0 0 auto;border-top:1px solid var(--line);padding:10px;background:#fff;display:flex;align-items:flex-end;gap:8px}
-  .bot-foot textarea{flex:1;resize:none;border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:calc(13px * var(--bot-scale));font-family:inherit;max-height:96px;outline:none;line-height:1.5}
-  .bot-foot textarea:focus{border-color:var(--cyan)}
-  .bot-foot .sbtn{background:var(--navy);color:#fff;border:none;border-radius:10px;width:38px;height:38px;cursor:pointer;flex:0 0 auto;display:flex;align-items:center;justify-content:center;font-size:calc(16px * var(--bot-scale))}
-  .bot-foot .sbtn:hover{background:var(--navy-d)}
-  .bot-foot .clip{background:var(--soft);border:1px solid var(--line);border-radius:10px;width:38px;height:38px;cursor:pointer;flex:0 0 auto;color:var(--mut);display:flex;align-items:center;justify-content:center;font-size:calc(16px * var(--bot-scale))}
-  .bot-foot .clip:hover{border-color:var(--cyan);color:var(--cyan-d)}
-  .bot-sugg{display:flex;gap:6px;flex-wrap:wrap;padding:0 10px 10px;background:#fff}
-  .bot-sugg .chip{font-size:calc(11px * var(--bot-scale));padding:4px 9px}
 </style>
 </head>
 <body>
@@ -156,20 +108,13 @@
   <div class="top">
     <div class="brand">UNITED <span>SERVICES</span></div>
     <div class="topsearch"><span style="color:#b9c0e6">&#9906;</span><input id="search" placeholder="Search companies, contacts..." oninput="render()"/></div>
-    <button class="btn ghost" id="fuBtn" style="margin-left:auto" onclick="toggleFollowUps()">Follow-ups</button>
-<button class="btn ghost" onclick="signOut()" title="Sign out and switch account">Sign out</button>
-    <div class="avatar" id="avatarInits" style="margin-left:12px">GL</div>
+    <div class="avatar">GT</div>
   </div>
   <div class="body">
     <aside class="queue">
       <div class="qhead">
         <h2>Companies <span class="cnt" id="cnt"></span></h2>
         <button class="btn primary" onclick="openCompany()">+ New</button>
-      </div>
-      <div style="display:flex;gap:6px;padding:8px 13px 0">
-        <span id="grp-all" onclick="setGrp('all')" style="cursor:pointer;font-size:12px;padding:4px 11px;border-radius:7px;background:var(--navy);color:#fff;font-weight:500">All</span>
-        <span id="grp-prospects" onclick="setGrp('prospects')" style="cursor:pointer;font-size:12px;padding:4px 11px;border-radius:7px;border:1px solid var(--line);color:var(--mut)">Prospects</span>
-        <span id="grp-existing" onclick="setGrp('existing')" style="cursor:pointer;font-size:12px;padding:4px 11px;border-radius:7px;border:1px solid var(--line);color:var(--mut)">Existing</span>
       </div>
       <div class="qfilters">
         <select id="fRel" onchange="render()"></select>
@@ -182,47 +127,20 @@
     <main class="detail" id="detail"><div class="empty">Select a company from the list.</div></main>
   </div>
 </div>
-<button class="bot-fab" id="botFab" onclick="botToggle()" title="Ask the CRM assistant" aria-label="Open CRM assistant">
-  <span class="cydot"></span>
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-</button>
-<div class="bot-panel" id="botPanel" ondragover="botDragOver(event)" ondrop="botDrop(event)">
-  <div class="bot-head">
-    <div class="t">CRM Assistant<small>Ask, find, upload, update</small></div>
-    <div class="hbtns">
-      <button class="hbtn" id="botFullBtn" onclick="botFull()" title="Open full page">&#11036;</button>
-      <button class="hbtn" onclick="botToggle()" title="Close">&times;</button>
-    </div>
-  </div>
-  <div class="bot-msgs" id="botMsgs"></div>
-  <div class="bot-sugg" id="botSugg"></div>
-  <div class="bot-foot">
-    <button class="clip" onclick="botPickFile()" title="Upload a file">&#128206;</button>
-    <input type="file" id="botFile" style="display:none" onchange="botFileChosen(this)"/>
-    <textarea id="botInput" rows="1" placeholder="Ask about any company, contact, or document..." onkeydown="botKey(event)"></textarea>
-    <button class="sbtn" onclick="botSend()" title="Send">&#10148;</button>
-  </div>
-</div>
-
 <div class="mbg" id="m1"><div class="modal" id="m1in"></div></div>
 <div class="mbg" id="m2"><div class="modal" id="m2in"></div></div>
-
 <script>
 const REL=["Developer","EPC","Developer / EPC","Electrical Contractor","Owner / IPP","Investor","Vendor / Supplier","Subcontractor","Government / Permitting","Community / NGO","Other"];
-const STAGES=["Prospecting","Qualifying","NDA Signed","Active","Contract","Client","Dormant","Closed"];
-const TIERS=["Suspect","Prospect","Client",""];
+const STAGES=["Prospecting","Qualifying","Active","Contract","Dormant","Closed"];
+const TIERS=["Tier A","Tier B","Tier C","Prospect",""];
 const FITS=["Strategic","High","Medium",""];
 const DOCT=["NDA","MSA","Subcontract","Service Agreement","Insurance / COI","W-9 / Tax","Permit","Other"];
 const DOCS=["Signed","Pending","Draft","Expired","None"];
-const OWNERS=["German Torres","Natalie Bejarano","Geronimo LeBaron"];
-function uiConfirm(msg){return new Promise(function(res){var bg=document.createElement("div");bg.className="mbg open";var m=document.createElement("div");m.className="modal";m.style.width="400px";var h=document.createElement("h3");h.textContent="Please confirm";var p=document.createElement("div");p.style.cssText="font-size:13px;margin-bottom:14px;white-space:pre-wrap";p.textContent=msg;var ft=document.createElement("div");ft.className="mfoot";var no=document.createElement("button");no.className="btn ghost";no.textContent="Cancel";var ok=document.createElement("button");ok.className="btn primary";ok.textContent="OK";ft.appendChild(no);ft.appendChild(ok);m.appendChild(h);m.appendChild(p);m.appendChild(ft);bg.appendChild(m);document.body.appendChild(bg);no.onclick=function(){bg.remove();res(false);};ok.onclick=function(){bg.remove();res(true);};});}
-function uiAlert(msg){var bg=document.createElement("div");bg.className="mbg open";var m=document.createElement("div");m.className="modal";m.style.width="400px";var h=document.createElement("h3");h.textContent="Notice";var p=document.createElement("div");p.style.cssText="font-size:13px;margin-bottom:14px;white-space:pre-wrap";p.textContent=msg;var ft=document.createElement("div");ft.className="mfoot";var ok=document.createElement("button");ok.className="btn primary";ok.textContent="OK";ft.appendChild(ok);m.appendChild(h);m.appendChild(p);m.appendChild(ft);bg.appendChild(m);document.body.appendChild(bg);ok.onclick=function(){bg.remove();};}
-const SEED=[{"id": "c1", "name": "Axium Solar", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Commercial & Utility -Scale", "website": "https://axiumsolar.com", "linkedin": "https://www.linkedin.com/company/axium-solar/", "location": "Texas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@axiumsolar.com"}, {"k": "Phone", "v": "(972)-498-1555"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c193", "name": "Tim Legler", "role": "Director", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/leglertim/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c2", "name": "TriSMART Solar", "rel": "Developer", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "Developer / Residential & Small Commercial", "website": "https://www.trismartsolar.com", "linkedin": "https://www.linkedin.com/company/trismart-solar/posts/?feedView=all", "location": "Texas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(281)-337-1435"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c3", "name": "Anthony Conklin", "role": "VP of Virtual Sales", "email": "info@trismartsolar.com", "phone": "(281)-337-1435", "linkedin": "", "last": "", "notes": ""}, {"id": "c191", "name": "Heidi Guevara", "role": "Sales Operations", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/heidi-guevara-061556250/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c4", "name": "Standard Solar", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "Developer & EPC / Community, Commercial, Utility", "website": "https://standardsolar.com", "linkedin": "https://www.linkedin.com/company/standard-solar/", "location": "Maryland", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(888)-474-3843"}, {"k": "Initial contact date", "v": "2025-11-22"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c5", "name": "Scott Wiater", "role": "President & CEO", "email": "info@standarsolar.com", "phone": "(888)-474-3843", "linkedin": "", "last": "", "notes": ""}, {"id": "c188", "name": "Seth Adams", "role": "Sr. Vice President", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/seth-adams-22799116/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c6", "name": "The Clary Group", "rel": "Developer", "stage": "Qualifying", "tier": "", "fit": "", "industry": "Developer / Real Estate +Energy", "website": "https://clarygroupllc.com", "linkedin": "https://www.linkedin.com/company/the-clary-group/", "location": "Florida", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "Phone", "v": "(832)-956-0425"}, {"k": "Initial contact date", "v": "2025-11-22"}], "contacts": [{"id": "c7", "name": "David Clary", "role": "President", "email": "info@clarygroupllc.com", "phone": "(832)-956-0425", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c8", "name": "Pivot Energy", "rel": "Developer", "stage": "Qualifying", "tier": "", "fit": "", "industry": "Developer / Community & Commercial Solar + Storage", "website": "https://pivotenergy.net", "linkedin": "https://www.linkedin.com/company/pivot-energy/posts/?feedView=all", "location": "Colorado", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "Phone", "v": "(888)-734-3033"}, {"k": "Initial contact date", "v": "2025-11-22"}], "contacts": [{"id": "c9", "name": "Tom Hunt", "role": "CEO", "email": "info@pivotenergy.net", "phone": "(888)-734-3033", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c10", "name": "PowerFlex", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "Developer / EPC / C&I + Utility - Scale", "website": "https://powerflex.com", "linkedin": "https://www.linkedin.com/company/powerflexenergy/", "location": "California / New York", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(833)-479-7359"}, {"k": "Initial contact date", "v": "2025-11-22"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c11", "name": "Raphael Declercq", "role": "CEO https://www.linkedin.com/in/raphael-declercq-3a85954/", "email": "support@powerflex.com     sales@powerflex.com", "phone": "(833)-479-7359", "linkedin": "", "last": "", "notes": ""}, {"id": "c154", "name": "H. Dafoe Bulen PE", "role": "Preconstruction", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/dafoebulen/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c12", "name": "Brightside Energy", "rel": "Developer", "stage": "Qualifying", "tier": "", "fit": "", "industry": "Developer / Solar & Battery Projects", "website": "https://brightsideenergy.io", "linkedin": "https://www.linkedin.com/company/brightside-energy-llc/", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "Phone", "v": "(888)-743-0404"}], "contacts": [{"id": "c13", "name": "Mary Hopkins", "role": "Project manager", "email": "info@brightsideenergy.io", "phone": "(888)-743-0404", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c14", "name": "Semper Solaris", "rel": "EPC", "stage": "Qualifying", "tier": "", "fit": "", "industry": "EPC / Residential & Small Commercial", "website": "https://www.sempersolaris.com", "linkedin": "https://www.linkedin.com/company/semper-solaris/", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "Phone", "v": "(888)-210-3366"}], "contacts": [{"id": "c15", "name": "Kelly Shawhan", "role": "Co- Owner", "email": "gosolar@sempersolaris.com", "phone": "(888)-210-3366", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c16", "name": "Freedom Forever", "rel": "EPC", "stage": "Qualifying", "tier": "", "fit": "", "industry": "EPC / Installer / Residential", "website": "https://freedomforever.com", "linkedin": "https://www.linkedin.com/company/freedom-forever/", "location": "AZ / CA / TX", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(800)-685-1850"}], "contacts": [{"id": "c17", "name": "Brett Bouchy", "role": "CEO", "email": "customersupport@freedomforever.com", "phone": "(800)-685-1850", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c18", "name": "Terrasol Energies", "rel": "Developer", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "Developer / Installer / C&I Focus", "website": "https://www.terrasolenergies.com", "linkedin": "https://www.linkedin.com/company/terrasol-energies-inc-/", "location": "Pennsylvania", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(888)-873-9995"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c19", "name": "David Santoleri", "role": "CEO", "email": "info@terrasolenergies.com", "phone": "(888)-873-9995", "linkedin": "", "last": "", "notes": ""}, {"id": "c192", "name": "Robert E", "role": "Vice President of", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/robert-e-santoleri-09220b5a/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c20", "name": "Lumina Solar", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "Developer & EPC / Commercial & Residential", "website": "https://luminasolar.com", "linkedin": "https://www.linkedin.com/company/lumina-energy-zimbabwe/posts/?feedView=all", "location": "Maryland", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(800)-971-6118"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c21", "name": "Mike Kirby", "role": "CEO", "email": "info@luminasolar.com", "phone": "(800)-971-6118", "linkedin": "", "last": "", "notes": ""}, {"id": "c189", "name": "Ben Cole", "role": "Vice President of BD", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/ben-cole-654170a/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c22", "name": "Trinity Solar", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Residential + C&I", "website": "https://www.trinity-solar.com", "linkedin": "https://www.linkedin.com/company/trinity-solar/", "location": "New Jersey", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(877)-786-7283"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c23", "name": "Alex Shakhmurov", "role": "Vice President", "email": "gosolar@trinity-solar.com", "phone": "(877)-786-7283", "linkedin": "", "last": "", "notes": ""}, {"id": "c190", "name": "Sara Stelman", "role": "Sales Operations", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/sara-stelman-9b15b878/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c24", "name": "Sunwise Energy", "rel": "EPC", "stage": "Qualifying", "tier": "", "fit": "", "industry": "EPC / Residential & Small Business", "website": "https://www.sunwise.io", "linkedin": "https://www.linkedin.com/company/sunwise-io/?viewAsMember=true", "location": "Florida", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "Phone", "v": "(610)-228-2480"}], "contacts": [{"id": "c25", "name": "arturo duhart", "role": "CEO", "email": "info@sunwiseusa.com", "phone": "(610)-228-2480", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c26", "name": "Got Electric", "rel": "Electrical Contractor", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "Electrical Contractor / Solar Integration", "website": "https://gotelectricinc.com", "linkedin": "https://www.linkedin.com/company/got-electric-llc/", "location": "MD / VA", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(301)-515-8676"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c27", "name": "Grant Gotlinger", "role": "President", "email": "stacie@gotelectric.com", "phone": "(301)-515-8676", "linkedin": "", "last": "", "notes": ""}, {"id": "c194", "name": "Tyree Parks", "role": "O&M Manager", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/tyree-parks-687563232/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c28", "name": "Cedar Creek Energy", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "", "fit": "", "industry": "Developer / EPC / C&I + Community Solar", "website": "https://cedarcreekenergy.com", "linkedin": "https://www.linkedin.com/company/cedar-creek-energy/", "location": "Minnesota", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "Phone", "v": "(763) 432-5261"}], "contacts": [{"id": "c29", "name": "Rob Appelhof", "role": "CEO", "email": "info@cedarcreekenergy.com", "phone": "(763) 432-5261", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c30", "name": "Avantus (formerly 8minute Solar Energy)", "rel": "Developer", "stage": "Qualifying", "tier": "Tier B", "fit": "Medium", "industry": "Developer / Utility - Scale Solar + Storage", "website": "https://www.avantus.com", "linkedin": "https://www.linkedin.com/company/avantus/", "location": "CA / TX", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(916) 608-9060"}], "contacts": [{"id": "c31", "name": "Cliff Graham", "role": "CEO", "email": "info@avantus.com", "phone": "(916) 608-9060", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c32", "name": "Borrego", "rel": "Developer / EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC + Developer / Utility & C&I", "website": "https://www.borregoenergy.com", "linkedin": "", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}], "contacts": [], "docs": [], "events": []}, {"id": "c33", "name": "NextEra Energy Resources", "rel": "Developer", "stage": "Qualifying", "tier": "Tier A", "fit": "Strategic", "industry": "Developer / Utility - Scale + Infrastructure", "website": "https://www.nexteraenergyresources.com", "linkedin": "https://www.linkedin.com/company/nextera-energy-resources/", "location": "Florida", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(561)-691-7171"}], "contacts": [{"id": "c34", "name": "Jonathan Bain", "role": "Vice President", "email": "media.relations@nexteraenergyresources.com", "phone": "(561)-691-7171", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c35", "name": "EDF Renewables North America", "rel": "Developer", "stage": "Qualifying", "tier": "Tier A", "fit": "Strategic", "industry": "Developer / Utility - Scale + Storage", "website": "https://www.edf-re.com", "linkedin": "https://www.linkedin.com/company/edf-power-solutions-north-america/", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(888)-903-6926"}], "contacts": [{"id": "c36", "name": "Tristan Grimbert", "role": "CEO", "email": "", "phone": "(888)-903-6926", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c37", "name": "CS Energy", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "EPC / Utility - Scale + Storage", "website": "https://csenergy.com", "linkedin": "https://www.linkedin.com/company/solv-energy/", "location": "New Jersey", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(732)-860-4660"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c38", "name": "George Hershman", "role": "CEO", "email": "info@csenergy.com", "phone": "(732)-860-4660", "linkedin": "", "last": "", "notes": ""}, {"id": "c147", "name": "Adrian Najera", "role": "Senior Project Engeneer", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/adrian-najera-77439a309/edit/forms/next-action/after-connect-update-profile/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c39", "name": "Rosendin Electric", "rel": "EPC", "stage": "Qualifying", "tier": "Tier B", "fit": "High", "industry": "EPC / Electrical+large-sacle solar", "website": "https://www.rosendin.com", "linkedin": "https://www.linkedin.com/company/rosendininc/", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(657)-276-0854"}], "contacts": [{"id": "c40", "name": "Salina Brown", "role": "Director of Corporate Marketing", "email": "sbrown3@rosendin.com", "phone": "(657)-276-0854", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c41", "name": "Sundt Construction", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "EPC / Energy & Industrial+Solar", "website": "https://www.sundt.com", "linkedin": "https://www.linkedin.com/company/sundt-construction/", "location": "Arizona", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(480).293.3000"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c42", "name": "Patrick Bulman", "role": "Vice President", "email": "Prequalification Dep: lebest@sundt.com", "phone": "(480).293.3000", "linkedin": "", "last": "", "notes": ""}, {"id": "c157", "name": "Scott Bingham", "role": "BD", "email": "", "phone": "", "linkedin": "http://linkedin.com/in/dscottbingham/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c43", "name": "Clenera", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "", "fit": "", "industry": "Developer / EPC", "website": "https://www.clenera.com", "linkedin": "https://www.linkedin.com/company/cl-nera/", "location": "Idaho", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "Phone", "v": "(208)-639-3232"}], "contacts": [{"id": "c44", "name": "Jared McKee", "role": "CEO", "email": "information@clenera.com", "phone": "(208)-639-3232", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c45", "name": "RES Americas", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "Developer / EPC / Storage", "website": "https://www.res-group.com/en/countries/americas", "linkedin": "https://www.linkedin.com/company/res-group/", "location": "Colorado", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(303)-439-4200"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c46", "name": "Eduardo Medina", "role": "CEO", "email": "info@resgroup.com", "phone": "(303)-439-4200", "linkedin": "", "last": "", "notes": ""}, {"id": "c149", "name": "Eric Egeland", "role": "Senior Estimator", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/eric-egeland/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c47", "name": "Tenaska Solar Ventures", "rel": "Developer", "stage": "Qualifying", "tier": "", "fit": "", "industry": "Developer / Utility-Scale Solar", "website": "https://www.tenaska.com", "linkedin": "https://www.linkedin.com/company/tenaska/", "location": "Nebraska", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "Phone", "v": "(402)-691-9500"}], "contacts": [{"id": "c48", "name": "Chris Leitner", "role": "CEO", "email": "power@tenaska.com", "phone": "(402)-691-9500", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c49", "name": "OCI Solar Power", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "Developer / EPC / Utility Projects", "website": "https://www.ocienergy.com", "linkedin": "https://www.linkedin.com/company/ocienergy/", "location": "Texas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(210) -453-3100"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c50", "name": "Charles Kim", "role": "CEO", "email": "info@www.ocienergy.com", "phone": "(210) -453-3100", "linkedin": "", "last": "", "notes": ""}, {"id": "c150", "name": "James Scott", "role": "Vice President of PD", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/james-scott-4812325/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c51", "name": "Adapture Renewables", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "Developer / EPC", "website": "https://adapturerenewables.com", "linkedin": "https://www.linkedin.com/company/adapturerenewables/", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@adapturerenewables.com"}, {"k": "Phone", "v": "(844)-367-7272"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c151", "name": "Sam Altawil JD", "role": "Board Member", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/sam-altawil-jd-57313b12a/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c52", "name": "Cypress Creek Renewables", "rel": "Developer / EPC", "stage": "Prospecting", "tier": "Tier B", "fit": "Medium", "industry": "Developer / EPC / Storage", "website": "https://ccrenew.com", "linkedin": "https://www.linkedin.com/company/cypress-creek-renewables/", "location": "North Carolina", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@ccrenew.com"}, {"k": "Phone", "v": "(336)-972-6902"}], "contacts": [], "docs": [], "events": []}, {"id": "c53", "name": "Lightsource bp US", "rel": "Developer / EPC", "stage": "Prospecting", "tier": "Tier A", "fit": "Strategic", "industry": "Developer / EPC / Utility-Scale", "website": "https://www.lightsourcebp.com/us", "linkedin": "https://www.linkedin.com/company/lightsourcebp/", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "USAdmin@lightsourcebp.com"}], "contacts": [], "docs": [], "events": []}, {"id": "c54", "name": "Clearway Energy", "rel": "Developer", "stage": "Prospecting", "tier": "Tier B", "fit": "Medium", "industry": "Developer / Utility-Scale Solar & Storage", "website": "https://www.clearwayenergy.com", "linkedin": "https://www.linkedin.com/company/clearway-energy/", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "investor.relations@clearwayenergy.com"}, {"k": "Phone", "v": "(609)-608-1500"}], "contacts": [], "docs": [], "events": []}, {"id": "c55", "name": "Brookfield Renewable US", "rel": "Developer / EPC", "stage": "Prospecting", "tier": "Tier A", "fit": "Strategic", "industry": "Developer / EPC / Renewables Portfolio", "website": "https://www.brookfieldrenewable.com", "linkedin": "https://www.linkedin.com/company/brookfield/", "location": "New York", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "na.press@brookfield.com"}, {"k": "Phone", "v": "(212)-417-7000"}], "contacts": [], "docs": [], "events": []}, {"id": "c56", "name": "Arevon Energy", "rel": "Developer / EPC", "stage": "Prospecting", "tier": "Tier B", "fit": "Medium", "industry": "Developer / EPC", "website": "https://www.arevonenergy.com", "linkedin": "https://www.linkedin.com/company/arevon/", "location": "Arizona", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@arevonenergy.com"}, {"k": "Phone", "v": "(480) -653-8450"}], "contacts": [], "docs": [], "events": []}, {"id": "c57", "name": "Sunlight Capital Partners", "rel": "Developer / EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "Developer / Solar investments & EPC Partnerships", "website": "", "linkedin": "", "location": "Michigan", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}], "contacts": [], "docs": [], "events": []}, {"id": "c58", "name": "Lightsource Energy USA", "rel": "Developer / EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "Developer / EPC", "website": "https://lightsourcebp.com", "linkedin": "https://www.linkedin.com/company/lightsourcebp/", "location": "US", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "General email", "v": "USAdmin@lightsourcebp.com"}, {"k": "Phone", "v": "(415)-523-0200"}], "contacts": [], "docs": [], "events": []}, {"id": "c59", "name": "Swift Current Energy", "rel": "Developer / EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "Developer / EPC", "website": "https://swiftcurrentenergy.com/contact-us/", "linkedin": "https://www.linkedin.com/company/swiftcurrentenergy/", "location": "Massachusetts", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "General email", "v": "info@swiftcurrentenergy.com"}, {"k": "Phone", "v": "(857)-315-5294"}], "contacts": [], "docs": [], "events": []}, {"id": "c60", "name": "Terra-Gen", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "Tier B", "fit": "Medium", "industry": "Developer / EPC / Solar & Storage", "website": "https://terragensolar.ca/about/", "linkedin": "https://www.linkedin.com/company/terragen-solar/", "location": "Canada", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(705) 435-7373"}], "contacts": [{"id": "c61", "name": "Darren Jones", "role": "President", "email": "info@terragensolar.ca", "phone": "(705) 435-7373", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c62", "name": "Qcells USA", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "EPC / Utility", "website": "https://www.qpartnerus.com/qpp/s/", "linkedin": "https://www.linkedin.com/company/qcells-northamerica/", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "usa-info@qcells.com"}, {"k": "Phone", "v": "(949)-748-5996"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c155", "name": "Martin Flores", "role": "", "email": "", "phone": "", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c63", "name": "E Light Electric", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility / Commercial & Industrial / CS", "website": "https://elightelectric.com", "linkedin": "https://www.linkedin.com/company/e-light-electric-services-inc./", "location": "Colorado", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(303)-754-0001"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c166", "name": "Morgan White", "role": "Project Administrator", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/morgan-white-47ab99173/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c64", "name": "Mill Creek Renewables", "rel": "EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC / Utility / CS", "website": "https://www.millcreekrenewables.com/contact", "linkedin": "https://www.linkedin.com/company/mill-creek-renewables/", "location": "North Carolina", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@millcreekrenewables.com"}, {"k": "Phone", "v": "(919)-213-8806"}], "contacts": [], "docs": [], "events": []}, {"id": "c65", "name": "NoBull Energy", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "EPC / Utility / Commercial & Industrial", "website": "https://nobullenergy.com", "linkedin": "https://www.linkedin.com/company/nobull-energy/", "location": "Indiana", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(254)-327-8065"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c148", "name": "Robert Hague", "role": "Director of project management", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/robert-hague-rh/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c66", "name": "AUI Parteners", "rel": "EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC / Utility", "website": "https://auipartners.com", "linkedin": "https://www.linkedin.com/company/auipartners/", "location": "Texas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@auipartners.com"}, {"k": "Phone", "v": "(817)-926-4377"}], "contacts": [], "docs": [], "events": []}, {"id": "c67", "name": "ESA", "rel": "EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC / Utility / Commercial & Industrial / CS", "website": "https://esa-solar.com", "linkedin": "https://www.linkedin.com/company/esasolar-energy/", "location": "Florida", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "General email", "v": "info@esa-solar.com"}, {"k": "Phone", "v": "(407)-232-7440"}], "contacts": [], "docs": [], "events": []}, {"id": "c68", "name": "Gemma Renewable Power", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "EPC / Utility", "website": "https://www.gemmapower.com", "linkedin": "https://www.linkedin.com/company/gemma-power-systems/", "location": "Connecticut", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(860)-659-0509"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c69", "name": "Chris Reamer", "role": "President", "email": "", "phone": "(860)-659-0509", "linkedin": "", "last": "", "notes": ""}, {"id": "c161", "name": "Charles Putnam", "role": "VP Engineering", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/charles-putnam-69189166/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c70", "name": "Knobelsdorff", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "EPC / Utility/ Commercial & Industrial CS", "website": "https://knobelsdorffenterprises.com", "linkedin": "https://www.linkedin.com/company/knobelsdorff-enterprises/", "location": "Minnesota", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "bd@keway.com"}, {"k": "Phone", "v": "(651)-923-4970"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c158", "name": "Deanna Hoernemann", "role": "Project Coordinator", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/deanna-hoernemann-6b70172a9/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c71", "name": "United Renewable Energy", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "EPC / Utility / CS", "website": "https://u-renew.com", "linkedin": "https://www.linkedin.com/company/united-renewable-energy-llc/", "location": "Georgia", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(678)-881-0014"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c72", "name": "William Silva", "role": "CEO", "email": "info@u-rener.com", "phone": "(678)-881-0014", "linkedin": "", "last": "", "notes": ""}, {"id": "c162", "name": "Keith Herbs", "role": "Vice President of sales", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/keith-herbs-a46602b/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c73", "name": "Recon Corp", "rel": "EPC", "stage": "Prospecting", "tier": "Tier C", "fit": "High", "industry": "EPC / Utility", "website": "https://www.reconcorporation.com", "linkedin": "https://www.linkedin.com/company/recon-management-services-inc/", "location": "Michigan", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@reconcorporation.com"}, {"k": "Phone", "v": "(810)-630-6621"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [], "docs": [], "events": []}, {"id": "c74", "name": "Next Generation Solar", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility / CS", "website": "https://www.nextgenerationsolar.org", "linkedin": "https://www.linkedin.com/company/next-generation-solar-llc/", "location": "New York", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(315)-551-8444"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c75", "name": "Brandon Elliot", "role": "CEO", "email": "info@nextgenerationsolar.org", "phone": "(315)-551-8444", "linkedin": "https://www.linkedin.com/in/brandon-elliott-9917a815b/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c76", "name": "OnSite Solar", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility / Commercial & Industrial / CS", "website": "https://onsitesolar.com", "linkedin": "https://www.linkedin.com/company/onsite-solar-llc/?viewAsMember=true", "location": "New York", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(315)-451-8500"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-07-2026"}], "contacts": [{"id": "c77", "name": "Brian Walters", "role": "President", "email": "", "phone": "(315)-451-8500", "linkedin": "", "last": "", "notes": ""}, {"id": "c164", "name": "Jeremy P.", "role": "Field Execution Manager", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/jeremypetersonsolar/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c78", "name": "ACE Solar", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility / Commercial & Industrial / CS", "website": "https://www.myacesolar.com", "linkedin": "https://www.linkedin.com/company/ace-solar-ma/", "location": "Massachusetts", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "colby@myacesolar.com"}, {"k": "Phone", "v": "(844)-369-6747"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-07-2026"}], "contacts": [{"id": "c165", "name": "Kevin Donovan", "role": "Project Manager", "email": "", "phone": "", "linkedin": "http://linkedin.com/in/kevin-donovan-952595223/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c79", "name": "Ferrovial Webber Energy", "rel": "EPC", "stage": "Prospecting", "tier": "Tier A", "fit": "Strategic", "industry": "EPC / Utility", "website": "https://www.ferrovial.com/en/business/energy/", "linkedin": "https://www.linkedin.com/company/ferrovial/", "location": "Texas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@wwebber.com"}, {"k": "Phone", "v": "(512)-637-8545"}], "contacts": [], "docs": [], "events": []}, {"id": "c80", "name": "EV Solar", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / CS", "website": "https://evsolarusa.com", "linkedin": "https://www.linkedin.com/company/ev-solar-usa/", "location": "New York", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@evsolarusa.com"}, {"k": "Phone", "v": "(917)-715-3985"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c187", "name": "Jimmy Brown", "role": "Construction Manager", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/jimmy-brown-a13493284/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c81", "name": "Pure Power Contractors", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "EPC / Utility", "website": "https://purepowercontractors.com", "linkedin": "https://www.linkedin.com/company/pure-power-contractors/", "location": "North Carolina", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@purepowercontractors.com"}, {"k": "Phone", "v": "(877)-749-2852"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c156", "name": "Mario Fisichello", "role": "Vice President of BD", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/mario-fisichello-4826524b/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c82", "name": "Evergreen Renewables", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / CS", "website": "https://evergreenrenewables.com", "linkedin": "https://www.linkedin.com/company/evergreen-renewable/", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "hello@ever.green"}, {"k": "Phone", "v": "(888)-303-6424"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c177", "name": "Ayin Philips", "role": "Operations", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/ayin-philips-639abb44/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c83", "name": "NSF EPC", "rel": "EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC / CS", "website": "", "linkedin": "", "location": "New York", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}], "contacts": [], "docs": [], "events": []}, {"id": "c84", "name": "ISI Solar", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility", "website": "https://isisolar.com", "linkedin": "https://www.linkedin.com/company/isi_interconnection-systems-inc/", "location": "Nebraska", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@isisolar.com"}, {"k": "Phone", "v": "(308)-946-3974"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c176", "name": "Brian Schmidt", "role": "Project management", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/brian-schmidt-b78097236/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c85", "name": "Melink Solar", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility", "website": "https://www.melinksolar.com", "linkedin": "https://www.linkedin.com/company/melinksolar/", "location": "Ohio", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(513)-999-5818"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c86", "name": "Drew Guthridge", "role": "CEO", "email": "", "phone": "(513)-999-5818", "linkedin": "", "last": "", "notes": ""}, {"id": "c175", "name": "Martin Baker", "role": "Director of operations", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/martin-baker-0a31bb239/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c87", "name": "CTEC Solar", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility / Commercial & Industrial", "website": "https://www.ctecsolar.com", "linkedin": "https://www.linkedin.com/company/ctecsolar/", "location": "Connecticut", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@ctecsolar.com"}, {"k": "Phone", "v": "(860)-580-7174"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c167", "name": "Nicholas Z", "role": "Solar project developer", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/nicholas-z-46b147166/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c88", "name": "Elite Electric", "rel": "EPC", "stage": "Prospecting", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Commercial & Industrial / Utility", "website": "https://www.elite-electricinc.com", "linkedin": "https://www.linkedin.com/company/elite-electric-inc./", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "office@eliteelectricincwa.com"}, {"k": "Phone", "v": "(951-681-9543"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [], "docs": [], "events": []}, {"id": "c89", "name": "Nelnet Renewable Energy", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Commercial & Industrial / Small Utility-Scale", "website": "https://nelnetenergy.com", "linkedin": "https://www.linkedin.com/company/nelnetenergy/", "location": "Illinois", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "SolarInfo@nelnet.net"}, {"k": "Phone", "v": "(844)-765-2703"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c163", "name": "Adam Rue", "role": "COO", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/adam-rue-trapper12/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c90", "name": "New Energy Structures Company", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility", "website": "http://nesco-us.com", "linkedin": "https://www.linkedin.com/company/new-energy-structures-company/", "location": "Colorado", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(970)-535-6116"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c178", "name": "Ty Searl", "role": "CEO", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/ty-searl-9b8b8546/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c91", "name": "Core Development Group", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Commercial & Industrial", "website": "https://www.coredevusa.com", "linkedin": "https://www.linkedin.com/company/coredevelopmentgroup/", "location": "New Jersey", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@coredevusa.com"}, {"k": "Phone", "v": "(201)-825-2195"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c179", "name": "Prerna Kejriwal", "role": "Project management", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/prerna-kejriwal/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c92", "name": "Dynamic Energy", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Commercial & Industrial / CS", "website": "https://dynamicenergy.com", "linkedin": "https://www.linkedin.com/company/dynamic-energy/", "location": "Pennsylvania", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@dynamicenergy.com"}, {"k": "Phone", "v": "(877)-809-8884"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c180", "name": "Ziggy Ruiz", "role": "Vice President of PD", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/ziggy-ruiz/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c93", "name": "Coldwell energy", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Commercial & Industrial", "website": "https://coldwellsolar.com", "linkedin": "https://www.linkedin.com/company/coldwell-solar-inc-/", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@coldwellsolar.com"}, {"k": "Phone", "v": "(916)-435-2900"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c181", "name": "Jessica Carnero", "role": "Construction Manager", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/jessica-carnero-ab71a5146/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c94", "name": "Paradise Energy Solutions", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Commercial & Industrial", "website": "https://www.paradisesolarenergy.com", "linkedin": "https://www.linkedin.com/company/paradise-energy-solutions-llc/", "location": "Pennsylvania", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(877)-851-9269"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c182", "name": "Matthew Miller", "role": "Project Manager", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/matthew-miller-54a59a23a/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c95", "name": "GenPro Energy Solutions", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Commercial & Industrial / CS", "website": "https://genproenergy.com", "linkedin": "https://www.linkedin.com/company/genproenergy/", "location": "South Dakota", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@genproenergy.com"}, {"k": "Phone", "v": "(866)-593-0777"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c183", "name": "Larry Z.", "role": "Construction Manager", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/larryzich/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c96", "name": "Pieper Electric", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility / Commercial & Industrial", "website": "https://www.pieperpower.com/contact", "linkedin": "https://www.linkedin.com/company/pieper-electric/", "location": "Wisconsin", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "solar@piperpower.com"}, {"k": "Phone", "v": "(608)-836-7072"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c168", "name": "Sonja Flowers", "role": "Project coordinator", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/sonja-flowers-a3b5b933/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c97", "name": "Collins Electrical", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility / Commercial & Industrial", "website": "https://www.collinselectric.com", "linkedin": "https://www.linkedin.com/company/collins-electrical-company-inc-/", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(209)-466-3691"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c169", "name": "Leslie Byrd", "role": "Project coordinator", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/leslie-byrd-4a668548/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c98", "name": "Veregy", "rel": "EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC / Commercial & Industrial", "website": "https://veregy.com", "linkedin": "https://www.linkedin.com/company/veregy/", "location": "Arizona", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "Phone", "v": "(800)-460-0995"}], "contacts": [], "docs": [], "events": []}, {"id": "c99", "name": "SOLON", "rel": "EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC / Commercial & Industrial", "website": "https://solonamerica.com", "linkedin": "https://www.linkedin.com/company/solon-corporation/", "location": "Arizona", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "General email", "v": "info@solonamerica.com"}, {"k": "Phone", "v": "(520)-807-1300"}], "contacts": [], "docs": [], "events": []}, {"id": "c100", "name": "Namaste Solar", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Commercial & Industrial / CS", "website": "https://www.namastesolar.com", "linkedin": "https://www.linkedin.com/company/namaste-solar/", "location": "Colorado", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@namastesolar.com"}, {"k": "Phone", "v": "(303)-447-0300"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c170", "name": "Will Guenther", "role": "Co-owner", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/will-guenther-7122a852/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c101", "name": "Norwich Solar", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility / Commercial & Industrial / CS", "website": "https://norwichsolar.com", "linkedin": "https://www.linkedin.com/company/norwichsolar/", "location": "Vermont", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@norwichsolar.com"}, {"k": "Phone", "v": "(802)-281-3213"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c171", "name": "Luke Cady", "role": "COO", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/luke-cady-370140b/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c102", "name": "Moore Energy", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility / Commercial & Industrial", "website": "https://mooreenergy.com", "linkedin": "https://www.linkedin.com/company/moore-energy-llc/", "location": "Pennsylvania", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@mooreenergy.com"}, {"k": "Phone", "v": "(215)-650-3212"}, {"k": "Connection date", "v": "chat gpt says is not agood fit,mostly feul,oil etc"}], "contacts": [{"id": "c172", "name": "Tyler Moore", "role": "Co-owner", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/tyler-moore-4a858155/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c103", "name": "Eagle Point Solar", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility / Commercial & Industrial", "website": "https://eaglepointsolar.com", "linkedin": "https://www.linkedin.com/company/eagle-point-solar-llc/", "location": "Iowa", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "sales@eaglepointsolar.com"}, {"k": "Phone", "v": "(877)-357-2555"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c173", "name": "Bard Mitchell", "role": "Financia Analyst", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/brad-mitchell-3254b993/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c104", "name": "Ideal Energy", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility / Commercial & Industrial / CS", "website": "https://ideal.energy", "linkedin": "https://www.linkedin.com/company/ideal-energy-solar/posts/?feedView=all", "location": "Iowa", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "hello@ideal.energy"}, {"k": "Phone", "v": "(641)- 209-3288"}, {"k": "LinkedIn connected", "v": "Yes"}, {"k": "Connection date", "v": "april-08-2026"}], "contacts": [{"id": "c174", "name": "Dannia Thorpe", "role": "Project Manager", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/dannia-thorpe-b9ab3b16a/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c105", "name": "Brandt Construction", "rel": "EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC / Utility", "website": "", "linkedin": "", "location": "Indiana", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}], "contacts": [], "docs": [], "events": []}, {"id": "c106", "name": "LightWave Solar", "rel": "EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC / Utility / Commercial & Industrial", "website": "https://www.lightwavesolar.com", "linkedin": "https://www.linkedin.com/company/lightwave-solar-electric/", "location": "Tennessee", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "General email", "v": "info@lightwavesolar.com"}, {"k": "Phone", "v": "(615)-641-4050"}], "contacts": [], "docs": [], "events": []}, {"id": "c107", "name": "Eitri Foudry", "rel": "EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC / Utility", "website": "http://www.eitrifoundry.com", "linkedin": "https://www.linkedin.com/company/eitri-foundry/", "location": "Florida", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "General email", "v": "info@eitrifoundry.com"}, {"k": "Phone", "v": "(407)-543-6321"}], "contacts": [], "docs": [], "events": []}, {"id": "c108", "name": "Industrial Solar Consulting", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC / Utility / Commercial & Industrial", "website": "https://www.iscpv.com", "linkedin": "https://www.linkedin.com/company/isc-industrial-solar-consulting/", "location": "Arizona", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "sales@iscpv.com"}, {"k": "Phone", "v": "(866)-945-7596"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c184", "name": "Shawin Stutzman", "role": "Director", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/shawn-stutzman-a1687a14/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c109", "name": "Baker Electric", "rel": "EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC / Utility", "website": "http://www.baker-electric.com", "linkedin": "https://www.linkedin.com/company/baker-electric/life/cfff3464-781a-455a-b696-00d8109deb48/?viewAsMember=true", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "General email", "v": "info@baker-electric.com"}, {"k": "Phone", "v": "(760)-745-2001"}], "contacts": [], "docs": [], "events": []}, {"id": "c110", "name": "Silicon Ranch", "rel": "Developer", "stage": "Qualifying", "tier": "Tier B", "fit": "Medium", "industry": "Developer / Utility - Scale - Owner - Operator", "website": "https://www.siliconranch.com", "linkedin": "https://www.linkedin.com/company/silicon-ranch-corporation/", "location": "Tennessee", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(615) -577-4786"}], "contacts": [{"id": "c111", "name": "Reagan Farr", "role": "CEO", "email": "mailto:info@siliconranch.com", "phone": "(615) -577-4786", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c112", "name": "SOLV Energy", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "EPC / Utility - Scale + Storage", "website": "https://solvenergy.com", "linkedin": "https://www.linkedin.com/company/solv-energy/", "location": "California", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(858)-251-4888"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c113", "name": "George Hershman", "role": "CEO", "email": "info@solvenergy.com", "phone": "(858)-251-4888", "linkedin": "", "last": "", "notes": ""}, {"id": "c144", "name": "Adrian Najera", "role": "Senior Project Engeneer", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/adrian-najera-77439a309/edit/forms/next-action/after-connect-update-profile/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c114", "name": "McCarthy Building Companies - Renewable Division", "rel": "EPC", "stage": "Qualifying", "tier": "", "fit": "", "industry": "EPC / Utility - Scale Solar  + BESS", "website": "https://www.mccarthy.com/industries/renewable-energy", "linkedin": "https://www.linkedin.com/company/mccarthy-building-companies-inc/", "location": "Missouri", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "Phone", "v": "(402)-502-1484"}], "contacts": [{"id": "c115", "name": "Mike myers", "role": "CEO", "email": "", "phone": "(402)-502-1484", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c116", "name": "Black & Veatch", "rel": "EPC", "stage": "Qualifying", "tier": "Tier A", "fit": "Strategic", "industry": "EPC / Engineering & Design / Utility - Scale", "website": "https://www.bv.com", "linkedin": "https://www.linkedin.com/company/black-and-veatch/", "location": "Kansas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(913)-458-2000"}], "contacts": [{"id": "c117", "name": "Rich Jacober", "role": "Vice President", "email": "corporateinfo@bv.com", "phone": "(913)-458-2000", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c118", "name": "DEPCOM Power (Kiewit Company)", "rel": "EPC", "stage": "Qualifying", "tier": "", "fit": "", "industry": "EPC / Utility - Scale + Engineering", "website": "https://www.depcompower.com", "linkedin": "https://www.linkedin.com/company/depcom-power/", "location": "Arizona", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}, {"k": "Phone", "v": "(480) -270-6910"}], "contacts": [{"id": "c119", "name": "Johnnie Taul", "role": "CEO", "email": "info@depcompower.com", "phone": "(480) -270-6910", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c120", "name": "Mortenson", "rel": "EPC", "stage": "Qualifying", "tier": "Tier B", "fit": "High", "industry": "EPC / Utility - Scale Renewables", "website": "https://www.mortenson.com", "linkedin": "https://www.linkedin.com/company/mortenson/", "location": "Minneapolis", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(763)-522-2100"}], "contacts": [{"id": "c121", "name": "Troy Blizzard", "role": "Vice President", "email": "info@mortenson.com", "phone": "(763)-522-2100", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c122", "name": "Primoris Renewable Energy", "rel": "EPC", "stage": "Qualifying", "tier": "Tier B", "fit": "High", "industry": "EPC / Solar + Civil Construction", "website": "https://www.prim.com", "linkedin": "https://www.linkedin.com/company/primoris-services-corporation/", "location": "Texas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(214) -740-5600"}], "contacts": [{"id": "c123", "name": "Mark Sherry", "role": "", "email": "", "phone": "(214) -740-5600", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c124", "name": "Blattner Energy", "rel": "EPC", "stage": "Qualifying", "tier": "Tier B", "fit": "High", "industry": "EPC / Renewable Energy Delivery", "website": "https://www.blattnercompany.com", "linkedin": "https://www.linkedin.com/company/blattner-company/", "location": "Minnesota", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(320)-356-7351"}], "contacts": [{"id": "c125", "name": "Candi Janssen", "role": "Vice President", "email": "", "phone": "(320)-356-7351", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c126", "name": "Ivy Energy / Signal Energy", "rel": "EPC", "stage": "Qualifying", "tier": "", "fit": "", "industry": "EPC / Utility-scale Solar", "website": "https://www.signalenergy.com", "linkedin": "https://www.linkedin.com/company/signalenergy/", "location": "Texas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(858)-876-2005"}], "contacts": [{"id": "c127", "name": "Robert L. Tabb", "role": "CEO", "email": "info@ivy.energy.com", "phone": "(858)-876-2005", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c128", "name": "ENGIE North America", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "Tier A", "fit": "Strategic", "industry": "Developer / EPC / Energy Services", "website": "https://www.engie-na.com", "linkedin": "https://www.linkedin.com/company/engie-north-america-inc/", "location": "Texas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(713)-636-0000"}], "contacts": [{"id": "c129", "name": "Mathew Magdanz", "role": "Vice President", "email": "information@ne.engie.com", "phone": "(713)-636-0000", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c130", "name": "Strata Clean Energy", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "Developer / EPC / Storage", "website": "https://stratacleanenergy.com", "linkedin": "https://www.linkedin.com/company/stratacleanenergy/", "location": "North Carolina", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(919)-960-6015"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c131", "name": "Brian Hamilton", "role": "Vice President", "email": "", "phone": "(919)-960-6015", "linkedin": "", "last": "", "notes": ""}, {"id": "c145", "name": "Tiago Sabino Dias", "role": "CCO", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/tiago-sabino-dias-b0347228/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c132", "name": "Invenergy", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "Tier B", "fit": "Medium", "industry": "Developer / EPC / Utility- Scale", "website": "https://invenergy.com", "linkedin": "https://www.linkedin.com/company/invenergy-llc/", "location": "Illinois", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(312)-224-1400"}], "contacts": [{"id": "c133", "name": "Dan Venuti", "role": "Vice President", "email": "medios/prensa: media@invenergy.com", "phone": "(312)-224-1400", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c134", "name": "Enel Green Power North America", "rel": "Developer / EPC", "stage": "Prospecting", "tier": "Tier A", "fit": "Strategic", "industry": "Developer / EPC / Storage", "website": "https://www.enelgreenpower.com", "linkedin": "https://www.linkedin.com/company/enel_green_power/?originalSubdomain=it", "location": "Massachusetts", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "communications.northamerica@enel.com"}, {"k": "Phone", "v": "( 978)- 681-1900"}], "contacts": [], "docs": [], "events": []}, {"id": "c135", "name": "Quanta Services", "rel": "EPC", "stage": "Prospecting", "tier": "Tier A", "fit": "Strategic", "industry": "EPC / Utility", "website": "https://www.quantaservices.com", "linkedin": "https://www.linkedin.com/company/quanta-services/", "location": "Texas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@quantaservices.com"}, {"k": "Phone", "v": "(713)-629-7600"}], "contacts": [], "docs": [], "events": []}, {"id": "c136", "name": "Moss", "rel": "EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC / Utility", "website": "", "linkedin": "", "location": "Florida", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "No"}], "contacts": [], "docs": [], "events": []}, {"id": "c137", "name": "Kiewit Energy Group", "rel": "EPC", "stage": "Qualifying", "tier": "Tier A", "fit": "Strategic", "industry": "EPC / Utility", "website": "https://www.kiewit.com/markets/power/renewable-energy/", "linkedin": "https://www.linkedin.com/company/kiewit/", "location": "Nebraska", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "Phone", "v": "(281)-517-8900"}], "contacts": [{"id": "c138", "name": "Paul Thompson", "role": "Vice President", "email": "ann.mcculloch@kiewit.com", "phone": "(281)-517-8900", "linkedin": "", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c139", "name": "Signal Energy", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "EPC / Utility", "website": "https://www.signalenergy.com/what-we-do/solar", "linkedin": "https://www.linkedin.com/company/signalenergy/", "location": "Texas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "info@signalenergy.com"}, {"k": "Phone", "v": "(423)-443-4190"}, {"k": "LinkedIn connected", "v": "Yes"}], "contacts": [{"id": "c146", "name": "Adam Carver", "role": "Project Manager", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/adam-carver26/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c140", "name": "Burns & McDonnell", "rel": "EPC", "stage": "Prospecting", "tier": "Tier A", "fit": "Strategic", "industry": "EPC / Utility", "website": "https://www.burnsmcd.com", "linkedin": "https://www.linkedin.com/company/burns-mcdonnell/", "location": "Missouri", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "meyoung@burnsmcd.com"}, {"k": "Phone", "v": "(816)-333-9400"}], "contacts": [], "docs": [], "events": []}, {"id": "c141", "name": "Barton Malow", "rel": "EPC", "stage": "Prospecting", "tier": "", "fit": "", "industry": "EPC / Utility", "website": "https://www.bartonmalow.com", "linkedin": "https://www.linkedin.com/company/bartonmalow/", "location": "Michigan", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}, {"k": "General email", "v": "communications@bartonmalow.com"}, {"k": "Phone", "v": "(248)-436-5000"}], "contacts": [], "docs": [], "events": []}, {"id": "c142", "name": "DEPCOM Power", "rel": "EPC", "stage": "Prospecting", "tier": "Tier B", "fit": "High", "industry": "EPC", "website": "https://depcompower.com", "linkedin": "https://www.linkedin.com/company/depcom-power/", "location": "Arizona", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}], "contacts": [], "docs": [], "events": []}, {"id": "c143", "name": "McCarthy Building Companies", "rel": "EPC", "stage": "Prospecting", "tier": "Tier B", "fit": "High", "industry": "EPC", "website": "https://www.mccarthy.com", "linkedin": "https://www.linkedin.com/company/mccarthy-building-companies/", "location": "Missouri", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "US Registration", "v": "Yes"}], "contacts": [], "docs": [], "events": []}, {"id": "c152", "name": "Cleanleaf Energy", "rel": "Developer / EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "Developer / EPC", "website": "https://www.cleanleafenergy.com", "linkedin": "", "location": "Texas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "LinkedIn connected", "v": "Yes"}, {"k": "US Registration", "v": "Yes"}], "contacts": [{"id": "c153", "name": "Donald Brinkman", "role": "Project Manager", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/donald-brinkman-60498561/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c159", "name": "AUI Partners", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "High", "industry": "EPC", "website": "https://www.auipartners.com", "linkedin": "https://www.linkedin.com/company/auipartners/", "location": "Texas", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "LinkedIn connected", "v": "Yes"}, {"k": "US Registration", "v": "Yes"}], "contacts": [{"id": "c160", "name": "Josh Bywaters", "role": "Project Executive", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/joshua-bywaters/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c185", "name": "Eitri Foundry", "rel": "EPC", "stage": "Qualifying", "tier": "Tier C", "fit": "Medium", "industry": "EPC", "website": "https://eitrifoundry.com", "linkedin": "https://www.linkedin.com/company/eitri-foundry/", "location": "Florida", "owner": "Geronimo LeBaron", "notes": "", "custom": [{"k": "LinkedIn connected", "v": "Yes"}, {"k": "US Registration", "v": "Yes"}], "contacts": [{"id": "c186", "name": "Cristopher McCabe", "role": "Director of operations", "email": "", "phone": "", "linkedin": "https://www.linkedin.com/in/clmccabe1/", "last": "", "notes": ""}], "docs": [], "events": []}, {"id": "c195", "name": "ampacity", "rel": "Other", "stage": "Prospecting", "tier": "Prospect", "fit": "", "industry": "", "website": "", "linkedin": "", "location": "", "owner": "Geronimo LeBaron", "notes": "From quick-prospect list.", "custom": [], "contacts": [], "docs": [], "events": []}, {"id": "c196", "name": "GIS- discovery", "rel": "Other", "stage": "Prospecting", "tier": "Prospect", "fit": "", "industry": "", "website": "", "linkedin": "", "location": "", "owner": "Geronimo LeBaron", "notes": "From quick-prospect list.", "custom": [], "contacts": [], "docs": [], "events": []}, {"id": "c197", "name": "IBV Energy", "rel": "Other", "stage": "Prospecting", "tier": "Prospect", "fit": "", "industry": "", "website": "", "linkedin": "", "location": "", "owner": "Geronimo LeBaron", "notes": "From quick-prospect list.", "custom": [], "contacts": [], "docs": [], "events": []}, {"id": "c198", "name": "louth callan", "rel": "Other", "stage": "Prospecting", "tier": "Prospect", "fit": "", "industry": "", "website": "", "linkedin": "", "location": "", "owner": "Geronimo LeBaron", "notes": "From quick-prospect list.", "custom": [], "contacts": [], "docs": [], "events": []}, {"id": "c199", "name": "solmax", "rel": "Other", "stage": "Prospecting", "tier": "Prospect", "fit": "", "industry": "", "website": "", "linkedin": "", "location": "", "owner": "Geronimo LeBaron", "notes": "From quick-prospect list.", "custom": [], "contacts": [], "docs": [], "events": []}, {"id": "c200", "name": "URE", "rel": "Other", "stage": "Prospecting", "tier": "Prospect", "fit": "", "industry": "", "website": "", "linkedin": "", "location": "", "owner": "Geronimo LeBaron", "notes": "From quick-prospect list.", "custom": [], "contacts": [], "docs": [], "events": []}, {"id": "c201", "name": "Lykos", "rel": "Other", "stage": "Prospecting", "tier": "Prospect", "fit": "", "industry": "", "website": "", "linkedin": "", "location": "", "owner": "Geronimo LeBaron", "notes": "From quick-prospect list.", "custom": [], "contacts": [], "docs": [], "events": []}];
+const TZONES=["Eastern","Central","Mountain","Pacific","Alaska","Hawaii-Aleutian",""];
 const KEY="us_crm_console_v1";
 const MSAL_CFG={auth:{clientId:"08b5f379-bc54-423b-b9fd-72242cfe908b",authority:"https://login.microsoftonline.com/720752f2-761f-405d-866a-efdb633125d9",redirectUri:window.location.origin+window.location.pathname},cache:{cacheLocation:"localStorage"}};
 const SCOPES=["Sites.ReadWrite.All"];
 const pca=new msal.PublicClientApplication(MSAL_CFG);
-async function signOut(){try{await pca.logoutRedirect({account:pca.getAllAccounts()[0]||undefined,postLogoutRedirectUri:window.location.origin+window.location.pathname});}catch(e){try{localStorage.clear();}catch(_){}location.reload();}}
 let IN_TEAMS=false;
 const teamsReady=(async()=>{try{await Promise.race([microsoftTeams.app.initialize(),new Promise((_,rej)=>setTimeout(()=>rej(new Error("no-teams")),1500))]);return true;}catch(e){return false;}})();
 function teamsLogin(){return microsoftTeams.authentication.authenticate({url:window.location.origin+window.location.pathname+"auth-start.html",width:600,height:535});}
@@ -235,8 +153,7 @@ function deep(o){return JSON.parse(JSON.stringify(o))}
 function save(){try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){}}
 function load(){try{const s=localStorage.getItem(KEY);return s?JSON.parse(s):null}catch(e){return null}}
 function id(){return Math.random().toString(36).slice(2,10)}
-let sel=null,tab="overview",grp="all",view="crm";
-const EXISTING_STAGES=["NDA Signed","Active","Contract","Client"];
+let sel=null,tab="overview";
 function esc(s){return(s||"").replace(/[&<>\"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;"}[c]))}
 function sc(s){return"s-"+(s||"none").toLowerCase().replace(/[^a-z]/g,"")}
 function lk(u){if(!u)return"&#8212;";const h=u.startsWith("http")?u:"https://"+u;return '<a href="'+esc(h)+'" target="_blank" rel="noopener">'+esc(u)+'</a>'}
@@ -250,32 +167,22 @@ function render(){
   const r=fRel.value,t=fTier.value,f=fFit.value,s=fStage.value;
   const m=DB.companies.filter(c=>{
     const hay=(c.name+" "+c.industry+" "+c.location+" "+(c.contacts||[]).map(x=>x.name+x.role).join(" ")).toLowerCase();
-    return(!q||hay.includes(q))&&(!r||c.rel===r)&&(!t||c.tier===t)&&(!f||c.fit===f)&&(!s||c.stage===s)&&(grp==="all"||(grp==="existing"?EXISTING_STAGES.indexOf(c.stage)>-1:EXISTING_STAGES.indexOf(c.stage)<0));
+    return(!q||hay.includes(q))&&(!r||c.rel===r)&&(!t||c.tier===t)&&(!f||c.fit===f)&&(!s||c.stage===s);
   });
-  cnt.textContent=m.length+" of "+DB.companies.length;updateGrpChips();
+  cnt.textContent=m.length+" of "+DB.companies.length;
   qlist.innerHTML=m.length?m.map(c=>`
     <div class="crow ${c.id===sel?'active':''}" onclick="pick('${c.id}')">
       <div class="nm">${esc(c.name)}</div>
       <div class="sub">${esc(c.rel)}${c.location?' &middot; '+esc(c.location):''}</div>
-      <div class="pills"><span class="pill ${deptOf(c)==='Legal'?'p-dept-legal':'p-dept-bd'}">${deptOf(c)==='Legal'?'Legal':'BD'}</span>${c.tier?`<span class="pill p-tier">${esc(c.tier)}</span>`:""}${c.fit?`<span class="pill fit-${esc(c.fit)}">${esc(c.fit)}</span>`:""}</div>
+      <div class="pills">${c.tier?`<span class="pill p-tier">${esc(c.tier)}</span>`:""}${c.fit?`<span class="pill fit-${esc(c.fit)}">${esc(c.fit)}</span>`:""}</div>
     </div>`).join(""):`<div class="note" style="padding:16px">No matches.</div>`;
 }
-function pick(cid){sel=cid;tab="overview";view="crm";render();detailView()}
+function pick(cid){sel=cid;tab="overview";render();detailView()}
 function company(){return DB.companies.find(x=>x.id===sel)}
-function fmtD(s){if(!s)return "";var d=new Date(s+"T00:00:00");return isNaN(d.getTime())?s:d.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"});}
-function fuToday0(){var t=new Date();t.setHours(0,0,0,0);return t;}
-function fuDays(s){var d=new Date(s+"T00:00:00");return Math.round((d.getTime()-fuToday0().getTime())/86400000);}
-function fuOverdue(s){return !!s&&fuDays(s)<0;}
-function setGrp(g){grp=g;render();}
-function updateGrpChips(){["all","prospects","existing"].forEach(function(g){var el=document.getElementById("grp-"+g);if(!el)return;var on=grp===g;el.style.background=on?"var(--navy)":"transparent";el.style.color=on?"#fff":"var(--mut)";el.style.border=on?"1px solid var(--navy)":"1px solid var(--line)";el.style.fontWeight=on?"500":"400";});var fb=document.getElementById("fuBtn");if(fb)fb.textContent=view==="followups"?"← Companies":"Follow-ups";}
-function toggleFollowUps(){view=view==="followups"?"crm":"followups";render();detailView();}
-function fuRow(c){var n=fuDays(c.nextFollowUp);var col=n<0?"var(--red)":(n<=7?"var(--amber)":"var(--mut)");var lbl=n<0?fmtD(c.nextFollowUp)+" · overdue "+(-n)+"d":(n===0?"Today":(n===1?"Tomorrow":fmtD(c.nextFollowUp)));return '<div class="crow" onclick="pick(\''+c.id+'\')" style="border-left:3px solid '+col+'"><div style="display:flex;align-items:center;gap:10px"><span class="nm">'+esc(c.name)+'</span><span style="font-size:11px;color:var(--mut)">'+esc(c.rel)+'</span><span style="margin-left:auto;font-size:11px;color:'+col+';font-weight:500">'+esc(lbl)+'</span></div></div>';}
-function renderFollowUps(){var withd=DB.companies.filter(function(c){return c.nextFollowUp;}).sort(function(a,b){return a.nextFollowUp<b.nextFollowUp?-1:(a.nextFollowUp>b.nextFollowUp?1:0);});var over=withd.filter(function(c){return fuDays(c.nextFollowUp)<0;});var week=withd.filter(function(c){var n=fuDays(c.nextFollowUp);return n>=0&&n<=7;});var soon=withd.filter(function(c){return fuDays(c.nextFollowUp)>7;});function sec(title,color,arr){return arr.length?'<div style="font-size:11px;font-weight:500;color:'+color+';padding:10px 16px 4px">'+title+'</div>'+arr.map(fuRow).join(""):"";}var body=withd.length?(sec("Overdue","var(--red)",over)+sec("This week","var(--amber)",week)+sec("Upcoming","var(--green)",soon)):'<div class="empty">No follow-ups scheduled yet. Add a next follow-up date on a company.</div>';detail.innerHTML='<div class="dhead"><div style="font-size:18px;font-weight:500;color:var(--navy)">Follow-ups</div><div style="font-size:12px;color:var(--mut)">'+withd.length+' scheduled</div></div>'+body;}
 function detailView(){
-  if(view==="followups"){renderFollowUps();return;}
   const c=company();
   if(!c){detail.innerHTML=`<div class="empty">Select a company from the list.</div>`;return}
-  const tabs=[["overview","Overview",null],["contacts","Contacts",(c.contacts||[]).length],["documents","Documents",(c.docs||[]).length],["events","Events",(c.events||[]).length],["legal","Legal",legalCount(c)],["more","More",(c.custom||[]).length]];
+  const tabs=[["overview","Overview",null],["contacts","Contacts",(c.contacts||[]).length],["documents","Documents",(c.docs||[]).length],["events","Events",(c.events||[]).length],["more","More",(c.custom||[]).length]];
   detail.innerHTML=`
     <div class="dhead"><div class="row1">
       <div>
@@ -285,15 +192,12 @@ function detailView(){
           ${c.tier?`<span class="pill p-tier">${esc(c.tier)}</span>`:""}
           ${c.fit?`<span class="pill fit-${esc(c.fit)}">${esc(c.fit)} fit</span>`:""}
           <span class="pill p-stage">${esc(c.stage)}</span>
-          <span class="pill ${deptOf(c)==='Legal'?'p-dept-legal':'p-dept-bd'}">${deptOf(c)==='Legal'?'In Legal':'In Business Development'}</span>
           ${c.location?`<span class="loc">&#128205; ${esc(c.location)}</span>`:""}
         </div>
       </div>
       <div style="display:flex;gap:8px">
         <button class="btn ghost" onclick="openCompany('${c.id}')">Edit</button>
         <button class="btn ghost" onclick="delCompany('${c.id}')">Delete</button>
-        <button class="btn ghost" onclick="openHistory('${c.id}')">History</button>
-        <button class="btn ghost" onclick="toggleDept('${c.id}')">${deptOf(c)==='Legal'?'Return to BD':'Hand to Legal'}</button>
       </div>
     </div></div>
     <div class="tabs">${tabs.map(t=>`<div class="tab ${t[0]===tab?'active':''}" onclick="setTab('${t[0]}')">${t[1]}${t[2]!=null?` <span class="c">${t[2]}</span>`:''}</div>`).join("")}</div>
@@ -306,15 +210,12 @@ function tabView(c){
   if(tab==="overview"){
     w.innerHTML=`
       <div class="card"><h3>Snapshot</h3><div class="grid">
-        <div class="f"><label>Company type</label><div class="v">${esc(c.rel)}</div></div>
+        <div class="f"><label>Relationship</label><div class="v">${esc(c.rel)}</div></div>
         <div class="f"><label>Stage</label><div class="v">${esc(c.stage)}</div></div>
         <div class="f"><label>Tier</label><div class="v">${esc(c.tier)||"&#8212;"}</div></div>
         <div class="f"><label>United Services fit</label><div class="v">${esc(c.fit)||"&#8212;"}</div></div>
-        
+        <div class="f"><label>Company type</label><div class="v">${esc(c.industry)||"&#8212;"}</div></div>
         <div class="f"><label>Location</label><div class="v">${esc(c.location)||"&#8212;"}</div></div>
-        <div class="f"><label>Address</label><div class="v">${esc(c.address)||"&#8212;"}</div></div>
-        <div class="f"><label>Last contacted</label><div class="v">${c.lastOutreach?esc(fmtD(c.lastOutreach)):"&#8212;"}</div></div>
-        <div class="f"><label>Next follow-up</label><div class="v">${c.nextFollowUp?esc(fmtD(c.nextFollowUp))+(fuOverdue(c.nextFollowUp)?' <span style="color:var(--red);font-weight:500">(overdue)</span>':''):"&#8212;"}</div></div>
         <div class="f"><label>Website</label><div class="v">${lk(c.website)}</div></div>
         <div class="f"><label>LinkedIn</label><div class="v">${lk(c.linkedin)}</div></div>
         <div class="f"><label>Owner</label><div class="v">${esc(c.owner)||"&#8212;"}</div></div>
@@ -324,12 +225,12 @@ function tabView(c){
   }
   if(tab==="contacts"){
     w.innerHTML=`<div class="card"><h3>People we talk to</h3>
-      <table><thead><tr><th>Name</th><th>Role</th><th>Email</th><th>Phone</th><th>Last</th><th></th></tr></thead><tbody>${
+      <table><thead><tr><th>Name</th><th>Role</th><th>Email</th><th>Phone</th><th>Time Zone</th><th>Last</th><th></th></tr></thead><tbody>${
       (c.contacts||[]).map(p=>`<tr>
         <td><div style="display:flex;align-items:center;gap:9px"><span class="avatarsm">${esc((p.name||"?").split(" ").map(x=>x[0]).slice(0,2).join(""))}</span><strong>${esc(p.name)}</strong></div>${p.notes?`<div class="note" style="margin-left:39px">${esc(p.notes)}</div>`:""}</td>
-        <td>${esc(p.role)}</td><td>${esc(p.email)}</td><td>${esc(p.phone)}</td><td>${esc(p.last)||"&#8212;"}</td>
+        <td>${esc(p.role)}</td><td>${esc(p.email)}</td><td>${esc(p.phone)}</td><td>${esc(p.timezone)||"&#8212;"}</td><td>${esc(p.last)||"&#8212;"}</td>
         <td class="row-actions"><button class="icon-btn" onclick="openSub('contact','${p.id}')">edit</button><button class="icon-btn" onclick="delSub('contacts','${p.id}')">&times;</button></td>
-      </tr>`).join("")||`<tr><td colspan="6" class="note">No contacts yet.</td></tr>`}</tbody></table>
+      </tr>`).join("")||`<tr><td colspan="7" class="note">No contacts yet.</td></tr>`}</tbody></table>
       <div style="margin-top:12px"><span class="add-link" onclick="openSub('contact')">+ Add contact</span></div></div>`;
   }
   if(tab==="documents"){
@@ -350,29 +251,6 @@ function tabView(c){
         <td class="row-actions"><button class="icon-btn" onclick="openSub('event','${e.id}')">edit</button><button class="icon-btn" onclick="delSub('events','${e.id}')">&times;</button></td></tr>`).join("")||`<tr><td colspan="5" class="note">No events tracked yet.</td></tr>`}</tbody></table>
       <div style="margin-top:12px"><span class="add-link" onclick="openSub('event')">+ Add event</span></div></div>`;
   }
-  if(tab==="legal"){
-    c.legal=c.legal||{};
-    const dept=deptOf(c);
-    const legalRows=LEGAL_FIELDS.map(f=>{const v=c.legal[f.k]||"";const disp=v?(f.type==="status"?`<span class="status ${sc(v)}"><span class="dot"></span>${esc(v)}</span>`:esc(v)):"&#8212;";return `<div class="f"><label>${esc(f.label)}</label><div class="v">${disp}</div></div>`;}).join("");
-    const legalDocs=(c.docs||[]).filter(d=>["NDA","MSA","Subcontract","Service Agreement"].indexOf(d.type)>-1);
-    const docsHtml=legalDocs.length?legalDocs.map(d=>`<tr><td><strong>${esc(d.type)}</strong></td><td><span class="status ${sc(d.status)}"><span class="dot"></span>${esc(d.status)}</span></td><td>${esc(d.date)||"&#8212;"}</td></tr>`).join(""):`<tr><td colspan="3" class="note">No legal documents on file yet.</td></tr>`;
-    w.innerHTML=`
-      <div class="card">
-        <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
-          <h3>Legal file</h3>
-          <span class="pill ${dept==='Legal'?'p-dept-legal':'p-dept-bd'}">In ${dept==='Legal'?'Legal':'Business Development'}</span>
-        </div>
-        <div class="banner">Same client record, no duplicate. Legal details live here once a client is handed over. These fields are session only for now and built to extend as your legal team confirms the final list.</div>
-        <div class="grid">${legalRows}</div>
-        <div style="margin-top:12px;display:flex;gap:14px">
-          <span class="add-link" onclick="openLegal()">Edit legal details</span>
-          ${dept==='Legal'?`<span class="add-link" onclick="toggleDept('${c.id}')">Return to Business Development</span>`:`<span class="add-link" onclick="toggleDept('${c.id}')">Hand over to Legal</span>`}
-        </div>
-      </div>
-      <div class="card"><h3>Documents on file</h3>
-        <table><thead><tr><th>Document</th><th>Status</th><th>Date</th></tr></thead><tbody>${docsHtml}</tbody></table>
-        <div style="margin-top:12px"><span class="add-link" onclick="setTab('documents')">Open documents tab</span></div></div>`;
-  }
   if(tab==="more"){
     w.innerHTML=`<div class="card"><h3>Custom fields</h3>
       <div>${(c.custom||[]).map((f,i)=>`<div class="grid" style="margin-bottom:8px"><div class="f"><label>${esc(f.k)}</label><div class="v">${esc(f.v)}</div></div><div style="display:flex;align-items:flex-end"><button class="icon-btn" onclick="delCustom(${i})">remove</button></div><div></div></div>`).join("")||`<div class="note">No custom fields yet.</div>`}</div>
@@ -385,58 +263,42 @@ function addCustom(){const c=company();const k=ck.value.trim(),v=cv.value.trim()
 function delCustom(i){const c=company();c.custom.splice(i,1);save();detailView()}
 function selo(arr,v){return arr.map(o=>`<option ${o===v?"selected":""}>${o||"&#8212;"}</option>`).join("")}
 function openCompany(cid){
-  const c=cid?company():{name:"",rel:"Other",stage:"Prospecting",tier:"",fit:"",industry:"",website:"",linkedin:"",location:"",address:"",lastOutreach:"",nextFollowUp:"",owner:"Geronimo LeBaron",notes:""};
+  const c=cid?company():{name:"",rel:"Other",stage:"Prospecting",tier:"",fit:"",industry:"",website:"",linkedin:"",location:"",owner:"Geronimo LeBaron",notes:""};
   m1in.innerHTML=`<h3>${cid?"Edit company":"New company"}</h3>
     <div class="f"><label style="font-size:11px;color:var(--mut)">Company name *</label><input id="x_name" value="${esc(c.name)}"/></div>
     <div class="g2">
-      <div class="f"><label style="font-size:11px;color:var(--mut)">Company type</label><select id="x_rel">${selo(REL,c.rel)}</select></div>
+      <div class="f"><label style="font-size:11px;color:var(--mut)">Relationship</label><select id="x_rel">${selo(REL,c.rel)}</select></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Stage</label><select id="x_stage">${selo(STAGES,c.stage)}</select></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Tier</label><select id="x_tier">${selo(TIERS,c.tier)}</select></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Fit</label><select id="x_fit">${selo(FITS,c.fit)}</select></div>
-      <div class="f"><label style="font-size:11px;color:var(--mut)">Focus / segments</label><input id="x_industry" value="${esc(c.industry)}"/></div>
+      <div class="f"><label style="font-size:11px;color:var(--mut)">Company type</label><input id="x_industry" value="${esc(c.industry)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Location</label><input id="x_location" value="${esc(c.location)}"/></div>
-      <div class="f"><label style="font-size:11px;color:var(--mut)">Address</label><input id="x_address" value="${esc(c.address)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">Website</label><input id="x_website" value="${esc(c.website)}"/></div>
       <div class="f"><label style="font-size:11px;color:var(--mut)">LinkedIn</label><input id="x_linkedin" value="${esc(c.linkedin)}"/></div>
-      <div class="f"><label style="font-size:11px;color:var(--mut)">Last contacted</label><input type="date" id="x_lastout" value="${esc(c.lastOutreach)}"/></div>
-      <div class="f"><label style="font-size:11px;color:var(--mut)">Next follow-up</label><input type="date" id="x_nextfu" value="${esc(c.nextFollowUp)}"/></div>
-      <div class="f"><label style="font-size:11px;color:var(--mut)">Owner</label><select id="x_owner">${selo((!c.owner||OWNERS.indexOf(c.owner)>-1)?OWNERS:[c.owner].concat(OWNERS),c.owner)}</select></div>
+      <div class="f"><label style="font-size:11px;color:var(--mut)">Owner</label><input id="x_owner" value="${esc(c.owner)}"/></div>
     </div>
     <div class="f"><label style="font-size:11px;color:var(--mut)">Notes</label><textarea id="x_notes">${esc(c.notes)}</textarea></div>
     <div class="mfoot"><button class="btn ghost" onclick="close1()">Cancel</button><button class="btn primary" onclick="saveCompany('${cid||''}')">Save</button></div>`;
   m1.classList.add("open");
 }
 function fix(v){return v==="—"?"":v}
-var OPTIONAL_COLS=["Address","LastOutreach","NextFollowUp"];
-async function putFields(path,method,fields){
-  var enc=function(f){return JSON.stringify(method==="POST"?{fields:f}:f);};
-  try{return await graph(path,{method:method,body:enc(fields)});}
-  catch(e){
-    var has=OPTIONAL_COLS.filter(function(k){return k in fields;});
-    if(!has.length)throw e;
-    var f2={};Object.keys(fields).forEach(function(k){if(OPTIONAL_COLS.indexOf(k)<0)f2[k]=fields[k];});
-    try{var r=await graph(path,{method:method,body:enc(f2)});r.__droppedCols=has;return r;}
-    catch(e2){throw e;}
-  }
-}
-async function saveCompany(cid){const g=i=>document.getElementById(i).value;const name=g("x_name").trim();if(!name){uiAlert("Name required");return}
-  const d={name,rel:g("x_rel"),stage:g("x_stage"),tier:fix(g("x_tier")),fit:fix(g("x_fit")),industry:g("x_industry"),website:g("x_website"),linkedin:g("x_linkedin"),location:g("x_location"),address:g("x_address"),lastOutreach:g("x_lastout"),nextFollowUp:g("x_nextfu"),owner:g("x_owner")||"",notes:g("x_notes")};
-  const fields={Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Address:d.address,LastOutreach:d.lastOutreach?d.lastOutreach+"T00:00:00Z":null,NextFollowUp:d.nextFollowUp?d.nextFollowUp+"T00:00:00Z":null,Owner:d.owner,Notes:d.notes};
+async function saveCompany(cid){const g=i=>document.getElementById(i).value;const name=g("x_name").trim();if(!name){alert("Name required");return}
+  const d={name,rel:g("x_rel"),stage:g("x_stage"),tier:fix(g("x_tier")),fit:fix(g("x_fit")),industry:g("x_industry"),website:g("x_website"),linkedin:g("x_linkedin"),location:g("x_location"),owner:g("x_owner")||"",notes:g("x_notes")};
+  const fields={Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Owner:d.owner,Notes:d.notes};
   close1();
-  var _dropped=null;
-  try{if(cid){const c=company();const _b=companySnap(c);Object.assign(c,d);var _wr=await putFields("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields","PATCH",fields);_dropped=_wr&&_wr.__droppedCols;auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Edit",summary:auditDiff(_b,d,["name","rel","stage","tier","fit","industry","website","linkedin","location","address","lastOutreach","nextFollowUp","owner","notes"]),snapshot:_b});}
-    else{const r=await putFields("/sites/"+SITE+"/lists/Companies/items","POST",fields);_dropped=r&&r.__droppedCols;const n=Object.assign({id:r.id,spId:r.id,custom:[],contacts:[],docs:[],events:[]},d);DB.companies.unshift(n);sel=n.id;auditLog({entity:"Companies",recordId:n.spId,recordName:n.name,company:n.name,action:"Add",summary:"Created company",snapshot:companySnap(n)});}
-  }catch(e){uiAlert("Save failed: "+(e.message||e));}
-  if(_dropped&&_dropped.length)uiAlert("Saved — but there is no SharePoint column yet for: "+_dropped.join(", ")+", so that value wasn't stored. Ask an admin to add the column.");
+  try{if(cid){const c=company();Object.assign(c,d);await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields",{method:"PATCH",body:JSON.stringify(fields)});}
+    else{const r=await graph("/sites/"+SITE+"/lists/Companies/items",{method:"POST",body:JSON.stringify({fields})});const n=Object.assign({id:r.id,spId:r.id,custom:[],contacts:[],docs:[],events:[]},d);DB.companies.unshift(n);sel=n.id;}
+  }catch(e){alert("Save failed: "+(e.message||e));}
   render();detailView()}
-async function delCompany(cid){if(!(await uiConfirm("Delete this company?")))return;const c=DB.companies.find(x=>x.id===cid);const _snap=companySnap(c);try{await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId,{method:"DELETE"});}catch(e){uiAlert("Delete failed: "+(e.message||e));return;}auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Delete",summary:"Deleted company",snapshot:_snap});DB.companies=DB.companies.filter(x=>x.id!==cid);if(sel===cid)sel=null;render();detailView()}
+async function delCompany(cid){if(!confirm("Delete this company?"))return;const c=DB.companies.find(x=>x.id===cid);try{await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}DB.companies=DB.companies.filter(x=>x.id!==cid);if(sel===cid)sel=null;render();detailView()}
 function openSub(kind,sid){const c=company();let rec,title,fields;
-  if(kind==="contact"){rec=sid?c.contacts.find(x=>x.id===sid):{name:"",role:"",email:"",phone:"",linkedin:"",last:"",notes:""};title=sid?"Edit contact":"Add contact";
+  if(kind==="contact"){rec=sid?c.contacts.find(x=>x.id===sid):{name:"",role:"",email:"",phone:"",linkedin:"",last:"",notes:"",timezone:""};title=sid?"Edit contact":"Add contact";
     fields=`<div class="f"><label style="font-size:11px;color:var(--mut)">Name *</label><input id="y_name" value="${esc(rec.name)}"/></div>
     <div class="g2"><div class="f"><label style="font-size:11px;color:var(--mut)">Role</label><input id="y_role" value="${esc(rec.role)}"/></div>
     <div class="f"><label style="font-size:11px;color:var(--mut)">Last contact</label><input id="y_last" type="date" value="${esc(rec.last)}"/></div>
     <div class="f"><label style="font-size:11px;color:var(--mut)">Email</label><input id="y_email" value="${esc(rec.email)}"/></div>
-    <div class="f"><label style="font-size:11px;color:var(--mut)">Phone</label><input id="y_phone" value="${esc(rec.phone)}"/></div></div>
+    <div class="f"><label style="font-size:11px;color:var(--mut)">Phone</label><input id="y_phone" value="${esc(rec.phone)}"/></div>
+    <div class="f"><label style="font-size:11px;color:var(--mut)">Time zone</label><select id="y_timezone">${selo(TZONES,rec.timezone||"")}</select></div></div>
     <div class="f"><label style="font-size:11px;color:var(--mut)">LinkedIn</label><input id="y_linkedin" value="${esc(rec.linkedin||'')}"/></div>
     <div class="f"><label style="font-size:11px;color:var(--mut)">Notes</label><textarea id="y_notes">${esc(rec.notes)}</textarea></div>`}
   if(kind==="doc"){rec=sid?c.docs.find(x=>x.id===sid):{type:DOCT[0],status:DOCS[1],date:"",link:""};title=sid?"Edit document":"Add document";
@@ -454,96 +316,42 @@ function openSub(kind,sid){const c=company();let rec,title,fields;
   m2.classList.add("open");
 }
 async function saveSub(kind,sid){const c=company();const g=i=>{const e=document.getElementById(i);return e?e.value:""};
-  if(kind==="contact"){const rec={name:g("y_name").trim(),role:g("y_role"),email:g("y_email"),phone:g("y_phone"),linkedin:g("y_linkedin"),last:g("y_last"),notes:g("y_notes")};if(!rec.name){uiAlert("Name required");return}
-    const fields={Title:rec.name,Company:c.name,Role:rec.role,Email:rec.email,Phone:rec.phone,LinkedIn:rec.linkedin,Notes:rec.notes};if(rec.last)fields.LastContact=rec.last+"T00:00:00Z";
+  if(kind==="contact"){const rec={name:g("y_name").trim(),role:g("y_role"),email:g("y_email"),phone:g("y_phone"),linkedin:g("y_linkedin"),last:g("y_last"),notes:g("y_notes"),timezone:g("y_timezone")};if(!rec.name){alert("Name required");return}
+    const fields={Title:rec.name,Company:c.name,Role:rec.role,Email:rec.email,Phone:rec.phone,LinkedIn:rec.linkedin,Notes:rec.notes,TimeZone:rec.timezone};if(rec.last)fields.LastContact=rec.last+"T00:00:00Z";
     close2();
-    try{if(sid){const ex=c.contacts.find(x=>x.id===sid);const _b=contactSnap(ex);Object.assign(ex,rec);await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId+"/fields",{method:"PATCH",body:JSON.stringify(fields)});auditLog({entity:"Contacts",recordId:ex.spId,recordName:ex.name,company:c.name,action:"Edit",summary:auditDiff(_b,rec,["name","role","email","phone","linkedin","last","notes"]),snapshot:_b});}
-      else{const r=await graph("/sites/"+SITE+"/lists/Contacts/items",{method:"POST",body:JSON.stringify({fields})});rec.id=r.id;rec.spId=r.id;c.contacts.push(rec);auditLog({entity:"Contacts",recordId:rec.spId,recordName:rec.name,company:c.name,action:"Add",summary:"Added contact",snapshot:contactSnap(rec)});}}catch(e){uiAlert("Save failed: "+(e.message||e));}
+    try{if(sid){const ex=c.contacts.find(x=>x.id===sid);Object.assign(ex,rec);await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId+"/fields",{method:"PATCH",body:JSON.stringify(fields)});}
+      else{const r=await graph("/sites/"+SITE+"/lists/Contacts/items",{method:"POST",body:JSON.stringify({fields})});rec.id=r.id;rec.spId=r.id;c.contacts.push(rec);}}catch(e){alert("Save failed: "+(e.message||e));}
     detailView();return;}
   if(kind==="doc"){
-    if(sid){const ex=c.docs.find(x=>x.id===sid);const _b=docSnap(ex);ex.type=g("y_type");ex.status=g("y_status");ex.date=g("y_date");close2();try{await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+ex.spId+"/fields",{method:"PATCH",body:JSON.stringify(Object.assign({DocType:ex.type,Status:ex.status,Company:c.name},ex.date?{DocDate:ex.date+"T00:00:00Z"}:{}))});auditLog({entity:"Documents",recordId:ex.spId,recordName:ex.type||"Document",company:c.name,action:"Edit",summary:auditDiff(_b,docSnap(ex),["type","status","date"]),snapshot:_b});}catch(e){uiAlert("Save failed: "+(e.message||e));}detailView();return;}
-    const fe=document.getElementById("y_file");const file=fe&&fe.files[0];if(!file){uiAlert("Choose a file to upload");return;}
-    if(!DOCLIB){uiAlert("Documents library not found");return;}
+    if(sid){const ex=c.docs.find(x=>x.id===sid);ex.type=g("y_type");ex.status=g("y_status");ex.date=g("y_date");close2();try{await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+ex.spId+"/fields",{method:"PATCH",body:JSON.stringify(Object.assign({DocType:ex.type,Status:ex.status,Company:c.name},ex.date?{DocDate:ex.date+"T00:00:00Z"}:{}))});}catch(e){alert("Save failed: "+(e.message||e));}detailView();return;}
+    const fe=document.getElementById("y_file");const file=fe&&fe.files[0];if(!file){alert("Choose a file to upload");return;}
+    if(!DOCLIB){alert("Documents library not found");return;}
     close2();
     try{const t=await tok();const safe=(c.name+"_"+g("y_type")+"_"+Date.now()+"_"+file.name).replace(/[^A-Za-z0-9._-]/g,"_");
       const up=await fetch("https://graph.microsoft.com/v1.0/sites/"+SITE+"/lists/"+DOCLIB+"/drive/root:/"+encodeURIComponent(safe)+":/content",{method:"PUT",headers:{Authorization:"Bearer "+t,"Content-Type":file.type||"application/octet-stream"},body:file});
       const drv=await up.json();if(drv.error)throw new Error(drv.error.message);
       const li=await graph("/sites/"+SITE+"/drives/"+drv.parentReference.driveId+"/items/"+drv.id+"/listItem?$select=id");
       await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+li.id+"/fields",{method:"PATCH",body:JSON.stringify(Object.assign({DocType:g("y_type"),Status:g("y_status"),Company:c.name},g("y_date")?{DocDate:g("y_date")+"T00:00:00Z"}:{}))});
-      c.docs=c.docs||[];var _nd={spId:li.id,id:li.id,type:g("y_type"),status:g("y_status"),date:g("y_date"),link:drv.webUrl};c.docs.push(_nd);auditLog({entity:"Documents",recordId:li.id,recordName:_nd.type||"Document",company:c.name,action:"Upload",summary:"Uploaded "+(_nd.type||"document"),snapshot:docSnap(_nd)});
-    }catch(e){uiAlert("Upload failed: "+(e.message||e));}
+      c.docs=c.docs||[];c.docs.push({spId:li.id,id:li.id,type:g("y_type"),status:g("y_status"),date:g("y_date"),link:drv.webUrl});
+    }catch(e){alert("Upload failed: "+(e.message||e));}
     detailView();return;}
   let arr,rec;
-  if(kind==="event"){arr="events";rec={name:g("y_name").trim(),date:g("y_date"),location:g("y_location"),who:g("y_who"),notes:g("y_notes")};if(!rec.name){uiAlert("Event name required");return}}
+  if(kind==="event"){arr="events";rec={name:g("y_name").trim(),date:g("y_date"),location:g("y_location"),who:g("y_who"),notes:g("y_notes")};if(!rec.name){alert("Event name required");return}}
   c[arr]=c[arr]||[];if(sid){Object.assign(c[arr].find(x=>x.id===sid),rec)}else{rec.id=id();c[arr].push(rec)}
   close2();detailView()}
-async function delSub(arr,sid){if(!(await uiConfirm("Remove this record?")))return;const c=company();if(arr==="contacts"){const ex=c.contacts.find(x=>x.id===sid);try{await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId,{method:"DELETE"});}catch(e){uiAlert("Delete failed: "+(e.message||e));return;}auditLog({entity:"Contacts",recordId:ex.spId,recordName:ex.name,company:c.name,action:"Delete",summary:"Deleted contact",snapshot:contactSnap(ex)});}if(arr==="docs"){const ex=c.docs.find(x=>x.id===sid);try{await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+ex.spId,{method:"DELETE"});}catch(e){uiAlert("Delete failed: "+(e.message||e));return;}auditLog({entity:"Documents",recordId:ex.spId,recordName:ex.type||"Document",company:c.name,action:"Delete",summary:"Deleted document",snapshot:docSnap(ex)});}c[arr]=c[arr].filter(x=>x.id!==sid);detailView()}
+async function delSub(arr,sid){if(!confirm("Remove this record?"))return;const c=company();if(arr==="contacts"){const ex=c.contacts.find(x=>x.id===sid);try{await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}}if(arr==="docs"){const ex=c.docs.find(x=>x.id===sid);try{await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+ex.spId,{method:"DELETE"});}catch(e){alert("Delete failed: "+(e.message||e));return;}}c[arr]=c[arr].filter(x=>x.id!==sid);detailView()}
 function close1(){m1.classList.remove("open")}
 function close2(){m2.classList.remove("open")}
-/* ---- Legal branch: config + handover (same record, no duplicate) ---- */
-const LEGAL_STATUS=["Not started","Drafting","In review","Signed","Executed","N/A"];
-/* Add or reorder fields here as the legal team confirms them. type: status | text | textarea */
-var LEGAL_FIELDS=[
-  {k:"contract",label:"Master contract",type:"status"},
-  {k:"nda",label:"NDA",type:"status"},
-  {k:"msa",label:"MSA",type:"status"},
-  {k:"scope",label:"Scope of work",type:"text"},
-  {k:"notes",label:"Legal notes",type:"textarea"}
-];
-function deptOf(c){return (c&&c.dept)||"Business Development";}
-function legalCount(c){var n=0;(LEGAL_FIELDS||[]).forEach(function(f){if(c&&c.legal&&c.legal[f.k])n++;});return n||null;}
-
-async function toggleDept(cid){
-  const c=DB.companies.find(x=>x.id===cid)||company();if(!c)return;
-  const to=deptOf(c)==="Legal"?"Business Development":"Legal";
-  if(!(await uiConfirm(to==="Legal"?("Hand "+c.name+" over to Legal?"):("Return "+c.name+" to Business Development?"))))return;
-  const _b=companySnap(c);
-  c.dept=to;
-  try{await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields",{method:"PATCH",body:JSON.stringify({Department:to})});}catch(e){}
-  if(typeof auditLog==="function")auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Edit",field:"Department",summary:"Handed over to "+to,snapshot:_b});
-  render();detailView();
-}
-
-function openLegal(){
-  const c=company();if(!c)return;c.legal=c.legal||{};
-  var rows=LEGAL_FIELDS.map(function(f){var v=c.legal[f.k]||"";
-    if(f.type==="status")return '<div class="f"><label style="font-size:11px;color:var(--mut)">'+esc(f.label)+'</label><select id="lg_'+f.k+'">'+selo(LEGAL_STATUS,v)+'</select></div>';
-    if(f.type==="textarea")return '<div class="f"><label style="font-size:11px;color:var(--mut)">'+esc(f.label)+'</label><textarea id="lg_'+f.k+'">'+esc(v)+'</textarea></div>';
-    return '<div class="f"><label style="font-size:11px;color:var(--mut)">'+esc(f.label)+'</label><input id="lg_'+f.k+'" value="'+esc(v)+'"/></div>';
-  }).join("");
-  m2in.innerHTML='<h3>Edit legal details</h3>'+rows+'<div class="mfoot"><button class="btn ghost" onclick="close2()">Cancel</button><button class="btn primary" onclick="saveLegal()">Save</button></div>';
-  m2.classList.add("open");
-}
-function saveLegal(){
-  const c=company();if(!c)return;c.legal=c.legal||{};
-  const _b=companySnap(c);
-  LEGAL_FIELDS.forEach(function(f){var el=document.getElementById("lg_"+f.k);if(el)c.legal[f.k]=el.value;});
-  close2();
-  if(typeof auditLog==="function")auditLog({entity:"Companies",recordId:c.spId,recordName:c.name,company:c.name,action:"Edit",field:"Legal",summary:"Updated legal details",snapshot:_b});
-  detailView();
-}
-
-function mapC(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",rel:f.RelationshipType||"Other",stage:f.Stage||"Prospecting",tier:f.Tier||"",fit:f.Fit||"",industry:f.CompanyType||"",website:f.Website||"",linkedin:f.LinkedIn||"",location:f.Location||"",address:f.Address||"",lastOutreach:(f.LastOutreach||"").slice(0,10),nextFollowUp:(f.NextFollowUp||"").slice(0,10),owner:f.Owner||"",notes:f.Notes||"",dept:f.Department||"Business Development",legal:{},custom:[{k:"US Registration",v:f.USRegistration||""},{k:"Phone",v:f.Phone||""},{k:"General email",v:f.GeneralEmail||""}].filter(x=>x.v),contacts:[],docs:[],events:[]};}
-function mapK(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",role:f.Role||"",email:f.Email||"",phone:f.Phone||"",linkedin:f.LinkedIn||"",last:(f.LastContact||"").slice(0,10),notes:f.Notes||"",_company:f.Company||""};}
+function mapC(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",rel:f.RelationshipType||"Other",stage:f.Stage||"Prospecting",tier:f.Tier||"",fit:f.Fit||"",industry:f.CompanyType||"",website:f.Website||"",linkedin:f.LinkedIn||"",location:f.Location||"",owner:f.Owner||"",notes:f.Notes||"",custom:[{k:"US Registration",v:f.USRegistration||""},{k:"Phone",v:f.Phone||""},{k:"General email",v:f.GeneralEmail||""}].filter(x=>x.v),contacts:[],docs:[],events:[]};}
+function mapK(it){const f=it.fields||{};return{spId:it.id,id:it.id,name:f.Title||"",role:f.Role||"",email:f.Email||"",phone:f.Phone||"",linkedin:f.LinkedIn||"",last:(f.LastContact||"").slice(0,10),notes:f.Notes||"",timezone:f.TimeZone||"",_company:f.Company||""};}
 function mapD(it){const f=it.fields||{};return{spId:it.id,id:it.id,type:f.DocType||"Other",status:f.Status||"None",date:(f.DocDate||"").slice(0,10),link:(it.driveItem&&it.driveItem.webUrl)||"",_company:f.Company||""};}
 async function pageAll(url){let out=[];while(url){const j=await graph(url);out=out.concat(j.value||[]);url=j["@odata.nextLink"]?j["@odata.nextLink"].replace("https://graph.microsoft.com/v1.0",""):null;}return out;}
-async function setUserAvatar(){
-  try{
-    var m=await graph("/me?$select=displayName,givenName,surname");
-    var ini="";
-    if(m.givenName||m.surname){ini=((m.givenName||"").charAt(0))+((m.surname||"").charAt(0));}
-    else{var nm=(m.displayName||"").trim();if(nm){var p=nm.split(/\s+/);ini=p[0].charAt(0)+(p.length>1?p[p.length-1].charAt(0):"");}}
-    ini=(ini||"?").toUpperCase();
-    var el=document.getElementById("avatarInits");if(el)el.textContent=ini;
-  }catch(e){}
-}
 async function boot(){
   try{
     IN_TEAMS=await teamsReady;
     document.getElementById("detail").innerHTML='<div class="empty">Signing in and loading your SharePoint data...</div>';
     const s=await graph("/sites/unitedservicesenergy.sharepoint.com:/sites/UnitedServicesTeamHub");
     SITE=s.id;
-    setUserAvatar();
     const comp=await pageAll("/sites/"+SITE+"/lists/Companies/items?$expand=fields&$top=200");
     const cont=await pageAll("/sites/"+SITE+"/lists/Contacts/items?$expand=fields&$top=200");
     DB.companies=comp.map(mapC).sort((a,b)=>a.name.localeCompare(b.name));
@@ -553,703 +361,6 @@ async function boot(){
   }catch(e){document.getElementById("detail").innerHTML='<div class="empty">Could not load data.<br>'+(e.message||e)+'</div>';}
 }
 initF(); (async function(){try{await pca.handleRedirectPromise();}catch(e){}boot();})();
-</script>
-<script>
-/* ================= CRM Audit / Version History ================= */
-var AUDIT={listId:null,ready:false,checked:false,me:null,mem:[],error:""};
-var AUDIT_LIST_NAME="CRM Change Log";
-var AUDIT_STASH={};
-
-function auditStash(e){var k="h"+Date.now()+Math.floor(Math.random()*1e4);AUDIT_STASH[k]=e;return k;}
-function companySnap(c){return {name:c.name,rel:c.rel,stage:c.stage,tier:c.tier,fit:c.fit,industry:c.industry,website:c.website,linkedin:c.linkedin,location:c.location,address:c.address,lastOutreach:c.lastOutreach,nextFollowUp:c.nextFollowUp,owner:c.owner,notes:c.notes,dept:c.dept,legal:c.legal?JSON.parse(JSON.stringify(c.legal)):{}};}
-function contactSnap(p){return {name:p.name,role:p.role,email:p.email,phone:p.phone,linkedin:p.linkedin,last:p.last,notes:p.notes};}
-function docSnap(d){return {type:d.type,status:d.status,date:d.date,link:d.link};}
-function companyFields(d){return {Title:d.name,RelationshipType:d.rel,Stage:d.stage,Tier:d.tier,Fit:d.fit,CompanyType:d.industry,Website:d.website,LinkedIn:d.linkedin,Location:d.location,Address:d.address,LastOutreach:d.lastOutreach?d.lastOutreach+"T00:00:00Z":null,NextFollowUp:d.nextFollowUp?d.nextFollowUp+"T00:00:00Z":null,Owner:d.owner,Notes:d.notes};}
-function contactFields(rec,company){var f={Title:rec.name,Company:company,Role:rec.role,Email:rec.email,Phone:rec.phone,LinkedIn:rec.linkedin,Notes:rec.notes};if(rec.last)f.LastContact=rec.last+"T00:00:00Z";return f;}
-function auditDiff(before,after,keys){var out=[];keys.forEach(function(k){var a=before?before[k]:"",b=after?after[k]:"";if(String(a==null?"":a)!==String(b==null?"":b))out.push(k+': "'+(a==null?"":a)+'" to "'+(b==null?"":b)+'"');});return out.length?out.join("; "):"No field values changed";}
-function auditFmtWhen(w){if(!w)return "";var d=new Date(w);return isNaN(d.getTime())?String(w):d.toLocaleString();}
-
-async function auditMe(){
-  if(AUDIT.me)return AUDIT.me;
-  try{var m=await graph("/me?$select=displayName,userPrincipalName,mail");AUDIT.me={name:m.displayName||m.userPrincipalName||"Unknown",login:m.userPrincipalName||m.mail||""};}
-  catch(e){try{var a=pca.getAllAccounts()[0];AUDIT.me={name:(a&&a.name)||"Unknown",login:(a&&a.username)||""};}catch(_){AUDIT.me={name:"Unknown",login:""};}}
-  return AUDIT.me;
-}
-
-async function auditEnsureList(){
-  if(AUDIT.checked)return AUDIT.ready;
-  AUDIT.checked=true;
-  try{
-    var lists=await graph("/sites/"+SITE+"/lists?$select=id,displayName,name&$top=200");
-    var ex=(lists.value||[]).find(function(l){return l.displayName===AUDIT_LIST_NAME||l.name===AUDIT_LIST_NAME;});
-    if(ex){AUDIT.listId=ex.id;AUDIT.ready=true;return true;}
-    var body={displayName:AUDIT_LIST_NAME,list:{template:"genericList"},columns:[
-      {name:"Entity",text:{}},{name:"RecordId",text:{}},{name:"RecordName",text:{}},{name:"Company",text:{}},
-      {name:"Action",text:{}},{name:"FieldChanged",text:{}},{name:"Summary",text:{allowMultipleLines:true}},
-      {name:"Snapshot",text:{allowMultipleLines:true}},{name:"ChangedByName",text:{}},{name:"ChangedByLogin",text:{}},
-      {name:"ChangedAt",dateTime:{}}
-    ]};
-    var made=await graph("/sites/"+SITE+"/lists",{method:"POST",body:JSON.stringify(body)});
-    AUDIT.listId=made.id;AUDIT.ready=true;return true;
-  }catch(e){AUDIT.ready=false;AUDIT.error=(e&&e.message)||String(e);return false;}
-}
-
-async function auditLog(entry){
-  try{
-    var me=await auditMe();
-    var now=new Date().toISOString();
-    var rec={entity:entry.entity||"",recordId:entry.recordId||"",recordName:entry.recordName||"",company:entry.company||"",action:entry.action||"",field:entry.field||"",summary:entry.summary||"",snapshot:entry.snapshot||null,byName:me.name,byLogin:me.login,when:now,persisted:false};
-    AUDIT.mem.unshift(rec);
-    var ok=await auditEnsureList();
-    if(!ok)return;
-    var fields={Title:(rec.recordName||"record")+": "+(rec.action||"change"),Entity:rec.entity,RecordId:String(rec.recordId),RecordName:rec.recordName,Company:rec.company,Action:rec.action,FieldChanged:rec.field,Summary:rec.summary,Snapshot:rec.snapshot?JSON.stringify(rec.snapshot):"",ChangedByName:me.name,ChangedByLogin:me.login,ChangedAt:now};
-    await graph("/sites/"+SITE+"/lists/"+AUDIT.listId+"/items",{method:"POST",body:JSON.stringify({fields:fields})});
-    rec.persisted=true;
-  }catch(e){}
-}
-
-async function auditFetchForCompany(c){
-  var out=[];
-  var ok=await auditEnsureList();
-  if(ok){
-    try{
-      var items=await graph("/sites/"+SITE+"/lists/"+AUDIT.listId+"/items?$expand=fields&$top=500");
-      (items.value||[]).forEach(function(it){var f=it.fields||{};if(f.Company===c.name){out.push({id:it.id,entity:f.Entity,recordId:f.RecordId,recordName:f.RecordName,company:f.Company,action:f.Action,field:f.FieldChanged,summary:f.Summary,snapshot:f.Snapshot,byName:f.ChangedByName,byLogin:f.ChangedByLogin,when:f.ChangedAt||it.lastModifiedDateTime});}});
-    }catch(e){}
-  }
-  AUDIT.mem.forEach(function(m){if(m.company===c.name&&!m.persisted)out.push(Object.assign({session:true},m));});
-  out.sort(function(a,b){return String(b.when||"").localeCompare(String(a.when||""));});
-  return out;
-}
-
-async function openHistory(cid){
-  var c=DB.companies.find(function(x){return x.id===cid;})||company();if(!c)return;
-  AUDIT_STASH={};
-  m1in.innerHTML='<h3>History: '+esc(c.name)+'</h3><div class="note">Loading change log...</div><div class="mfoot"><button class="btn ghost" onclick="close1()">Close</button></div>';
-  m1.classList.add("open");
-  var rows=await auditFetchForCompany(c);
-  var body="";
-  if(!AUDIT.ready){body+='<div class="note" style="margin-bottom:8px">History is not permanent yet. A SharePoint list named "'+esc(AUDIT_LIST_NAME)+'" is needed on the United Services Teams site, which a site owner can create. Until then this shows only changes made in this browser session.</div>';}
-  if(!rows.length){body+='<div class="note">No changes recorded yet for '+esc(c.name)+'.</div>';}
-  else{body+=rows.map(function(e){
-    var hasSnap=e.snapshot&&(typeof e.snapshot!=="string"||e.snapshot.length>2);
-    var canRestore=(e.action==="Edit"||e.action==="Delete")&&hasSnap;
-    var key=canRestore?auditStash(e):"";
-    return '<div class="rescard" style="cursor:default"><div class="rn">'+esc(e.action||"Change")+' &middot; '+esc(e.entity||"")+': '+esc(e.recordName||"")+'</div>'+
-      '<div class="rs">by '+esc(e.byName||"Unknown")+' &middot; '+esc(auditFmtWhen(e.when))+(e.session?' &middot; not yet saved':'')+'</div>'+
-      (e.summary?'<div class="rs">'+esc(e.summary)+'</div>':'')+
-      (canRestore?'<div style="margin-top:6px"><button class="btn ghost" onclick="auditRestore(\''+key+'\')">Restore this version</button></div>':'')+
-    '</div>';
-  }).join("");}
-  m1in.innerHTML='<h3>History: '+esc(c.name)+'</h3><div class="bot-res" style="max-height:52vh;overflow:auto">'+body+'</div><div class="mfoot"><button class="btn ghost" onclick="close1()">Close</button></div>';
-}
-
-async function auditRestore(key){
-  var e=AUDIT_STASH[key];if(!e)return;
-  var snap=e.snapshot;if(typeof snap==="string"){try{snap=JSON.parse(snap);}catch(_){snap=null;}}
-  if(!snap){uiAlert("No snapshot stored for this entry, so it cannot be restored.");return;}
-  if(!(await uiConfirm('Restore this '+e.entity+' to the version from '+auditFmtWhen(e.when)+'? This saves the change and logs a new history entry.')))return;
-  try{
-    if(e.entity==="Companies"){
-      var c=DB.companies.find(function(x){return String(x.spId)===String(e.recordId);})||DB.companies.find(function(x){return x.name===snap.name;});
-      var f1=companyFields(snap);
-      if(c&&c.spId){await graph("/sites/"+SITE+"/lists/Companies/items/"+c.spId+"/fields",{method:"PATCH",body:JSON.stringify(f1)});Object.assign(c,snap);}
-      else{var r=await graph("/sites/"+SITE+"/lists/Companies/items",{method:"POST",body:JSON.stringify({fields:f1})});var n=Object.assign({custom:[],contacts:[],docs:[],events:[]},snap,{id:r.id,spId:r.id});DB.companies.unshift(n);sel=n.id;}
-    }else if(e.entity==="Contacts"){
-      var parent=DB.companies.find(function(x){return x.name===e.company;});
-      if(!parent){uiAlert("The parent company is not loaded, so this contact cannot be restored.");return;}
-      var f2=contactFields(snap,e.company);
-      var ex=(parent.contacts||[]).find(function(x){return String(x.spId)===String(e.recordId);});
-      if(ex&&ex.spId){await graph("/sites/"+SITE+"/lists/Contacts/items/"+ex.spId+"/fields",{method:"PATCH",body:JSON.stringify(f2)});Object.assign(ex,snap);}
-      else{var r2=await graph("/sites/"+SITE+"/lists/Contacts/items",{method:"POST",body:JSON.stringify({fields:f2})});var nc=Object.assign({},snap,{id:r2.id,spId:r2.id});parent.contacts=parent.contacts||[];parent.contacts.push(nc);}
-    }else{uiAlert("Restore is available for company and contact records. A document can be re-uploaded from the original file.");return;}
-    await auditLog({entity:e.entity,recordId:e.recordId,recordName:e.recordName,company:e.company,action:"Restore",summary:"Restored to the version from "+auditFmtWhen(e.when),snapshot:snap});
-    render();detailView();
-    var cc=DB.companies.find(function(x){return x.name===e.company;});
-    if(cc)openHistory(cc.id);
-    uiAlert("Restored.");
-  }catch(err){uiAlert("Restore failed: "+(err.message||err));}
-}
-</script>
-<script>
-/* ================= CRM Assistant ================= */
-var BOT={open:false,full:false,ctx:null,pending:null,file:null,greeted:false};
-
-/* ---- interpretation layer (Claude proxy seam) ----
-   Set BOT_PROXY_URL to your in-tenant Azure proxy to turn on Claude interpretation.
-   The proxy receives ONLY the user's question plus the system prompt below, never CRM
-   records, so client data stays in the tenant. It must return JSON shaped as either:
-     { "plan":   "<canonical query string>" }  -> fed into the local engine (botParse)
-     { "answer": "<html string>" }             -> shown to the user as-is
-   If BOT_PROXY_URL is empty, or the call fails, we fall back to the local parser and
-   the app behaves exactly as before. */
-var BOT_PROXY_URL="";
-
-var BOT_SYSTEM_PROMPT=`# CRM Assistant, Operating Instructions
-
-## Role
-You are the CRM Assistant for United Services. You retrieve client information, present it in a fixed, decision-ready format, and manage client files under strict human approval. You are precise, structured, and never guess. When you lack certainty, you say so and ask.
-
-## Core Principles
-1. Summary first, always. Every information response opens with a one line summary of what you found before any detail or raw resource.
-2. No silent file actions. You never save, move, or overwrite a file without an explicit human "Approve."
-3. Show your reasoning on placement. When you propose where a file goes, you state why so the human can correct you.
-4. Cite the source. Every fact you present links back to the SharePoint or GitHub location it came from.
-5. If unsure, ask one sharp question. Do not fabricate a status, a folder, or a next action.
-
-## 1. Information Retrieval and Presentation
-When the user asks for anything about a client (status, history, contacts, recent outreach, documents), follow this sequence.
-Step 1. Retrieve. Search the relevant SharePoint site, client folder, and any linked GitHub records. Pull the actual resources.
-Step 2. Lead with a summary. Open every response with a single summary line before anything else.
-Step 3. Deliver in the fixed format below.
-
-### Fixed format for a single client status query
-[Client Name], Status Summary
-The status on [Client Name] is [status].
-Currently processing: [what is in motion right now].
-Next action: [the specific next step, owner, and due date if known].
-Source: [linked SharePoint or GitHub location]
-
-### Fixed format for a multi-client or list query
-When asked to "pull up all clients we've reached out to recently" or any list, open with a count and time window, then a clean table with columns: Client, Status, Currently Processing, Next Action, Source. Sort by most recent activity unless the user specifies otherwise. Close with: "Want me to open any of these in full?"
-
-### Rules for presentation
-- If a field is unknown, write Unknown rather than inventing it, and note what would fill the gap.
-- If multiple clients match an ambiguous name, list the candidates and ask which one before pulling detail.
-- Never dump raw file contents without the summary on top.
-- Keep the summary to what a busy executive needs to decide the next move.
-
-## 2. File Management and Human Supervision
-When the user says "Add this file to [client]" or uploads a file for a client, you never save it directly. You propose, you wait, you act only on approval.
-Step 1. Scan for the right destination. Read the file name and contents, identify the client, and search that client's SharePoint folder structure for the most relevant subfolder (for example: Contracts, Proposals, Correspondence, Financials, Site Docs). Match by document type and existing naming conventions.
-Step 2. Propose with reasoning, then ask for approval. Present File, Client, Destination, and a one line "Why here", then stop and ask the user to reply "Approve" to save or "Edit" to redirect.
-Step 3. Wait for a human decision. Do not save until you receive an explicit "Approve." No approval means no write.
-Step 4. Support Edit and guidance. If the user replies "Edit," names a different folder, or gives any correction, restate the revised proposal in the same format and ask for approval again. Loop until approved or cancelled.
-Step 5. Confirm the completed action. After approval and save, confirm with the final path and a link.
-
-### Rules for file handling
-- Only one write per approval. If the user approves, then adds a second file, run the full propose and approve loop again.
-- Never overwrite an existing file. If a file of the same name exists, flag it and ask whether to replace, version, or rename.
-- If you cannot confidently identify the client or the folder, do not guess. Propose your best option, state your uncertainty, and ask.
-- If the destination sits in GitHub rather than SharePoint, name the repo and path in the same proposal format and hold for approval identically.
-- Every proposal and every confirmation includes the full path so the human always sees exactly where the file lands.
-
-## Hard Guardrails
-1. Summary before detail on every information response. No exceptions.
-2. No file write, move, or overwrite without an explicit human "Approve."
-3. Never invent a status, folder, contact, or next action. Unknown is a valid answer.
-4. Always cite the source location.
-5. When ambiguous, ask one clear question rather than proceeding.`;
-
-async function botInterpret(text){
-  // With a proxy configured, Claude reads the question (guided by BOT_SYSTEM_PROMPT) and
-  // returns either a canonical query plan or a ready-to-show answer. Guardrails such as
-  // confirm-before-write stay enforced by the local code regardless of the interpreter.
-  if(BOT_PROXY_URL){
-    try{
-      var r=await fetch(BOT_PROXY_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({system:BOT_SYSTEM_PROMPT,message:text})});
-      if(r.ok){
-        var d=await r.json();
-        if(d&&typeof d.answer==="string"&&d.answer)return {type:"answer",html:d.answer};
-        if(d&&typeof d.plan==="string"&&d.plan)return botParse(d.plan);
-      }
-    }catch(e){ /* fall through to local parsing */ }
-  }
-  // No proxy, or the call failed: parse locally so no CRM data leaves the tenant.
-  return botParse(text);
-}
-
-var B_TIER={"suspect":"Suspect","prospect":"Prospect","client":"Client"};
-var B_FIT={"strategic":"Strategic","high":"High","medium":"Medium"};
-var B_STAGE={"prospecting":"Prospecting","qualifying":"Qualifying","nda signed":"NDA Signed","nda":"NDA Signed","active":"Active","contract":"Contract","dormant":"Dormant","closed":"Closed"};
-var B_REL=[["developer / epc","Developer / EPC"],["developer","Developer"],["epc","EPC"],["electrical","Electrical Contractor"],["owner","Owner / IPP"],["ipp","Owner / IPP"],["investor","Investor"],["vendor","Vendor / Supplier"],["supplier","Vendor / Supplier"],["subcontractor","Subcontractor"],["government","Government / Permitting"],["permitting","Government / Permitting"],["community","Community / NGO"],["ngo","Community / NGO"]];
-var B_STATES=["alabama","alaska","arizona","arkansas","california","colorado","connecticut","delaware","florida","georgia","hawaii","idaho","illinois","indiana","iowa","kansas","kentucky","louisiana","maine","maryland","massachusetts","michigan","minnesota","mississippi","missouri","montana","nebraska","nevada","new hampshire","new jersey","new mexico","new york","north carolina","north dakota","ohio","oklahoma","oregon","pennsylvania","rhode island","south carolina","south dakota","tennessee","texas","utah","vermont","virginia","washington","west virginia","wisconsin","wyoming"];
-var B_DOCT=[["nda","NDA"],["msa","MSA"],["insurance","Insurance / COI"],["coi","Insurance / COI"],["subcontract","Subcontract"],["service agreement","Service Agreement"],["permit","Permit"],["w-9","W-9 / Tax"],["w9","W-9 / Tax"],["tax","W-9 / Tax"]];
-
-function botNorm(s){return (s||"").toLowerCase().replace(/[^a-z0-9\/\-\s]/g," ").replace(/\s+/g," ").trim();}
-
-function botMatchCompanies(text){
-  var q=botNorm(text);
-  if(!q)return [];
-  var scored=DB.companies.map(function(c){
-    var n=botNorm(c.name);
-    var s=0;
-    if(n===q)s=100;
-    else if(q.indexOf(n)>-1&&n.length>2)s=80;
-    else if(n.indexOf(q)>-1)s=60;
-    else{
-      var qt=q.split(" "),nt=n.split(" "),hit=0;
-      qt.forEach(function(w){if(w.length>2&&nt.indexOf(w)>-1)hit++;});
-      if(hit)s=30+hit*10;
-    }
-    return {c:c,s:s};
-  }).filter(function(x){return x.s>0;});
-  scored.sort(function(a,b){return b.s-a.s;});
-  return scored;
-}
-
-function botMatchOneCompany(text){
-  var m=botMatchCompanies(text);
-  if(!m.length)return null;
-  if(m.length===1||m[0].s>=80||(m[1]&&m[0].s-m[1].s>=20))return m[0].c;
-  return null;
-}
-
-function botExtractFilters(q){
-  var f={},used=[];
-  Object.keys(B_TIER).forEach(function(k){var re=new RegExp("(^|\\s)(tier\\s)?"+k+"(\\s|$)");});
-  // tier
-  if(/\bsuspects?\b/.test(q))f.tier="Suspect";
-  else if(/\bclients?\b/.test(q))f.tier="Client";
-  else if(/\bprospects?\b/.test(q))f.tier="Prospect";
-  // fit
-  Object.keys(B_FIT).forEach(function(k){if(new RegExp("\\b"+k+"\\b").test(q))f.fit=B_FIT[k];});
-  // stage
-  Object.keys(B_STAGE).forEach(function(k){if(new RegExp("\\b"+k+"\\b").test(q))f.stage=B_STAGE[k];});
-  // relationship / type
-  for(var i=0;i<B_REL.length;i++){if(q.indexOf(B_REL[i][0])>-1){f.rel=B_REL[i][1];f.relKey=B_REL[i][0];break;}}
-  // location
-  for(var s=0;s<B_STATES.length;s++){if(q.indexOf(B_STATES[s])>-1){f.loc=B_STATES[s];break;}}
-  // document conditions
-  var docType=null;
-  for(var d=0;d<B_DOCT.length;d++){if(q.indexOf(B_DOCT[d][0])>-1){docType=B_DOCT[d][1];break;}}
-  if(docType){
-    var neg=/(\bno\b|without|missing|lack|lacking|don'?t have|not signed|unsigned|need|needs)/.test(q);
-    var signed=/\bsigned\b/.test(q)&&!/not signed/.test(q);
-    var expired=/expired/.test(q);
-    var pending=/pending/.test(q);
-    f.doc={type:docType,neg:neg,signed:signed,expired:expired,pending:pending};
-  }
-  // recency / stale
-  var rm=q.match(/(\d+)\s*(day|week|month)/);
-  if(/stale|haven'?t (contacted|reached|talked)|not (contacted|reached|touched)|no contact|gone (cold|quiet)/.test(q)||rm){
-    var days=60;
-    if(rm){days=parseInt(rm[1],10);if(rm[2]==="week")days*=7;if(rm[2]==="month")days*=30;}
-    f.staleDays=days;
-  }
-  return f;
-}
-
-function botHasFilters(f){return !!(f.tier||f.fit||f.stage||f.rel||f.loc||f.doc||f.staleDays);}
-
-function botApplyFilters(f){
-  var now=Date.now();
-  return DB.companies.filter(function(c){
-    if(f.tier&&c.tier!==f.tier)return false;
-    if(f.fit&&c.fit!==f.fit)return false;
-    if(f.stage&&c.stage!==f.stage)return false;
-    if(f.relKey&&botNorm(c.rel).indexOf(f.relKey)<0)return false;
-    if(f.loc&&botNorm(c.location).indexOf(f.loc)<0)return false;
-    if(f.doc){
-      var d=(c.docs||[]).find(function(x){return x.type===f.doc.type;});
-      if(f.doc.neg){ if(d&&d.status==="Signed")return false; }
-      else if(f.doc.signed){ if(!(d&&d.status==="Signed"))return false; }
-      else if(f.doc.expired){ if(!(d&&d.status==="Expired"))return false; }
-      else if(f.doc.pending){ if(!(d&&d.status==="Pending"))return false; }
-      else { if(!d)return false; }
-    }
-    if(f.staleDays){
-      var last=0;(c.contacts||[]).forEach(function(p){if(p.last){var t=Date.parse(p.last);if(t>last)last=t;}});
-      var thr=now-f.staleDays*864e5;
-      if(last>=thr)return false; // recently contacted -> exclude
-    }
-    return true;
-  });
-}
-
-function botFilterLabel(f){
-  var p=[];
-  if(f.rel)p.push(f.rel);
-  if(f.tier)p.push(f.tier);
-  if(f.fit)p.push(f.fit+" fit");
-  if(f.stage)p.push(f.stage);
-  if(f.loc)p.push("in "+f.loc.replace(/\b\w/g,function(m){return m.toUpperCase();}));
-  if(f.doc){p.push((f.doc.neg?"without a signed ":(f.doc.signed?"with a signed ":(f.doc.expired?"with an expired ":(f.doc.pending?"with a pending ":"with a "))))+f.doc.type);}
-  if(f.staleDays)p.push("not contacted in "+f.staleDays+" days");
-  return p.join(", ");
-}
-
-/* ---- action parsing (edits by command) ---- */
-function botParseAction(text){
-  var q=botNorm(text);
-  // add contact NAME to COMPANY
-  var m=text.match(/add (?:a )?contact\s+(.+?)\s+(?:to|at|for)\s+(.+)/i)||text.match(/add\s+(.+?)\s+as (?:a )?contact\s+(?:to|at|for)\s+(.+)/i);
-  if(m){var comp=botMatchOneCompany(m[2]);if(comp)return {kind:"addContact",company:comp,name:m[1].trim()};return {kind:"needCompany",raw:m[2]};}
-  // mark/set COMPANY DOCTYPE as/to STATUS
-  if(/\b(mark|set|update|change)\b/.test(q)){
-    var dt=null;for(var d=0;d<B_DOCT.length;d++){if(q.indexOf(B_DOCT[d][0])>-1){dt=B_DOCT[d][1];break;}}
-    var st=null;["signed","pending","draft","expired","none"].forEach(function(s){if(new RegExp("\\b"+s+"\\b").test(q))st=s.charAt(0).toUpperCase()+s.slice(1);});
-    if(dt&&st){var comp2=botFindCompanyInText(text);if(comp2)return {kind:"docStatus",company:comp2,type:dt,status:st};}
-    // set COMPANY tier/fit/stage to VALUE
-    var tm=q.match(/\btier\s+(?:to\s+)?(?:tier\s+)?(a|b|c)\b/);if(tm){var comp3=botFindCompanyInText(text);if(comp3)return {kind:"field",company:comp3,field:"tier",value:B_TIER[tm[1]],label:"tier",disp:B_TIER[tm[1]]};}
-    var fitK=Object.keys(B_FIT).find(function(k){return new RegExp("\\b"+k+"\\b").test(q);});
-    if(/\bfit\b/.test(q)&&fitK){var comp4=botFindCompanyInText(text);if(comp4)return {kind:"field",company:comp4,field:"fit",value:B_FIT[fitK],label:"fit",disp:B_FIT[fitK]};}
-    var stgK=Object.keys(B_STAGE).find(function(k){return new RegExp("\\b"+k+"\\b").test(q);});
-    if(/\bstage\b/.test(q)&&stgK){var comp5=botFindCompanyInText(text);if(comp5)return {kind:"field",company:comp5,field:"stage",value:B_STAGE[stgK],label:"stage",disp:B_STAGE[stgK]};}
-  }
-  return null;
-}
-
-function botFindCompanyInText(text){
-  // try to find the best-matching company name mentioned anywhere in the text
-  var best=null,bestScore=0;
-  DB.companies.forEach(function(c){
-    var n=botNorm(c.name);
-    if(n.length>2&&botNorm(text).indexOf(n)>-1&&n.length>bestScore){best=c;bestScore=n.length;}
-  });
-  return best;
-}
-
-/* ---- master parse ---- */
-function botParse(text){
-  var q=botNorm(text);
-  if(!q)return {type:"help"};
-  if(/^(hi|hey|hello|help|what can you)/.test(q))return {type:"help"};
-  // actions first
-  if(/\b(add|mark|set|update|change)\b/.test(q)){
-    var act=botParseAction(text);
-    if(act&&act.kind!=="needCompany")return {type:"action",action:act};
-    if(act&&act.kind==="needCompany")return {type:"answer",html:"I couldn't match a company called \""+esc(act.raw)+"\". Try the exact name."};
-  }
-  // upload intent
-  if(/\b(upload|attach|file this|add (?:a )?(?:file|document|doc)|drop)\b/.test(q)){
-    var uc=botFindCompanyInText(text);
-    return {type:"upload",company:uc};
-  }
-  // count
-  var isCount=/^(how many|count|number of)/.test(q);
-  // filters
-  var f=botExtractFilters(q);
-  if(botHasFilters(f)){
-    var list=botApplyFilters(f);
-    return {type:"list",label:botFilterLabel(f),companies:list,count:isCount};
-  }
-  // direct field questions about one company
-  var comp=botMatchOneCompany(text);
-  if(comp){
-    if(/contact|who.*(talk|speak|know)|point of contact|poc/.test(q))return {type:"company",company:comp,focus:"contacts"};
-    if(/email|phone|number/.test(q))return {type:"company",company:comp,focus:"contacts"};
-    if(/document|nda|msa|insurance|contract|paperwork|signed/.test(q))return {type:"company",company:comp,focus:"documents"};
-    if(/event|conference|networking/.test(q))return {type:"company",company:comp,focus:"events"};
-    if(/website|linkedin|owner|stage|tier|fit|location|where/.test(q))return {type:"company",company:comp,focus:"overview"};
-    return {type:"company",company:comp,focus:"status"};
-  }
-  // contact name search
-  var cmatch=[];
-  DB.companies.forEach(function(c){(c.contacts||[]).forEach(function(p){if(botNorm(p.name).indexOf(q)>-1&&q.length>2)cmatch.push({p:p,c:c});});});
-  if(cmatch.length)return {type:"contacts",matches:cmatch,q:text};
-  // fuzzy fallback across everything
-  var fuzzy=DB.companies.filter(function(c){
-    var hay=botNorm(c.name+" "+c.industry+" "+c.location+" "+c.notes+" "+(c.contacts||[]).map(function(x){return x.name+" "+x.role;}).join(" "));
-    return q.split(" ").some(function(w){return w.length>2&&hay.indexOf(w)>-1;});
-  });
-  if(fuzzy.length)return {type:"list",label:"matching \""+text.trim()+"\"",companies:fuzzy,count:false};
-  var _nc=botMatchCompanies(text).map(function(x){return x.c;});
-  if(!_nc.length)_nc=botCloseMatches(text).map(function(x){return x.c;});
-  _nc=_nc.slice(0,3);
-  var _nh=_nc.length?(" Closest matches: "+_nc.map(function(x){return botLink(x);}).join(", ")+"."):"";
-  return {type:"answer",html:"Nothing in SharePoint or GitHub matched <strong>"+esc(text.trim())+"</strong>."+_nh+" Try a client name, or a filter like \"qualifying clients\" or \"EPCs in Texas\"."};
-}
-
-/* ---- rendering ---- */
-function botPill(c){
-  var h="";
-  if(c.tier)h+='<span class="pill p-tier">'+esc(c.tier)+'</span>';
-  if(c.fit)h+='<span class="pill fit-'+esc(c.fit)+'">'+esc(c.fit)+'</span>';
-  return h;
-}
-function botCard(c){
-  return '<div class="rescard" onclick="botGo(\''+c.id+'\',\'overview\')">'+
-    '<div class="rn">'+esc(c.name)+'</div>'+
-    '<div class="rs">'+esc(c.rel)+(c.location?' &middot; '+esc(c.location):'')+(c.owner?' &middot; '+esc(c.owner):'')+'</div>'+
-    '<div class="rpills">'+botPill(c)+'</div>'+
-    '<div class="reslinks">'+
-      '<a onclick="event.stopPropagation();botGo(\''+c.id+'\',\'contacts\')">Contacts '+((c.contacts||[]).length)+'</a>'+
-      '<a onclick="event.stopPropagation();botGo(\''+c.id+'\',\'documents\')">Documents '+((c.docs||[]).length)+'</a>'+
-      '<a onclick="event.stopPropagation();botGo(\''+c.id+'\',\'events\')">Events '+((c.events||[]).length)+'</a>'+
-    '</div></div>';
-}
-function botLink(c,label,tab){return '<a onclick="botGo(\''+c.id+'\',\''+(tab||'overview')+'\')">'+esc(label||c.name)+'</a>';}
-
-/* ---- refined presentation + human-in-the-loop upload (BD team spec) ---- */
-var BOT_FOLDER_LEARN={}; /* guessed doc type -> corrected type, learned this session */
-
-function botLastContact(c){
-  var best="",bestT=0;
-  (c.contacts||[]).forEach(function(p){if(p&&p.last){var t=Date.parse(p.last);if(!isNaN(t)&&t>bestT){bestT=t;best=p.last;}}});
-  return best;
-}
-function botCustomVal(c,keys){
-  var cf=c.custom||[];
-  for(var i=0;i<cf.length;i++){var k=(cf[i].k||"").toLowerCase();for(var j=0;j<keys.length;j++){if(k.indexOf(keys[j])>-1&&cf[i].v)return cf[i].v;}}
-  return "";
-}
-function botStatusVal(c){return c.status||botCustomVal(c,["status"])||"";}
-function botNextVal(c){return c.nextAction||c.next||botCustomVal(c,["next action","next step","next"])||"";}
-function botLev(a,b){a=a||"";b=b||"";var m=a.length,n=b.length;if(!m)return n;if(!n)return m;var d=[],i,j;for(i=0;i<=m;i++)d[i]=[i];for(j=0;j<=n;j++)d[0][j]=j;for(i=1;i<=m;i++)for(j=1;j<=n;j++){var c=a.charAt(i-1)===b.charAt(j-1)?0:1;d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+c);}return d[m][n];}
-function botCloseMatches(text){
-  var q=botNorm(text);if(!q)return [];
-  var scored=DB.companies.map(function(c){var n=botNorm(c.name);var sim=1-botLev(q,n)/Math.max(q.length,n.length,1);return {c:c,sim:sim};}).filter(function(x){return x.sim>=0.5;});
-  scored.sort(function(a,b){return b.sim-a.sim;});
-  return scored.slice(0,3);
-}
-
-function botSayStatus(c){
-  var stage=c.stage||"", last=botLastContact(c), status=botStatusVal(c), next=botNextVal(c);
-  var sum=esc(c.name)+" is "+(stage?"in the <strong>"+esc(stage)+"</strong> stage":"<strong>not staged</strong>")+
-          (last?", last contacted "+esc(last):", no contact logged yet")+".";
-  var row=function(label,val,hint){return '<div class="rs" style="margin:3px 0"><strong>'+label+':</strong> '+(val?esc(val):'<span class="note">Not set'+(hint?" ("+hint+")":"")+'</span>')+'</div>';};
-  var card='<div class="rescard" onclick="botGo(\''+c.id+'\',\'overview\')">'+
-    row("Status",status,"add a Status field in SharePoint")+
-    row("Stage",stage,"")+
-    row("Last contact",last,"log a date on a contact")+
-    row("Next action",next,"add a Next action field or note")+'</div>';
-  var links='<div class="reslinks">'+
-    '<a onclick="botGo(\''+c.id+'\',\'overview\')">Client page</a>'+
-    '<a onclick="botGo(\''+c.id+'\',\'documents\')">Documents '+((c.docs||[]).length)+'</a>'+
-    '<a onclick="botGo(\''+c.id+'\',\'contacts\')">Contacts '+((c.contacts||[]).length)+'</a>'+
-    (c.website?'<a href="'+esc(c.website)+'" target="_blank" rel="noopener">Website</a>':'')+'</div>';
-  botSay(sum+'<div class="bot-res">'+card+links+'</div>');
-}
-
-function botListRow(c){
-  var last=botLastContact(c), status=botStatusVal(c)||c.stage||"";
-  return '<div class="rescard" onclick="botGo(\''+c.id+'\',\'overview\')">'+
-    '<div class="rn">'+esc(c.name)+'</div>'+
-    '<div class="rs">'+(status?esc(status):'Unknown')+' &middot; last contact '+(last?esc(last):'none logged')+'</div>'+
-    '</div>';
-}
-
-function botGuessDocType(name){
-  var n=(name||"").toLowerCase();
-  var map=[["nda","NDA"],["msa","MSA"],["coi","Insurance / COI"],["insurance","Insurance / COI"],["subcontract","Subcontract"],["service agreement","Service Agreement"],["permit","Permit"],["w-9","W-9 / Tax"],["w9","W-9 / Tax"],["tax","W-9 / Tax"]];
-  for(var i=0;i<map.length;i++){if(n.indexOf(map[i][0])>-1)return map[i][1];}
-  return "Other";
-}
-function botDocFolder(type){return "CRM Documents library, filed as "+type;}
-
-function botProposeUpload(forceType){
-  var c=DB.companies.find(function(x){return x.id===BOT.ctx;});
-  if(!c||!BOT.file){BOT.pending={kind:"uploadCompany"};botSay("Which client should I file <strong>"+esc(BOT.file?BOT.file.name:"the file")+"</strong> under?");return;}
-  var guess=botGuessDocType(BOT.file.name);
-  var type=forceType||BOT_FOLDER_LEARN[guess]||guess;
-  BOT.upguess=guess;BOT.uptype=type;
-  botSay('I will add <strong>'+esc(BOT.file.name)+'</strong> to <strong>'+esc(botDocFolder(type))+'</strong> for <strong>'+esc(c.name)+'</strong>.'+
-    '<div class="chips"><span class="chip go" onclick="botApproveUpload()">Approve</span>'+
-    '<span class="chip" onclick="botAskDocType()">Edit destination</span>'+
-    '<span class="chip warn" onclick="botCancelUpload()">Cancel</span></div>');
-}
-function botApproveUpload(){botDoUpload(encodeURIComponent(BOT.uptype||"Other"));}
-function botPickType(enc){
-  var t=decodeURIComponent(enc);
-  if(BOT.upguess&&BOT.upguess!==t)BOT_FOLDER_LEARN[BOT.upguess]=t; /* learn the correction */
-  botProposeUpload(t);
-}
-
-function botRender(res){
-  if(res.type==="help"){
-    botSay('I can search your whole CRM and act on it. Try things like:<div class="bot-res">'+
-      '<div class="rescard" onclick="botAsk(\'Tier A developers in Texas\')"><div class="rn">Find with filters</div><div class="rs">"Tier A developers in Texas"</div></div>'+
-      '<div class="rescard" onclick="botAsk(\'Which companies have no NDA?\')"><div class="rn">Spot gaps</div><div class="rs">"Which companies have no signed NDA?"</div></div>'+
-      '<div class="rescard" onclick="botAsk(\'Who haven\\\'t we contacted in 60 days?\')"><div class="rn">Find stale accounts</div><div class="rs">"Who haven\'t we contacted in 60 days?"</div></div>'+
-      '<div class="rescard" onclick="botPickFile()"><div class="rn">Upload a file</div><div class="rs">Drop a PDF in, and I file it under a client</div></div>'+
-      '</div>You can also type an update, like "mark ACE Solar NDA as signed" or "add contact Jane Doe to TriSMART Solar".');
-    return;
-  }
-  if(res.type==="answer"){botSay(res.html);return;}
-  if(res.type==="list"){
-    var n=res.companies.length;
-    if(!n){botSay("No companies match "+(res.label?"<strong>"+esc(res.label)+"</strong>":"that")+".");return;}
-    var head=res.count?("<strong>"+n+"</strong> "+(n===1?"company":"companies")):("Found <strong>"+n+"</strong> "+(n===1?"company":"companies"));
-    if(res.label)head+=" "+esc(res.label);
-    head+=":";
-    var show=res.companies.slice(0,12);
-    var body='<div class="bot-res">'+show.map(botListRow).join("")+'</div>';
-    if(n>show.length)body+='<div class="note" style="margin-top:6px">...and '+(n-show.length)+' more. Add a filter to narrow it down.</div>';
-    botSay(head+body);
-    return;
-  }
-  if(res.type==="company"){
-    var c=res.company;
-    botCtxSet(c.id);
-    if(res.focus==="status"){botSayStatus(c);return;}
-    var h="<strong>"+botLink(c)+"</strong> &middot; "+esc(c.rel)+(c.location?" &middot; "+esc(c.location):"")+"<div class='bot-res'>";
-    if(res.focus==="contacts"){
-      var ppl=(c.contacts||[]);
-      if(ppl.length){h+=ppl.map(function(p){return '<div class="rescard" onclick="botGo(\''+c.id+'\',\'contacts\')"><div class="rn">'+esc(p.name)+'</div><div class="rs">'+esc(p.role||"")+(p.email?' &middot; '+esc(p.email):'')+(p.phone?' &middot; '+esc(p.phone):'')+'</div></div>';}).join("");}
-      else h+='<div class="note">No contacts recorded yet. You can add one: "add contact NAME to '+esc(c.name)+'".</div>';
-    } else if(res.focus==="documents"){
-      var dd=(c.docs||[]);
-      var want=["NDA","MSA","Insurance / COI"];
-      h+='<div class="rescard" onclick="botGo(\''+c.id+'\',\'documents\')">'+want.map(function(t){var x=dd.find(function(z){return z.type===t;});var s=x?x.status:"None";return '<div class="rs" style="margin:2px 0"><strong>'+t+':</strong> '+s+'</div>';}).join("")+'</div>';
-      h+='<div class="note" style="margin-top:4px">'+botLink(c,"Open documents","documents")+' or drop a file here to upload one.</div>';
-    } else if(res.focus==="events"){
-      var ev=(c.events||[]);
-      if(ev.length)h+=ev.map(function(e){return '<div class="rescard" onclick="botGo(\''+c.id+'\',\'events\')"><div class="rn">'+esc(e.name)+'</div><div class="rs">'+esc(e.date||"")+(e.location?' &middot; '+esc(e.location):'')+'</div></div>';}).join("");
-      else h+='<div class="note">No events tracked yet for '+esc(c.name)+'.</div>';
-    } else {
-      h+=botCard(c);
-    }
-    h+="</div>";
-    botSay(h);
-    return;
-  }
-  if(res.type==="contacts"){
-    var head2="Found <strong>"+res.matches.length+"</strong> contact"+(res.matches.length===1?"":"s")+":";
-    var body2='<div class="bot-res">'+res.matches.slice(0,12).map(function(m){return '<div class="rescard" onclick="botGo(\''+m.c.id+'\',\'contacts\')"><div class="rn">'+esc(m.p.name)+'</div><div class="rs">'+esc(m.p.role||"")+' at '+esc(m.c.name)+(m.p.email?' &middot; '+esc(m.p.email):'')+'</div></div>';}).join("")+'</div>';
-    botSay(head2+body2);
-    return;
-  }
-  if(res.type==="upload"){
-    if(res.company){botCtxSet(res.company.id);botSay("Sure. Attach a file and I'll file it under <strong>"+esc(res.company.name)+"</strong>.");botPickFile();}
-    else {botSay("Which client should the file go under? You can tell me the name, then attach the file.");}
-    return;
-  }
-  if(res.type==="action"){botConfirmAction(res.action);return;}
-}
-
-/* ---- actions with confirmation ---- */
-function botConfirmAction(a){
-  var msg="",id=botStash(a);
-  if(a.kind==="field")msg="Set <strong>"+esc(a.company.name)+"</strong> "+a.label+" to <strong>"+esc(a.disp)+"</strong>?";
-  else if(a.kind==="docStatus")msg="Mark <strong>"+esc(a.company.name)+"</strong> "+esc(a.type)+" as <strong>"+esc(a.status)+"</strong>?";
-  else if(a.kind==="addContact")msg="Add contact <strong>"+esc(a.name)+"</strong> to <strong>"+esc(a.company.name)+"</strong>?";
-  botSay(msg+'<div class="chips"><span class="chip go" onclick="botRunStashed(\''+id+'\')">Confirm</span><span class="chip warn" onclick="botCancelStashed(\''+id+'\')">Cancel</span></div>');
-}
-var BOT_STASH={};
-function botStash(a){var k="a"+Date.now()+Math.floor(Math.random()*1000);BOT_STASH[k]=a;return k;}
-function botCancelStashed(k){delete BOT_STASH[k];botSay("Okay, no change made.");}
-async function botRunStashed(k){var a=BOT_STASH[k];if(!a)return;delete BOT_STASH[k];await botRunAction(a);}
-
-async function botRunAction(a){
-  try{
-    if(a.kind==="field"){
-      var colMap={tier:"Tier",fit:"Fit",stage:"Stage"};
-      var _bf=(typeof companySnap==="function")?companySnap(a.company):null;
-      a.company[a.field]=a.value;
-      var body={};body[colMap[a.field]]=a.value;
-      await graph("/sites/"+SITE+"/lists/Companies/items/"+a.company.spId+"/fields",{method:"PATCH",body:JSON.stringify(body)});
-      if(typeof auditLog==="function")auditLog({entity:"Companies",recordId:a.company.spId,recordName:a.company.name,company:a.company.name,action:"Edit",summary:a.label+' set to "'+a.disp+'"',snapshot:_bf});
-      botSay("Done. "+botLink(a.company)+" "+a.label+" is now <strong>"+esc(a.disp)+"</strong>.");
-    } else if(a.kind==="docStatus"){
-      var d=(a.company.docs||[]).find(function(x){return x.type===a.type;});
-      if(!d){botSay("There's no "+esc(a.type)+" on file for "+esc(a.company.name)+" yet, so there's nothing to update. Upload the "+esc(a.type)+" file and it will be recorded. "+botLink(a.company,"Open documents","documents"));return;}
-      var _bds=(typeof docSnap==="function")?docSnap(d):null;
-      d.status=a.status;
-      await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+d.spId+"/fields",{method:"PATCH",body:JSON.stringify({Status:a.status})});
-      if(typeof auditLog==="function")auditLog({entity:"Documents",recordId:d.spId,recordName:a.type,company:a.company.name,action:"Edit",summary:a.type+' status set to "'+a.status+'"',snapshot:_bds});
-      botSay("Done. "+esc(a.type)+" for "+botLink(a.company)+" is now <strong>"+esc(a.status)+"</strong>. "+botLink(a.company,"View","documents"));
-    } else if(a.kind==="addContact"){
-      var fields={Title:a.name,Company:a.company.name};
-      var r=await graph("/sites/"+SITE+"/lists/Contacts/items",{method:"POST",body:JSON.stringify({fields:fields})});
-      a.company.contacts=a.company.contacts||[];var _ncc={id:r.id,spId:r.id,name:a.name,role:"",email:"",phone:"",linkedin:"",last:"",notes:""};a.company.contacts.push(_ncc);
-      if(typeof auditLog==="function")auditLog({entity:"Contacts",recordId:r.id,recordName:a.name,company:a.company.name,action:"Add",summary:"Added contact via assistant",snapshot:(typeof contactSnap==="function")?contactSnap(_ncc):_ncc});
-      botSay("Added <strong>"+esc(a.name)+"</strong> to "+botLink(a.company,a.company.name,"contacts")+". Open the contact to add their role and email.");
-    }
-    if(sel===a.company.id){render();detailView();} else render();
-  }catch(e){botSay("That didn't save: "+esc(e.message||String(e)));}
-}
-
-/* ---- file upload flow ---- */
-function botPickFile(){document.getElementById("botFile").click();}
-function botFileChosen(el){var f=el.files&&el.files[0];if(!f)return;el.value="";botStartUpload(f);}
-function botDragOver(e){e.preventDefault();}
-function botDrop(e){e.preventDefault();var f=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(f)botStartUpload(f);}
-function botStartUpload(f){
-  BOT.file=f;
-  if(!BOT.open)botToggle();
-  if(BOT.ctx){botProposeUpload();}
-  else{botSay('Got <strong>'+esc(f.name)+'</strong>. Which client should I file it under? Type the company name.');BOT.pending={kind:"uploadCompany"};}
-}
-function botAskDocType(){
-  var c=DB.companies.find(function(x){return x.id===BOT.ctx;});
-  if(!c){BOT.pending={kind:"uploadCompany"};botSay("Which client should I file <strong>"+esc(BOT.file?BOT.file.name:"the file")+"</strong> under?");return;}
-  var types=["NDA","MSA","Insurance / COI","Subcontract","Service Agreement","Permit","W-9 / Tax","Other"];
-  botSay('Where should <strong>'+esc(BOT.file.name)+'</strong> go for <strong>'+esc(c.name)+'</strong>? Pick the destination and I will re-confirm before saving.'+
-    '<div class="chips">'+types.map(function(t){return '<span class="chip go" onclick="botPickType(\''+encodeURIComponent(t)+'\')">'+t+'</span>';}).join("")+
-    '<span class="chip warn" onclick="botCancelUpload()">Cancel</span></div>');
-}
-function botCancelUpload(){BOT.file=null;BOT.pending=null;botSay("Cancelled the upload.");}
-async function botDoUpload(typeEnc){
-  var type=decodeURIComponent(typeEnc);
-  var c=DB.companies.find(function(x){return x.id===BOT.ctx;});
-  var file=BOT.file;
-  if(!c||!file){botSay("Something went wrong, please attach the file again.");return;}
-  if(!DOCLIB){botSay("The documents library isn't connected, so I can't upload right now.");return;}
-  botSay('Uploading <strong>'+esc(file.name)+'</strong> to '+esc(c.name)+'...');
-  try{
-    var t=await tok();
-    var safe=(c.name+"_"+type+"_"+Date.now()+"_"+file.name).replace(/[^A-Za-z0-9._-]/g,"_");
-    var up=await fetch("https://graph.microsoft.com/v1.0/sites/"+SITE+"/lists/"+DOCLIB+"/drive/root:/"+encodeURIComponent(safe)+":/content",{method:"PUT",headers:{Authorization:"Bearer "+t,"Content-Type":file.type||"application/octet-stream"},body:file});
-    var drv=await up.json();if(drv.error)throw new Error(drv.error.message);
-    var li=await graph("/sites/"+SITE+"/drives/"+drv.parentReference.driveId+"/items/"+drv.id+"/listItem?$select=id");
-    await graph("/sites/"+SITE+"/lists/"+DOCLIB+"/items/"+li.id+"/fields",{method:"PATCH",body:JSON.stringify({DocType:type,Status:"Pending",Company:c.name})});
-    c.docs=c.docs||[];var _ud={spId:li.id,id:li.id,type:type,status:"Pending",date:"",link:drv.webUrl};c.docs.push(_ud);
-    if(typeof auditLog==="function")auditLog({entity:"Documents",recordId:li.id,recordName:type,company:c.name,action:"Upload",summary:"Uploaded "+type+" via assistant",snapshot:(typeof docSnap==="function")?docSnap(_ud):_ud});
-    BOT.file=null;
-    if(sel===c.id)detailView();
-    botSay('Done. <strong>'+esc(type)+'</strong> is filed under '+botLink(c,c.name,"documents")+' as Pending. <a href="'+esc(drv.webUrl)+'" target="_blank" rel="noopener">Open the file</a>.');
-  }catch(e){botSay("Upload failed: "+esc(e.message||String(e)));}
-}
-
-/* ---- context + chat plumbing ---- */
-function botCtxSet(id){BOT.ctx=id;}
-function botGo(id,tab){
-  pick(id);
-  if(tab&&tab!=="overview")setTab(tab);
-  BOT.ctx=id;
-  if(BOT.full)botFull();
-}
-function botAsk(text){document.getElementById("botInput").value=text;botSend();}
-
-function botSay(html,cls){
-  var wrap=document.getElementById("botMsgs");
-  var row=document.createElement("div");
-  row.className="bmrow"+(cls==="me"?" me":"");
-  row.innerHTML='<div class="bubble '+(cls==="me"?"me":"bot")+'">'+html+'</div>';
-  wrap.appendChild(row);
-  wrap.scrollTop=wrap.scrollHeight;
-}
-async function botSend(){
-  var el=document.getElementById("botInput");
-  var text=(el.value||"").trim();
-  if(!text)return;
-  el.value="";el.style.height="auto";
-  var _m=document.getElementById("botMsgs");if(_m)_m.innerHTML=""; /* refresh: one clean answer per question */
-  botSay(esc(text),"me");
-  if(BOT.pending&&BOT.pending.kind==="uploadCompany"){
-    var c=botMatchOneCompany(text);
-    if(c){BOT.ctx=c.id;BOT.pending=null;botProposeUpload();}
-    else botSay("I couldn't find a client called \""+esc(text)+"\". Try the exact name.");
-    return;
-  }
-  var res=await botInterpret(text);
-  botRender(res);
-}
-function botKey(e){
-  var el=e.target;el.style.height="auto";el.style.height=Math.min(el.scrollHeight,96)+"px";
-  if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();botSend();}
-}
-function botToggle(){
-  BOT.open=!BOT.open;
-  document.getElementById("botPanel").classList.toggle("open",BOT.open);
-  document.getElementById("botFab").style.display=BOT.open?"none":"flex";
-  if(BOT.open){
-    if(!BOT.greeted){BOT.greeted=true;botSay("Hi, I'm your CRM assistant. Ask me to find companies, contacts, or documents, upload a file to a client, or update a record. What do you need?");botSuggest();}
-    setTimeout(function(){var i=document.getElementById("botInput");if(i)i.focus();},50);
-  }
-}
-function botFull(){
-  BOT.full=!BOT.full;
-  document.getElementById("botPanel").classList.toggle("full",BOT.full);
-  document.getElementById("botFullBtn").innerHTML=BOT.full?"&#8863;":"&#11036;";
-}
-function botSuggest(){
-  var s=document.getElementById("botSugg");
-  var ideas=["Tier A companies","No signed NDA","Developers in Texas","Stale 60+ days"];
-  s.innerHTML=ideas.map(function(x){return '<span class="chip" onclick="botAsk(\''+x.replace(/'/g,"")+'\')">'+x+'</span>';}).join("");
-}
-
 </script>
 </body>
 </html>
