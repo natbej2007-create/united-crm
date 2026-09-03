@@ -39,6 +39,16 @@
   .qfilters{display:flex;gap:6px;flex-wrap:wrap;padding:9px 13px;border-bottom:1px solid var(--line)}
   .qfilters select{font-size:12px;padding:5px 7px;border:1px solid var(--line);border-radius:6px;background:var(--soft);color:var(--txt);outline:none}
   .qfilters select:focus{border-color:var(--cyan)}
+  .msel{position:relative}
+  .msbtn{font-size:12px;padding:5px 9px;border:1px solid var(--line);border-radius:6px;background:var(--soft);color:var(--txt);cursor:pointer;display:flex;align-items:center;gap:5px}
+  .msbtn.active{border-color:var(--cyan);color:var(--cyan-d);background:#eaf6fc}
+  .mscar{color:var(--mut);font-size:10px}
+  .mspanel{display:none;position:absolute;z-index:20;top:calc(100% + 4px);left:0;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 6px 20px rgba(31,36,64,.14);padding:6px;min-width:170px;max-height:260px;overflow-y:auto}
+  .mspanel.open{display:block}
+  .msclear{display:block;width:100%;text-align:left;font-size:11px;color:var(--cyan-d);background:none;border:none;cursor:pointer;padding:5px 7px;border-top:1px solid var(--line);margin-top:4px}
+  .msopt{display:flex;align-items:center;gap:7px;padding:5px 7px;font-size:12px;border-radius:5px;cursor:pointer;white-space:nowrap}
+  .msopt:hover{background:var(--soft)}
+  .msopt input{width:auto}
   .qlist{overflow-y:auto;flex:1}
   .crow{display:flex;flex-direction:column;gap:4px;padding:9px 13px;border-bottom:1px solid var(--line);cursor:pointer}
   .crow:hover{background:var(--soft)}
@@ -116,12 +126,7 @@
         <h2>Companies <span class="cnt" id="cnt"></span></h2>
         <button class="btn primary" onclick="openCompany()">+ New</button>
       </div>
-      <div class="qfilters">
-        <select id="fRel" onchange="render()"></select>
-        <select id="fTier" onchange="render()"></select>
-        <select id="fFit" onchange="render()"></select>
-        <select id="fStage" onchange="render()"></select>
-      </div>
+      <div class="qfilters" id="qfilters"></div>
       <div class="qlist" id="qlist"></div>
     </aside>
     <main class="detail" id="detail"><div class="empty">Select a company from the list.</div></main>
@@ -131,8 +136,8 @@
 <div class="mbg" id="m2"><div class="modal" id="m2in"></div></div>
 <script>
 const REL=["Developer","EPC","Developer / EPC","Electrical Contractor","Owner / IPP","Investor","Vendor / Supplier","Subcontractor","Government / Permitting","Community / NGO","Other"];
-const STAGES=["Prospecting","Qualifying","Active","Contract","Dormant","Closed"];
-const TIERS=["Tier A","Tier B","Tier C","Prospect",""];
+const STAGES=["Prospecting","Qualifying","NDA Signed","Active","Contract","Client","Dormant","Closed","Lost"];
+const TIERS=["Tier A","Tier B","Tier C","Prospect","Suspect",""];
 const FITS=["Strategic","High","Medium",""];
 const DOCT=["NDA","MSA","Subcontract","Service Agreement","Insurance / COI","W-9 / Tax","Permit","Other"];
 const DOCS=["Signed","Pending","Draft","Expired","None"];
@@ -158,16 +163,39 @@ function esc(s){return(s||"").replace(/[&<>\"]/g,c=>({"&":"&amp;","<":"&lt;",">"
 function sc(s){return"s-"+(s||"none").toLowerCase().replace(/[^a-z]/g,"")}
 function lk(u){if(!u)return"&#8212;";const h=u.startsWith("http")?u:"https://"+u;return '<a href="'+esc(h)+'" target="_blank" rel="noopener">'+esc(u)+'</a>'}
 function opt(arr,all){return '<option value="">'+all+'</option>'+arr.filter(x=>x).map(x=>'<option>'+x+'</option>').join("")}
+const FILTERS=[
+  {key:"rel",label:"All types",opts:REL,inclusive:true},
+  {key:"tier",label:"All tiers",opts:TIERS.filter(x=>x)},
+  {key:"fit",label:"All fit",opts:FITS.filter(x=>x)},
+  {key:"stage",label:"All stages",opts:STAGES.filter(x=>x)}
+];
+const fstate={rel:new Set(),tier:new Set(),fit:new Set(),stage:new Set()};
 function initF(){
-  fRel.innerHTML=opt(REL,"All types");fTier.innerHTML=opt(TIERS,"All tiers");
-  fFit.innerHTML=opt(FITS,"All fit");fStage.innerHTML=opt(STAGES,"All stages");
+  qfilters.innerHTML=FILTERS.map(f=>`
+    <div class="msel" data-k="${f.key}">
+      <button type="button" class="msbtn" id="msbtn_${f.key}" onclick="toggleMS('${f.key}')">${f.label} <span class="mscnt"></span> <span class="mscar">&#9662;</span></button>
+      <div class="mspanel" id="mspanel_${f.key}">
+        ${f.opts.map(o=>`<label class="msopt"><input type="checkbox" value="${esc(o)}" onchange="onFilt('${f.key}',this.value,this.checked)"/> ${esc(o)}</label>`).join("")}
+        <button type="button" class="msclear" onclick="clearMS('${f.key}')">Clear</button>
+      </div>
+    </div>`).join("");
 }
+function relMatch(rel,v){if(!rel)return false;if(rel===v)return true;return rel.split("/").map(s=>s.trim()).includes(v);}
+function toggleMS(k){const p=document.getElementById("mspanel_"+k);const open=p.classList.contains("open");document.querySelectorAll(".mspanel").forEach(x=>x.classList.remove("open"));if(!open)p.classList.add("open");}
+function onFilt(k,v,on){if(on)fstate[k].add(v);else fstate[k].delete(v);updMSlabels();render();}
+function clearMS(k){fstate[k].clear();document.querySelectorAll("#mspanel_"+k+" input").forEach(i=>i.checked=false);updMSlabels();render();}
+function updMSlabels(){FILTERS.forEach(f=>{const b=document.getElementById("msbtn_"+f.key);if(!b)return;const n=fstate[f.key].size;b.querySelector(".mscnt").textContent=n?("("+n+")"):"";b.classList.toggle("active",n>0);});}
+document.addEventListener("click",function(e){if(!e.target.closest(".msel"))document.querySelectorAll(".mspanel").forEach(x=>x.classList.remove("open"));});
 function render(){
   const q=(search.value||"").toLowerCase();
-  const r=fRel.value,t=fTier.value,f=fFit.value,s=fStage.value;
   const m=DB.companies.filter(c=>{
     const hay=(c.name+" "+c.industry+" "+c.location+" "+(c.contacts||[]).map(x=>x.name+x.role).join(" ")).toLowerCase();
-    return(!q||hay.includes(q))&&(!r||c.rel===r)&&(!t||c.tier===t)&&(!f||c.fit===f)&&(!s||c.stage===s);
+    if(q&&!hay.includes(q))return false;
+    if(fstate.rel.size&&![...fstate.rel].some(v=>relMatch(c.rel,v)))return false;
+    if(fstate.tier.size&&!fstate.tier.has(c.tier))return false;
+    if(fstate.fit.size&&!fstate.fit.has(c.fit))return false;
+    if(fstate.stage.size&&!fstate.stage.has(c.stage))return false;
+    return true;
   });
   cnt.textContent=m.length+" of "+DB.companies.length;
   qlist.innerHTML=m.length?m.map(c=>`
@@ -261,7 +289,7 @@ function docSum(c){const want=["NDA","MSA","Insurance / COI"];
   return `<table><thead><tr><th>Document</th><th>Status</th></tr></thead><tbody>${want.map(t=>{const d=(c.docs||[]).find(x=>x.type===t);const s=d?d.status:"None";return `<tr><td>${t}</td><td><span class="status ${sc(s)}"><span class="dot"></span>${s}</span></td></tr>`}).join("")}</tbody></table>`}
 function addCustom(){const c=company();const k=ck.value.trim(),v=cv.value.trim();if(!k)return;c.custom=c.custom||[];c.custom.push({k,v});save();detailView()}
 function delCustom(i){const c=company();c.custom.splice(i,1);save();detailView()}
-function selo(arr,v){return arr.map(o=>`<option ${o===v?"selected":""}>${o||"&#8212;"}</option>`).join("")}
+function selo(arr,v){var a=arr.slice();if(v&&a.indexOf(v)===-1)a.unshift(v);return a.map(o=>`<option ${o===v?"selected":""}>${o||"&#8212;"}</option>`).join("")}
 function openCompany(cid){
   const c=cid?company():{name:"",rel:"Other",stage:"Prospecting",tier:"",fit:"",industry:"",website:"",linkedin:"",location:"",owner:"Geronimo LeBaron",notes:""};
   m1in.innerHTML=`<h3>${cid?"Edit company":"New company"}</h3>
